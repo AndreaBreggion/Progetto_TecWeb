@@ -13,6 +13,10 @@ body {
     border: 1px solid #000;
 }
 
+@media screen and (max-width:640px) {
+
+}
+
 #logo {
     float: left;
     width: 15%;
