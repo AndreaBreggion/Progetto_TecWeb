@@ -11,7 +11,7 @@ CREATE TABLE presepi(
 	nomePresepe varchar(48) NOT NULL,
 	indirizzo varchar(64) NOT NULL,
 	categoria ENUM('adulti','ragazzi') NOT NULL,
-	descrizione varchar(200) NOT NULL,
+	descrizione varchar(200),
 	dataInserimento date NOT NULL,
 	PRIMARY KEY (mail,nomePresepe),
 	FOREIGN KEY(mail) REFERENCES user(mail)
