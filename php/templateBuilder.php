@@ -1,16 +1,9 @@
 <?php
     /* Classe necessaria alla costruzione delle varie pagine */
     class TemplateBuilder {
-        private $_head;
-        private $_header;
-        private $_breadcrumb;
-        private $_navbar;
-        private $_footer;
-        
         private $_pageName;
         private $_rootDIR;
         private $_whole_page;
-
         
         // costruttore con parametro: prende in input il nome della pagina
         public function __construct(string $pageName, string $rootDIR) {
@@ -28,10 +21,19 @@
             else if($this->_pageName=="presepiInGara") {
                 $head = str_replace("{title}", "Presepi in Gara", $head);
             }
-
-
-
-
+            else if($this->_pageName=="aggiungiPresepe") {
+                $head = str_replace("{title}", "Carica il tuo Presepe", $head);
+            }
+            else if($this->_pageName=="edizioniPassate") {
+                $head = str_replace("{title}", "Edizioni Passate", $head);
+            }
+            else if($this->_pageName=="articoli") {
+                $head = str_replace("{title}", "Articoli", $head);
+            }
+            else if($this->_pageName=="vincitori") {
+                $head = str_replace("{title}", "Vinicitori", $head);
+            }
+            
             // sostituisce il contenuto di <headPH></headPH> (PlaceHolder) in $_whole_page
             // con quello di $head
             $this->_whole_page = str_replace("<headPH></headPH>", $head, $this->_whole_page);
