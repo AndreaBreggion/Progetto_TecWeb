@@ -1,20 +1,49 @@
 
 html {
-    /*background-image: url("../images/sfondo.jpg");*/
-    /*background-color: #000;*/
-    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
 }
 
 body {
-    max-width: 1024px;
-    margin: auto;
+    margin: 0;
     background-color: #FFF;
-    font-family: "Comic sans MS", cursive, sans-serif;
-    /*border: 1px solid #000;*/
 }
 
-@media screen and (max-width:640px) {
+.screenreaderOnly {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+}
 
+header {
+    padding: 1em 0em;
+    display: flex;
+    height: 5em;
+    justify-content: space-between;
+    flex-direction: column;
+}
+#headerTitle {
+    display: flex;
+    justify-content: center;
+}
+
+#headerTitle img {
+    padding: 0em 0.5em;
+    max-height: 20%;
+    object-fit: scale-down;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    flex-flow: row nowrap;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
 }
 
 #logo {
@@ -58,12 +87,48 @@ body {
 
 #menu li {
     padding-top: 0.5em;
+    padding-left: 0.5em;
     padding-bottom: 0.5em;
 }
 
 #contenutoPagina {
     width: 50%;
     margin: auto;
-    padding: 1.5em 1.0em 3.0em 2em;
+    padding:  1.5em 1.0em 3.0em 2em;
     border-left: 1px solid #ddd;
+}
+
+.breadcrumbsBlock {
+    width: 100%;
+    font-size: 1.2em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+    padding-top: 0.5em;
+
+}
+
+#footer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#contatti {
+    list-style-type: none;
+    text-align: center;
+}
+
+#certificati {
+    list-style-type: none;
+    align-self: flex-end;
+}
+
+#img-xhtml  {
+    height:0.5%;
+}
+
+#img-css {
+    height: 0.5%;
 }

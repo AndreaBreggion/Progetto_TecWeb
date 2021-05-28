@@ -83,35 +83,35 @@ body {
 }
 .upvote {
     margin:1em;
-    background-image: url(/home/bregg/Desktop/tecweb/icons/upvote.png);
+    background-image: url(../images/icons/upvote.png);
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
 }
 .upvote:hover {
     
-    background-image: url(/home/bregg/Desktop/tecweb/icons/upHover.png);
+    background-image: url(../images/icons/upHover.png);
     
 }
 .downvote {
     margin:1em;
-    background-image: url(/home/bregg/Desktop/tecweb/icons/downvote.png);
+    background-image: url(../images/icons/downvote.png);
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
 }
 .downvote:hover {
     
-    background-image: url(/home/bregg/Desktop/tecweb/icons/downHover.png);
+    background-image: url(../images/icons/downHover.png);
     
 }
 .downvote:active {
     
-    background-image: url(/home/bregg/Desktop/tecweb/icons/downPressed.png);
+    background-image: url(../images/icons/downPressed.png);
     
 }
 .upvote:active {
     
-    background-image: url(/home/bregg/Desktop/tecweb/icons/upPressed.png);
+    background-image: url(../images/icons/upPressed.png);
     
 }

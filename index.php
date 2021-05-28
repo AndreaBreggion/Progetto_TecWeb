@@ -6,8 +6,6 @@
     $builder->setHead(file_get_contents(__DIR__."/php/content/common/_head.html"));
     
     $builder->setHeader(file_get_contents(__DIR__."/php/content/common/_header.html"));
-    $builder->setBreadcrumb(file_get_contents(__DIR__."/php/content/common/_breadcrumb.html"));
-    $builder->setNavbar(file_get_contents(__DIR__."/php/content/common/_navbar.html"));
     $builder->setFooter(file_get_contents(__DIR__."/php/content/common/_footer.html"));
 
     $builder->build();

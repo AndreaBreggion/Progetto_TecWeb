@@ -31,7 +31,7 @@
                 $head = str_replace("{title}", "Articoli", $head);
             }
             else if($this->_pageName=="vincitori") {
-                $head = str_replace("{title}", "Vinicitori", $head);
+                $head = str_replace("{title}", "Vincitori", $head);
             }
             
             // sostituisce il contenuto di <headPH></headPH> (PlaceHolder) in $_whole_page
@@ -53,13 +53,6 @@
             $this->_whole_page = str_replace("<breadcrumbPH></breadcrumbPH>", $breadcrumb, $this->_whole_page);
         }
         
-        // setter per la navbar/menu
-        public function setNavbar($navbar) {
-            // sostituisce il contenuto di <navbarPH></navbarPH> (PlaceHolder) in $_whole_page
-            // con quello di $navbar
-            $this->_whole_page = str_replace("<navbarPH></navbarPH>", $navbar, $this->_whole_page);
-        }
-
         // setter per il footer
         public function setFooter($footer) {
             // sostituisce il contenuto di <footerPH></footerPH> (PlaceHolder) in $_whole_page
