@@ -21,81 +21,68 @@ body {
 header {
     padding: 1em 0em;
     display: flex;
-    height: 5em;
+    height: 8em;
     justify-content: space-between;
     flex-direction: column;
 }
 #headerTitle {
+    height: 5em;
     display: flex;
     justify-content: center;
 }
-
+#headerTitle h1 {
+    padding: 10px 0 0 0;
+    margin: 0;
+}
 #headerTitle img {
     padding: 0em 0.5em;
-    max-height: 20%;
+    height: 100%;
     object-fit: scale-down;
 }
 
-header nav ul {
-    display: flex;
-    list-style: none;
-    flex-flow: row nowrap;
+header nav {
+    height: 2em;
     width: 100%;
+    border: 1px solid lightsteelblue;
     padding: 0;
     margin: 0;
+    background-color: aliceblue;
+}
+
+header nav ul {
+    list-style: none;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
     justify-content: center;
 }
 
-#logo {
-    float: left;
-    width: 15%;
+header nav li {
+    margin: 0;
+    height: 100%;
+    border-left: 1px solid lightsteelblue;
+    display: flex;
+    justify-content: center;
 }
 
-#header {
-    padding: 1cm;
-    text-align: center;
-    min-height: 9em;
+header nav li:last-child{
+    border-right: 1px solid lightsteelblue;
 }
 
-#header h1 {
-    color: sandybrown;
-    font-size: 3.5em;
+header nav li:hover {
+    background-color: #e2e2e2aa;
 }
-
-#header h2 {
-    font-size: 1.5em;
-}
-
-#percorso {
-    background-color: #faf6af;
-    color: black;
-    padding: 0.5em 0 0.5em 1.0em;
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-}
-
-#menu {
-    float: left;
-    width: 20%;
-    padding: 0.8em;
-    font-size: 1.1em;
-}
-
-#menu ul {
-    list-style-type: none;
-}
-
-#menu li {
-    padding-top: 0.5em;
-    padding-left: 0.5em;
-    padding-bottom: 0.5em;
-}
-
-#contenutoPagina {
-    width: 50%;
+header nav li a {
     margin: auto;
-    padding:  1.5em 1.0em 3.0em 2em;
-    border-left: 1px solid #ddd;
+    text-decoration: none;
+    padding: 0em 1em 0em 1em;
+}
+
+main#content {
+    width: 70%;
+    margin: auto;
+    padding: 2em;
 }
 
 .breadcrumbsBlock {
