@@ -65,7 +65,7 @@
         // costruisce l'intera pagina
         public function build() {
             $this->_whole_page = str_replace("<rootDIR></rootDIR>", $this->_rootDIR, $this->_whole_page);
-            echo $this->_whole_page;
+            return $this->_whole_page;
         }
     }
 ?>
