@@ -1,18 +1,24 @@
-CREATE TABLE user(
-	mail varchar(48) NOT NULL PRIMARY KEY,
-	nome varchar(24) NOT NULL,
-	cognome varchar(24) NOT NULL,
-	password varchar(64) NOT NULL);
+ CREATE TABLE user(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+	mail varchar(48) NOT NULL,
+	name varchar(24) NOT NULL,
+	surname varchar(24) NOT NULL,
+	password varchar(64) NOT NULL,
+    username varchar(24) NOT NULL,
+    UNIQUE (mail),
+    UNIQUE (username)
+);
 
 CREATE TABLE presepi(
+    uId INT NOT NULL,
 	mail varchar(48) NOT NULL,
-	fotoPresepe varchar(128) NOT NULL,
-	fotoNatalita varchar(128) NOT NULL,
-	nomePresepe varchar(48) NOT NULL,
-	indirizzo varchar(64) NOT NULL,
-	categoria ENUM('adulti','ragazzi') NOT NULL,
-	descrizione varchar(200),
-	dataInserimento date NOT NULL,
-	PRIMARY KEY (mail,nomePresepe),
-	FOREIGN KEY(mail) REFERENCES user(mail)
+	username varchar(24) NOT NULL,
+	photoPath varchar(128) NOT NULL,
+	presepeName varchar(48) NOT NULL,
+	address varchar(64) NOT NULL,
+	category ENUM('adulti','ragazzi') NOT NULL,
+	description varchar(200),
+	dateOfCreation date NOT NULL,
+	PRIMARY KEY (uId, presepeName),
+	FOREIGN KEY(uId) REFERENCES user(id)
 );
