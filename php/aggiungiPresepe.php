@@ -10,7 +10,7 @@
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
     $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
       '<li><a href="../index.php" lang="en">Home</a></li>',
-      '<li class="current" aria-current="page"><a href="#">Aggiungi presepe</a></li>'
+      '<li class="current" aria-current="page"><span class="currentCrumb">Aggiungi presepe</span></li>'
     ));
     echo($builder->build());
 ?>

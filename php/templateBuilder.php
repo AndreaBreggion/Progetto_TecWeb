@@ -40,10 +40,15 @@
         }
 
         // setter per l'header
-        public function setHeader($header) {
+        public function setHeader($header, $hint = null) {
             // sostituisce il contenuto di <headerPH></headerPH> (PlaceHolder) in $_whole_page
             // con quello di $header
             $this->_whole_page = str_replace("<headerPH></headerPH>", $header, $this->_whole_page);
+            if( $hint ) {
+              $this->_whole_page = str_replace("<placeholderLog></placeholderLog>", $hint, $this->_whole_page);
+            } else {
+              $this->_whole_page = str_replace("<placeholderLog></placeholderLog>", '', $this->_whole_page);
+            }
         }
         
         // setter per il breadcrumb

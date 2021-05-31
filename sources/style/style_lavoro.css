@@ -26,6 +26,14 @@ header {
     flex-direction: column;
     background-color: #bd0000;
 }
+
+#headerContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    color: white;
+}
+
 #headerTitle {
     height: 5em;
     display: flex;
@@ -40,6 +48,10 @@ header {
     padding: 0em 0.5em;
     height: 100%;
     object-fit: scale-down;
+}
+
+.logHint {
+    padding: 1em 1em 0 0;
 }
 
 header nav {
@@ -70,6 +82,11 @@ header nav li {
 
 header nav .current {
     background-color: lightgoldenrodyellow;
+    padding: 0em 1em 0em 1em;
+}
+
+.current span {
+    padding-top: 0.45em;
 }
 
 header nav .current:hover {
@@ -107,7 +124,7 @@ main#content {
 }
 
 .breadcrumbsPre {
-    margin: 0.4em 0em 0em 3.1em;
+    margin: 0.5em 0em 0em 3.1em;
     padding: 0;
     display: inline;
     font-size: 0.8em;
