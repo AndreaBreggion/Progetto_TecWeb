@@ -8,6 +8,9 @@
     
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"));
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
-
-    $builder->build();
+    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
+      '<li><a href="../index.php" lang="en">Home</a></li>',
+      '<li class="current" aria-current="page"><a href="#">Aggiungi presepe</a></li>'
+    ));
+    echo($builder->build());
 ?>

@@ -47,10 +47,16 @@
         }
         
         // setter per il breadcrumb
-        public function setBreadcrumb($breadcrumb) {
+        public function setBreadcrumb($breadcrumb, $linkArray) {
             // sostituisce il contenuto di <breadcrumbPH></breadcrumbPH> (PlaceHolder) in $_whole_page
             // con quello di $breadcrumb
-            $this->_whole_page = str_replace("<breadcrumbPH></breadcrumbPH>", $breadcrumb, $this->_whole_page);
+          $replacement = '';
+          foreach ($linkArray as $index => $link) {
+            $replacement .= $link;
+            if($index != count($linkArray) -1) $replacement .= '<li aria-hidden="true"><span>/</span></li>';
+          }
+          $breadcrumb = str_replace('<breadcrumbsPH></breadcrumbsPH>', $replacement, $breadcrumb);
+          $this->_whole_page = str_replace("<placeholderBreadcrumbsPH></placeholderBreadcrumbsPH>", $breadcrumb, $this->_whole_page);
         }
         
         // setter per il footer
