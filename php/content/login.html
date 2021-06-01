@@ -11,17 +11,21 @@
 <headerPH></headerPH>
 <placeholderBreadcrumbsPH></placeholderBreadcrumbsPH>
 <main id="content">
-    <h2 class="sectionTitle"> Accedi </h2>
-    <div class="formContainer">
-        <form id="formLogin" action="login" method="POST">
-                <label for="username" class="formLabel" lang="en">Username</label>
-                <input type="text" id="username" class="formInput" name="username" placeholder="Username" required />
+    <div class="loginWrapper">
+        <h2 class="sectionTitle"> Accedi </h2>
+        <div class="formContainer">
+            <form id="formLogin" action="<rootDIR></rootDIR>/php/login.php" method="POST">
+                    <label for="username" class="formLabel" lang="en">Username</label>
+                    <input type="text" id="username" class="formInput" name="mail" placeholder="Mail" required />
 
-                <label for="password" class="formLabel" lang="en">Password</label>
-                <input type="password" id="password" class="formInput" name="password" placeholder="Password" required />
+                    <label for="password" class="formLabel" lang="en">Password</label>
+                    <input type="password" id="password" class="formInput" name="password" placeholder="Password" required />
 
-                <button class="formButton" name="submit">Accedi</button>
-        </form>
+                    <button class="formButton" name="submit">Accedi</button>
+            </form>
+        </div>
+        <loginMsgPlaceholder></loginMsgPlaceholder>
+        <span class="registerHint"> Non ti sei ancora registrato? <a href="<rootDIR></rootDIR>/php/register.php"> Registrati </a></span>
     </div>
 </main>
 <footerPH></footerPH>
