@@ -7,7 +7,7 @@ html {
 
 body {
     margin: 0;
-    background-color: #FFF;
+    background-color: #c7d5d9;
 }
 
 .screenreaderOnly {
@@ -152,7 +152,13 @@ main#content {
     font-size: 0.8em;
 }
 
+main {
+    min-height: 60%;
+    background-color: white;
+}
 footer {
+    background-color: #bd0000;
+    color: white;
     font-size: 0.7em;
     border-top: 1px solid gray;
     text-align: center;

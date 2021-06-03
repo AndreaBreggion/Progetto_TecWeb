@@ -23,7 +23,6 @@
   if(isset($_POST['submit'])) {
     $result = '';
     $query = 'SELECT * FROM user WHERE mail = ?';
-    $stmt = mysqli_stmt_init($connection);
     $data = statementQuery($connection, $_POST['mail'], $query);
     if($data) {
       $passwordCheck = password_verify($_POST['password'], $data['password']);
