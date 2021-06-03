@@ -24,41 +24,41 @@ $connection = connect();
 if(isset($_POST['submit'])) {
   $username = trim($_POST['username']);
   $userNameFinalResult = '';
-  if(empty($username)) $userNameFinalResult = '<p>Campo obbligatorio</p>';
-  if(strlen($username) < 3) $userNameFinalResult = '<p>lo username non può avere meno di 3 caratteri</p>';
-  if(strlen($username) > 10) $userNameFinalResult = '<p>lo username non può avere più di dieci caratteri</p>';
-  if(!preg_match('/^[a-zA-Z][a-zA-Z0-9.,$;]+$/', $username)) $userNameFinalResult = '<p>lo username deve contenere solo caratteri alfanumerici e iniziare con una lettera</p>';
+  if(empty($username)) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
+  if(strlen($username) < 3) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username non può avere meno di 3 caratteri</p>';
+  if(strlen($username) > 10) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username non può avere più di dieci caratteri</p>';
+  if(!preg_match('/^[a-zA-Z][a-zA-Z0-9.,$;]+$/', $username)) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username deve contenere solo caratteri alfanumerici e iniziare con una lettera</p>';
   $query = 'SELECT * FROM user WHERE username = ?';
   $isUserNameAlreadyTaken = statementQuery($connection, $username, $query);
-  if($isUserNameAlreadyTaken) $userNameFinalResult = '<p>Questo username è già stato scelto!</p>';
+  if($isUserNameAlreadyTaken) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Questo username è già stato scelto!</p>';
   $mail = trim($_POST['mail']);
   $query = 'SELECT * FROM user WHERE mail = ?';
   $isMailAlreadyRegistered = statementQuery($connection, $mail, $query);
   $mailFinalResult = '';
-  if($isMailAlreadyRegistered) $mailFinalResult = '<p>Questa mail è già stata registrata!</p>';
-  if(empty($mail)) $mailFinalResult = '<p>Campo obbligatorio</p>';
-  if(!preg_match('/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $mail)) $mailFinalResult = '<p>Mail non valida!</p>';
+  if($isMailAlreadyRegistered) $mailFinalResult = '<p class="errorMsg" tabindex="0">Questa mail è già stata registrata!</p>';
+  if(empty($mail)) $mailFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
+  if(!preg_match('/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $mail)) $mailFinalResult = '<p class="errorMsg" tabindex="0">Mail non valida!</p>';
 
   $password = trim($_POST['password']);
   $passwordFinalResult = '';
-  if(empty($password)) $passwordFinalResult= '<p>Campo obbligatorio</p>';
-  if(strlen($password) < 6) $passwordFinalResult= '<p>La password deve contenere almeno 6 caratteri!</p>';
-  if(strlen($password) > 64) $passwordFinalResult= '<p>La password non può avere più di 64 caratteri!</p>';
-  if(empty($password)) $passwordFinalResult= '<p>La password non può essere vuota!</p>';
+  if(empty($password)) $passwordFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
+  if(strlen($password) < 6) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password deve contenere almeno 6 caratteri!</p>';
+  if(strlen($password) > 64) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password non può avere più di 64 caratteri!</p>';
+  if(empty($password)) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password non può essere vuota!</p>';
 
   $name = trim($_POST['name']);
   $nameFinalResult = '';
-  if(empty($name)) $nameFinalResult = '<p>Campo obbligatorio</p>';
-  if(strlen($name) < 3) $nameFinalResult= '<p>Il nome deve avere almeno 3 caratteri</p>';
-  if(strlen($name) > 24) $nameFinalResult= '<p>Il nome non deve avere più di 24 caratteri</p>';
-  if(preg_match('/[0-9!#$%&\'*+/=?^_\`{|}~-]/', $name)) $nameFinalResult = '<p>Nome non valido!</p>';
+  if(empty($name)) $nameFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
+  if(strlen($name) < 3) $nameFinalResult= '<p class="errorMsg" tabindex="0">Il nome deve avere almeno 3 caratteri</p>';
+  if(strlen($name) > 24) $nameFinalResult= '<p class="errorMsg" tabindex="0">Il nome non deve avere più di 24 caratteri</p>';
+  if(preg_match('/[0-9!#$%&\'*+/=?^_\`{|}~-]/', $name)) $nameFinalResult = '<p class="errorMsg" tabindex="0">Nome non valido!</p>';
 
   $surname = trim($_POST['surname']);
   $surnameFinalResult = '';
-  if(empty($surname)) $surnameFinalResult = '<p>Campo obbligatorio</p>';
-  if(strlen($surname) < 3) $surnameFinalResult= '<p>Il cognome deve avere almeno 3 caratteri</p>';
-  if(strlen($surname) > 24) $surnameFinalResult= '<p>Il cognome non deve avere più di 24 caratteri</p>';
-  if(preg_match('/[0-9!#$%&\'*+/=?^_\`{|}~-]/', $surname)) $surnameFinalResult = '<p>Cognome non valido!</p>';
+  if(empty($surname)) $surnameFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
+  if(strlen($surname) < 3) $surnameFinalResult= '<p class="errorMsg" tabindex="0">Il cognome deve avere almeno 3 caratteri</p>';
+  if(strlen($surname) > 24) $surnameFinalResult= '<p class="errorMsg" tabindex="0">Il cognome non deve avere più di 24 caratteri</p>';
+  if(preg_match('/[0-9!#$%&\'*+/=?^_\`{|}~-]/', $surname)) $surnameFinalResult = '<p class="errorMsg" tabindex="0">Cognome non valido!</p>';
 
   $page = str_replace('<mailHint />', $mailFinalResult, $page);
   $page = str_replace('<usernameHint />', $userNameFinalResult, $page);
@@ -75,7 +75,11 @@ if(isset($_POST['submit'])) {
     mysqli_stmt_bind_param($stmt, "sssss", $mail , $name, $surname, $password, $username);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
+    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> La registrazione è andata a buon fine! <a href="login.php"> Effettua il login! </a> </p>');
+  } else {
+    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> La registrazione non è andata a buon fine, ricontrolla i campi </p>', $page);
   }
+
 }
 $connection->close();
 echo($page);

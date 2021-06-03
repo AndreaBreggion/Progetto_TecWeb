@@ -6,6 +6,7 @@ html {
 }
 
 body {
+    height: 100%;
     margin: 0;
     background-color: #c7d5d9;
 }
@@ -106,7 +107,9 @@ header nav li a {
     padding: 0em 1em 0em 1em;
 }
 
-main#content {
+#content {
+    background-color: white;
+    min-height: 60%;
     width: 70%;
     margin: auto;
     padding: 2em;
@@ -152,10 +155,6 @@ main#content {
     font-size: 0.8em;
 }
 
-main {
-    min-height: 60%;
-    background-color: white;
-}
 footer {
     background-color: #bd0000;
     color: white;
@@ -213,4 +212,16 @@ form button {
     font-size: 1.2em;
     padding: 0.3em 1em;
     margin-top: 1em;
+}
+
+.errorMsg {
+    color: red;
+    display: block;
+    font-weight: bold;
+}
+
+.successMsg {
+    color: greenyellow;
+    display: block;
+    font-weight: bold;
 }
