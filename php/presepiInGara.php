@@ -2,6 +2,8 @@
 session_start();
 require_once("../php/templateBuilder.php");
 require_once('scripts/checkUserConnected.php');
+require_once('scripts/createPresepeList.php');
+require_once('scripts/connection.php');
 // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
 $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
@@ -15,6 +17,8 @@ $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.
 ));
 $page = $builder->build();
 $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
-$page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/common/presepeTest.html') .file_get_contents(__DIR__.'/content/common/presepeTest.html'), $page);
+$connection = connect();
+$replacement = createPresepeList($connection);
+$page = str_replace(' <placeholderContent></placeholderContent>', $replacement, $page);
 echo($page);
 ?>
