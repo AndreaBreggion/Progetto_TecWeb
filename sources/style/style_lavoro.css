@@ -2,13 +2,20 @@
 html {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: Raleway;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 16px;
+    letter-spacing: .03em;
+    line-height: 1.6em;
+    text-transform: none;
+    color: #000;
 }
 
 body {
     height: 100%;
     margin: 0;
-    background-color: #c7d5d9;
+    background-color: white;
 }
 
 .screenreaderOnly {
@@ -25,7 +32,7 @@ header {
     height: 8em;
     justify-content: space-between;
     flex-direction: column;
-    background-color: #bd0000;
+    background-color: #4267B2;
 }
 
 #headerContainer {
@@ -42,9 +49,21 @@ header {
     color: white;
 }
 #headerTitle h1 {
+    font-family: -apple-system;
     padding: 10px 0 0 0;
     margin: 0;
+    overflow: hidden;
 }
+
+#headerTitle a {
+    font-family: -apple-system;
+    padding: 10px 0 0 0;
+    margin: 0;
+    text-decoration: none;
+    color:white;
+}
+
+
 #headerTitle img {
     padding: 0em 0.5em;
     height: 100%;
@@ -115,12 +134,31 @@ header nav li a {
     padding: 2em;
 }
 
+#content .sectionContainer{
+    display: flex;
+    justify-content: center;
+}
+
+#content section{
+    width: 70%;
+}
+
+.sectionTitle {
+    color: #33C3F0
+}
+#content.mainPresepi  {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .breadcrumbsBlock {
     height: 1.5em;
     width: 100%;
     margin-top: 0;
     padding: 0em 0em 0.2em 1em;
-    background-color: #bd0000;
+    background-color: #4267B2;
     display: flex;
     justify-content: left;
     color: white;
@@ -156,7 +194,7 @@ header nav li a {
 }
 
 footer {
-    background-color: #bd0000;
+    background-color: #4267B2;
     color: white;
     font-size: 0.7em;
     border-top: 1px solid gray;
@@ -205,13 +243,34 @@ select {
 
 form label {
     margin-top: 1em;
-    margin-bottom: 0.2em;
+    margin-bottom: .5rem;
+    font-size: 1.5em;
+    text-align: left;
 }
 
 form button {
-    font-size: 1.2em;
-    padding: 0.3em 1em;
+    height: 38px;
+    padding: 0 30px;
     margin-top: 1em;
+    color: #FFF;
+    background-color: #33C3F0;
+    border-color: #33C3F0;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 38px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    border-radius: 4px;
+    border: 1px solid #bbb;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+form button:hover {
+    background-color: #24b6e3;
 }
 
 .errorMsg {
@@ -224,4 +283,43 @@ form button {
     color: greenyellow;
     display: block;
     font-weight: bold;
+}
+
+.postWrapper {
+    display: block;
+    margin-right: 7em;
+    margin-bottom: 2em;
+    padding:1em;
+    width:50%;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid gray;
+}
+
+
+.postWrapper h4,
+.postWrapper h5{
+    margin: 0.2em 0em 0em 0em;
+    padding: 0;
+}
+
+.postText p {
+    margin: 0em 0em 0.5em 0em;
+    padding: 0;
+}
+
+.postText .postDate {
+    font-size: 0.7em;
+}
+
+.postText {
+    text-align: left;
+}
+
+.postWrapper img{
+    max-height: 80%;
+    min-width: 60%;
+    width:100%;
+    padding: 1em 0 1em 0;
+    border-bottom: 1px solid gray;
 }

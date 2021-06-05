@@ -75,7 +75,7 @@ if(isset($_POST['submit'])) {
     mysqli_stmt_bind_param($stmt, "sssss", $mail , $name, $surname, $password, $username);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> La registrazione è andata a buon fine! <a href="login.php"> Effettua il login! </a> </p>');
+    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> La registrazione è andata a buon fine! <a href="login.php"> Effettua il login! </a> </p>', $page);
   } else {
     $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> La registrazione non è andata a buon fine, ricontrolla i campi </p>', $page);
   }
