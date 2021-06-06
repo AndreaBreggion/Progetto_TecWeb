@@ -7,11 +7,11 @@
     mysqli_stmt_bind_param($stmt, 's', $where);
     mysqli_stmt_execute($stmt);
     $result = mysqli_stmt_get_result($stmt);
+    mysqli_stmt_close($stmt);
     if($row = mysqli_fetch_assoc($result)){
       return $row;
     } else {
       return false;
     }
-    mysqli_stmt_close($stmt);
   }
 ?>

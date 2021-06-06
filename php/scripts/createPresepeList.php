@@ -9,11 +9,12 @@ function createPresepePost($row) {
     $imgPath = $row['photoPath'];
     $img = '<img src="'.$imgPath.'"/>';
     $post = str_replace('<imagePlaceHolder />', $img, $post);
+    $post = str_replace('<presepeLinkPlaceholder />', '<a href="/php/presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
     return($post);
 }
 
 function createPresepeList($connection) {
-    $query = 'SELECT * from presepi INNER JOIN user on presepi.uId = user.id';
+    $query = 'SELECT presepi.*, user.username as username, user.id as UID from presepi INNER JOIN user on presepi.uId = user.id';
     $result = $connection->query($query);
     $returnValue = '';
     while($row = mysqli_fetch_assoc($result)) {

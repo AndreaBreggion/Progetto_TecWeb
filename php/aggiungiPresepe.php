@@ -16,6 +16,8 @@
     '<li class="current" aria-current="page"><span class="currentCrumb">Aggiungi presepe</span></li>'
   ));
   $page = $builder->build();
+  $page = str_replace('<li><a href="../php/aggiungiPresepe.php">Aggiungi Presepe</a>/li>', '<li class="current" aria-current="page"><span class="currentPage">Aggiungi Presepe</span></li>', $page);
+
   if(!isset($_SESSION['uId'])) {
     header('location: login.php');
   } else {

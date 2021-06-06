@@ -19,3 +19,11 @@ CREATE TABLE presepi(
 	dateOfCreation date NOT NULL,
 	FOREIGN KEY(uId) REFERENCES user(id)
 );
+
+CREATE TABLE likes(
+    uId INT NOT NULL,
+    pId INT NOT NULL,
+    CONSTRAINT likeKey PRIMARY KEY (uId, pId),
+    FOREIGN KEY (uId) REFERENCES user(id),
+    FOREIGN KEY (pId) REFERENCES presepi(id),
+);
