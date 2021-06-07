@@ -17,11 +17,17 @@ $replacement= '<h1> 404 not found </h1>';
 if(isset($_GET['presepeId'])) {
     $where = $_GET['presepeId'];
     $connection = connect();
-    $query = 'SELECT * FROM presepi WHERE id = ?';
+    $query = 'SELECT presepi.*, user.username as username FROM presepi JOIN user ON presepi.uId = user.id AND presepi.id = ?';
     $result = statementQuery($connection, $where, $query);
     $connection->close();
     if($result) {
-
+      $replacement = file_get_contents(__DIR__ . "/content/common/_presepePage.html");
+      $replacement = str_replace('<placeholderImage />', $result['photoPath'], $replacement);
+      $replacement = str_replace('<placeholderTitle />', $result['presepeName'], $replacement);
+      $replacement = str_replace('<placeholderAuthor />', $result['username'], $replacement);
+      $replacement = str_replace('<placeholderDate />', $result['dateOfCreation'], $replacement);
+      $replacement = str_replace('<placeholderCategory />', $result['category'], $replacement);
+      $replacement = str_replace('<placeholderDescription />', $result['description'], $replacement);
     }
 }
 $page = str_replace('<placeholderContent></placeholderContent>', $replacement, $page);

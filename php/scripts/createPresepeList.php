@@ -7,7 +7,7 @@ function createPresepePost($row) {
     $post = str_replace('<titlePlaceholder />', '<h5>'.$row['presepeName'] .' - categoria '. $row['category'].'</h5>', $post);
     $post = str_replace('<descriptionPlaceHolder />', '<p>'.$row['description'].'</p>', $post);
     $imgPath = $row['photoPath'];
-    $img = '<img src="'.$imgPath.'"/>';
+    $img = '<img src=../sources/images/'.$imgPath.'/>';
     $post = str_replace('<imagePlaceHolder />', $img, $post);
     $post = str_replace('<presepeLinkPlaceholder />', '<a href="/php/presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
     return($post);

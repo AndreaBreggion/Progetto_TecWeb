@@ -25,5 +25,5 @@ CREATE TABLE likes(
     pId INT NOT NULL,
     CONSTRAINT likeKey PRIMARY KEY (uId, pId),
     FOREIGN KEY (uId) REFERENCES user(id),
-    FOREIGN KEY (pId) REFERENCES presepi(id),
+    FOREIGN KEY (pId) REFERENCES presepi(id)
 );

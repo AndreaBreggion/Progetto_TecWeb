@@ -16,7 +16,7 @@
     '<li class="current" aria-current="page"><span class="currentCrumb">Aggiungi presepe</span></li>'
   ));
   $page = $builder->build();
-  $page = str_replace('<li><a href="../php/aggiungiPresepe.php">Aggiungi Presepe</a>/li>', '<li class="current" aria-current="page"><span class="currentPage">Aggiungi Presepe</span></li>', $page);
+  $page = str_replace('<li><a href="../php/aggiungiPresepe.php">Aggiungi Presepe</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Aggiungi Presepe</span></li>', $page);
 
   if(!isset($_SESSION['uId'])) {
     header('location: login.php');
@@ -30,12 +30,12 @@
     if(empty($title)) $titleFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
     if(strlen($title) < 3) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo non può avere meno di 3 caratteri</p>';
     if(strlen($title) > 48) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo non può avere più di 48 caratteri</p>';
-    if(preg_match('/[^a-zA-Z\d\s:]/', $title)) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
+    if(preg_match('/[^a-zA-Z\d\s\.\!\?\,\;\:]/', $title)) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
 
     $description = trim($_POST['description']);
     $descFinalResult = '';
     if(empty($description)) $descFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
-    if(preg_match('/[^a-zA-Z\d\s:]/', $description)) $descFinalResult = '<p class="errorMsg" tabindex="0">La descrizione può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
+    if(preg_match('/[^a-zA-Z\d\s\.\!\?\,\;\:]/', $description)) $descFinalResult = '<p class="errorMsg" tabindex="0">La descrizione può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
 
     $category = $_POST['selectCategory'];
     $categoryFinalResult = '';
@@ -54,8 +54,8 @@
     $connection = connect();
     $number = $connection->query('SELECT COUNT(presepeName) FROM presepi');
     $number = mysqli_fetch_row($number)[0];
-    $imageName = '../sources/images/'.$_SESSION['uId']. '_'. $number . '.' . pathinfo($_FILES['presepeImage']['name'], PATHINFO_EXTENSION);
-    $isImageSaved = move_uploaded_file($_FILES['presepeImage']['tmp_name'], $imageName);
+    $imageName = $_SESSION['uId']. '_'. $number . '.' . pathinfo($_FILES['presepeImage']['name'], PATHINFO_EXTENSION);
+    $isImageSaved = move_uploaded_file($_FILES['presepeImage']['tmp_name'], '../sources/images/'.$imageName);
     $date = date('Y-m-d');
     if(empty($finalResult) && $isImageSaved) {
       $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> Il tuo presepe è stato caricato!</p>', $page);
