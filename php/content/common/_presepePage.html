@@ -1,9 +1,14 @@
 <div class="presepePage">
-    <img class="presepePageImage" src="../sources/images/<placeholderImage />" />
-    <div class="presepeText">
-        <h3><placeholderTitle /></h3>
-            <h4> di <placeholderAuthor /> - categoria <placeholderCategory /></h4>
-        <p class="presepePageDate"><placeholderDate /></p>
-        <p><placeholderDescription /></p>
+    <div class="pageProper">
+        <img class="presepePageImage" src="../sources/images/<placeholderImage />" />
+        <div class="presepeText">
+            <h3><placeholderTitle /></h3>
+                <h4> di <placeholderAuthor /> - categoria <placeholderCategory /></h4>
+            <p class="presepePageDate"><placeholderDate /></p>
+            <p><placeholderDescription /></p>
+        </div>
     </div>
+    <form method="POST" action="./scripts/addRemoveLike.php" class="likeButtonForm">
+        <span><placeholderLikeNumber /> Mi piace </span> <button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>
+    </form>
 </div>
