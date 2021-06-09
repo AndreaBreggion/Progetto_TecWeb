@@ -27,7 +27,7 @@ if(isset($_GET['presepeId'])) {
     $likeNumber = statementQuery($connection, $where, $query);
     $hasUserLikedPresepe = isset($_SESSION['uId']) ? hasUserLiked($connection, $_SESSION['uId'], $_GET['presepeId']) : null;
     $form = isset($_SESSION['uId']) ? file_get_contents(__DIR__ .'/content/common/_presepeCommentForm.html') : '';
-    $query = 'SELECT comments.comment as comment, comments.timestamp as timestamp, user.username as username from comments join user ON comments.uId = user.id WHERE comments.pId = ? ORDER BY timestamp DESC';
+    $query = 'SELECT comments.uId as uId, comments.comment as comment, comments.timestamp as timestamp, user.username as username from comments join user ON comments.uId = user.id WHERE comments.pId = ? ORDER BY timestamp DESC';
     $stmt = mysqli_stmt_init($connection);
     mysqli_stmt_prepare($stmt, $query);
     mysqli_stmt_bind_param($stmt, 's', $where);
@@ -49,7 +49,9 @@ if(isset($_GET['presepeId'])) {
       if($hasUserLikedPresepe) $replacement = str_replace('<button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>', '<button class="likeButton" aria-label="Rimuovi Mi piace presepe" type="submit" name="like">Non mi piace più!</button>', $replacement);
 
       for($i = 1; $row = mysqli_fetch_assoc($comments); $i++) {
+        $cancelComment = $_SESSION['uId'] == $row['uId'] ? file_get_contents(__DIR__ . "/content/common/_deleteCommentForm.html") : '';
         $commentTemplate = file_get_contents(__DIR__.'/content/common/_commentTemplate.html');
+        $commentTemplate = str_replace('<placeholderCommentDeleteForm />', $cancelComment, $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentNumber />', $i, $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentUsername />', $row['username'], $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentoDatatime />', $row['timestamp'], $commentTemplate);

@@ -380,11 +380,32 @@ form button:hover {
     display: flex;
     justify-content: space-between;
 }
-
+.authorDelete {
+    display: flex;
+    justify-content: left;
+    text-align: center;
+}
 .headingComment .author{
     font-weight: bold;
 }
+.headingComment .deleteComment {
+    margin: 0.2em 0 0 0.5em;
+    margin-top: 0.4em;
+    height: 2em;
+    width: 3em;
+}
+.headingComment .deleteComment button{
+    background-color: #E62117;
+    height: 2em;
+    width: 3em;
+    padding: 0;
+    line-height: 2em;
+}
 
-.headingComment .postDate{
+.headingComment .deleteComment button:hover{
+    background-color: #cb1710;
+}
 
+.headingComment .deleteComment button:before{
+    content: 'x';
 }
