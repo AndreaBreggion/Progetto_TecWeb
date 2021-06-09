@@ -21,7 +21,7 @@ if(isset($_GET['presepeId'])) {
     $where = $_GET['presepeId'];
     $_SESSION['lastVisitedPresepe'] = $_GET['presepeId'];
     $connection = connect();
-    $query = 'SELECT presepi.*, user.username as username FROM presepi JOIN user ON presepi.uId = user.id AND presepi.id = ?';
+    $query = 'SELECT presepi.*, user.username as username, user.id as UID FROM presepi JOIN user ON presepi.uId = user.id AND presepi.id = ?';
     $result = statementQuery($connection, $where, $query);
     $query = 'SELECT COUNT(*) FROM likes WHERE pId = ?';
     $likeNumber = statementQuery($connection, $where, $query);
@@ -37,7 +37,10 @@ if(isset($_GET['presepeId'])) {
     mysqli_stmt_close($stmt);
     $connection->close();
     if($result) {
+      $cancelPresepe = $_SESSION['uId'] == $result['UID'] ? file_get_contents(__DIR__ . "/content/common/_deletePresepeForm.html") : '';
+
       $replacement = file_get_contents(__DIR__ . "/content/common/_presepePage.html");
+      $replacement = str_replace('<presepeCancelPlaceholder />', $cancelPresepe, $replacement);
       $replacement = str_replace('<placeholderImage />', $result['photoPath'], $replacement);
       $replacement = str_replace('<placeholderTitle />', $result['presepeName'], $replacement);
       $replacement = str_replace('<placeholderAuthor />', $result['username'], $replacement);

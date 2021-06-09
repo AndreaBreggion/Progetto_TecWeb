@@ -8,9 +8,12 @@
             <p><placeholderDescription /></p>
         </div>
     </article>
-    <form method="POST" action="./scripts/addRemoveLike.php" class="likeButtonForm">
-        <span><placeholderLikeNumber /> Mi piace </span> <button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>
-    </form>
+    <div class="flexContainer spaceBetween">
+        <form method="POST" action="./scripts/addRemoveLike.php" class="likeButtonForm">
+            <span><placeholderLikeNumber /> Mi piace </span> <button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>
+        </form>
+        <presepeCancelPlaceholder />
+    </div>
     <presepeFormPlaceholder />
     <presepeCommentThreadPlaceholder />
 </div>

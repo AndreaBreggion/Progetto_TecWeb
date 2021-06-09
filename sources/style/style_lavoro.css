@@ -376,8 +376,11 @@ form button:hover {
 .presepePage article:last-child{
     border-bottom: 1px solid lightgray;
 }
-.headingComment {
+.flexContainer {
     display: flex;
+
+}
+.spaceBetween {
     justify-content: space-between;
 }
 .authorDelete {
