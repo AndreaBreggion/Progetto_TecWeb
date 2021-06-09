@@ -137,7 +137,6 @@ header nav li a {
 #content .sectionContainer{
     display: flex;
     justify-content: center;
-    text-align: center;
 }
 
 #content section{
@@ -201,10 +200,8 @@ footer {
     border-top: 1px solid gray;
     text-align: center;
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
     justify-content: center;
-    /*flex-flow: column nowrap;*/
+    flex-flow: column wrap;
 }
 
 #footerContatti ul {
