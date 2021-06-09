@@ -137,6 +137,7 @@ header nav li a {
 #content .sectionContainer{
     display: flex;
     justify-content: center;
+    text-align: center;
 }
 
 #content section{
@@ -196,18 +197,27 @@ header nav li a {
 footer {
     background-color: #4267B2;
     color: white;
-    font-size: 0.7em;
+    font-size: 0.9em;
     border-top: 1px solid gray;
     text-align: center;
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
+    /*flex-flow: column nowrap;*/
+}
 
+#footerContatti ul {
+    list-style-type: none;
+}
+
+#footerContatti li {
+    display: inline;
+    margin-left: 0.5em;
 }
 
 #backUp {
-
+    color: yellow;
 }
 
 #footerContatti {
