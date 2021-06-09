@@ -18,6 +18,7 @@ $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.
   '<li class="current" aria-current="page"><span class="currentCrumb">Presepi in gara</span></li>'
 ));
 $page = $builder->build();
+$page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Presepi In Gara</span></li>', $page);
 $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
 $connection = connect();
 $replacement = createPresepeList($connection);
