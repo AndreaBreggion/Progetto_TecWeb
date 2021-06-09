@@ -4,6 +4,8 @@
   require_once('scripts/checkUserConnected.php');
   require_once('scripts/connection.php');
   require_once('scripts/statementQuery.php');
+  require_once('scripts/lastVisitedPages.php');
+  handleVisitedPages('/php/aggiungiPresepe.php');
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
@@ -66,6 +68,11 @@
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
     } else $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page);
+  } else {
+    $page = str_replace('<titleHint />', '', $page);
+    $page = str_replace('<descrizioneHint />', '', $page);
+    $page = str_replace('<selectHint />', '', $page);
+    $page = str_replace('<imageHint />', '', $page);
   }
   echo($page);
 ?>

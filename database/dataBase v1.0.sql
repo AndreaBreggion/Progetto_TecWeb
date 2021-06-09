@@ -27,3 +27,13 @@ CREATE TABLE likes(
     FOREIGN KEY (uId) REFERENCES user(id),
     FOREIGN KEY (pId) REFERENCES presepi(id)
 );
+
+CREATE TABLE comments (
+    uId INT NOT NULL,
+    pId INT NOT NULL,
+    comment TEXT NOT NULL,
+    timeStamp DATETIME,
+    CONSTRAINT commentKey PRIMARY KEY (uId, pId, timeStamp),
+    FOREIGN KEY (uId) REFERENCES user(id),
+    FOREIGN KEY (pId) REFERENCES presepi(id)
+);

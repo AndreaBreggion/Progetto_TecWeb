@@ -2,6 +2,8 @@
   session_start();
   require_once("php/templateBuilder.php");
   require_once('php/scripts/checkUserConnected.php');
+  require_once('php/scripts/lastVisitedPages.php');
+  handleVisitedPages('/index.php');
 
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("home", ".");

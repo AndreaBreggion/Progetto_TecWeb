@@ -1,5 +1,5 @@
 <div class="presepePage">
-    <div class="pageProper">
+    <article aria-label="titolo e descrizione del presepe" class="pageProper">
         <img class="presepePageImage" src="../sources/images/<placeholderImage />" />
         <div class="presepeText">
             <h3><placeholderTitle /></h3>
@@ -7,8 +7,10 @@
             <p class="presepePageDate"><placeholderDate /></p>
             <p><placeholderDescription /></p>
         </div>
-    </div>
+    </article>
     <form method="POST" action="./scripts/addRemoveLike.php" class="likeButtonForm">
         <span><placeholderLikeNumber /> Mi piace </span> <button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>
     </form>
+    <presepeFormPlaceholder />
+    <presepeCommentThreadPlaceholder />
 </div>

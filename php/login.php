@@ -40,6 +40,7 @@
     if($result) {
       $page = str_replace('<span class="registerHint"> Non ti sei ancora registrato? <a href="../php/register.php"> Registrati </a></span>', '', $page);
       $replacement = '<span> Login avvenuto correttamente! benvenuto ' .$_SESSION["uName"] .'!</span>';
+      header('location: '.$_SESSION['lastPages'][1]);
     } else {
       $replacement = '<span> Login non corretto </span>';
     }

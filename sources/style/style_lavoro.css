@@ -268,6 +268,9 @@ button {
     cursor: pointer;
     box-sizing: border-box;
 }
+.formText {
+    padding: 0 0 5em 0;
+}
 
 form button:hover {
     background-color: #24b6e3;
@@ -356,4 +359,32 @@ form button:hover {
 }
 .likeButton:hover {
     background-color: #cb1710;
+}
+
+.commentForm {
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.commentForm textarea {
+    margin-right: 1em;
+}
+.comment {
+    border-top: 1px solid lightgray;
+}
+.presepePage article:last-child{
+    border-bottom: 1px solid lightgray;
+}
+.headingComment {
+    display: flex;
+    justify-content: space-between;
+}
+
+.headingComment .author{
+    font-weight: bold;
+}
+
+.headingComment .postDate{
+
 }
