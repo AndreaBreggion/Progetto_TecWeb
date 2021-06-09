@@ -66,6 +66,7 @@ if(isset($_POST['submit'])) {
   $page = str_replace('<surnameHint />', $surnameFinalResult, $page);
   $page = str_replace('<passwordHint />', $passwordFinalResult, $page);
 
+
   $res = trim($nameFinalResult . $mailFinalResult . $surnameFinalResult . $passwordFinalResult . $userNameFinalResult);
   if(strlen($res) === 0) {
     $password = password_hash($password, PASSWORD_DEFAULT);
@@ -77,9 +78,19 @@ if(isset($_POST['submit'])) {
     mysqli_stmt_close($stmt);
     $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> La registrazione è andata a buon fine! <a href="login.php"> Effettua il login! </a> </p>', $page);
   } else {
+    $page = str_replace('mailvaluePlaceholder', htmlspecialchars($mail), $page);
+    $page = str_replace('usernameValuePlaceholder', htmlspecialchars($username), $page);
+    $page = str_replace('nameValuePlaceholder', htmlspecialchars($name), $page);
+    $page = str_replace('surnameValuePlaceholder', htmlspecialchars($surname), $page);
+    $page = str_replace('passwordValuePlaceholder', htmlspecialchars($password), $page);
     $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> La registrazione non è andata a buon fine, ricontrolla i campi </p>', $page);
   }
-
+} else {
+  $page = str_replace('mailvaluePlaceholder', '', $page);
+  $page = str_replace('usernameValuePlaceholder', '', $page);
+  $page = str_replace('nameValuePlaceholder', '', $page);
+  $page = str_replace('surnameValuePlaceholder', '', $page);
+  $page = str_replace('passwordValuePlaceholder', '', $page);
 }
 $connection->close();
 echo($page);

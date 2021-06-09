@@ -26,7 +26,7 @@
     $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/common/_addPresepeForm.html'), $page);
   }
 
-  if(isset($_POST['submit']) && isset($_SESSION['uId'])) {
+  if(isset($_POST['submit'])) {
     $title = trim($_POST['title']);
     $titleFinalResult = '';
     if(empty($title)) $titleFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
@@ -67,8 +67,18 @@
       mysqli_stmt_bind_param($stmt, "isssss", $_SESSION['uId'] , $imageName, $title, $category, $description, $date);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
-    } else $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page);
+    } else {
+      $page = str_replace('titlePlaceholder', htmlspecialchars($title), $page);
+      $page = str_replace('descriptionPlaceholder', $description, $page);
+      $page = $category == 'adulti' ? str_replace('adultiSelected', 'selected', $page) : str_replace('adultiSelected', '', $page);
+      $page = $category == 'ragazzi' ? str_replace('ragazziSelected', 'selected', $page) : str_replace('ragazziSelected', '', $page);
+      $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page);
+    }
   } else {
+    $page = str_replace('titlePlaceholder', '', $page);
+    $page = str_replace('descriptionPlaceholder', '', $page);
+    $page = str_replace('adultiSelected', '', $page);
+    $page = str_replace('ragazziSelected', '', $page);
     $page = str_replace('<titleHint />', '', $page);
     $page = str_replace('<descrizioneHint />', '', $page);
     $page = str_replace('<selectHint />', '', $page);
