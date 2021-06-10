@@ -96,7 +96,7 @@ if(isset($_POST['submit'])) {
   $page = str_replace('<nameHint />', '', $page);
   $page = str_replace('<surnameHint />', '', $page);
   $page = str_replace('<passwordHint />', '', $page);
-  $page = str_replace('<msgPlaceholder />', '', $page);
+  $page = str_replace('<msgPlaceholder></msgPlaceholder>', '', $page);
   $page = str_replace('mailvaluePlaceholder', '', $page);
   $page = str_replace('usernameValuePlaceholder', '', $page);
   $page = str_replace('nameValuePlaceholder', '', $page);
