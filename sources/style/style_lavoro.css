@@ -395,16 +395,16 @@ form button:hover {
     justify-content: left;
     text-align: center;
 }
-.headingComment .author{
+.authorDelete .author{
     font-weight: bold;
 }
-.headingComment .deleteComment {
+.authorDelete .deleteComment {
     margin: 0.2em 0 0 0.5em;
     margin-top: 0.4em;
     height: 2em;
     width: 3em;
 }
-.headingComment .deleteComment button{
+.authorDelete .deleteComment button{
     background-color: #E62117;
     height: 2em;
     width: 3em;
@@ -412,10 +412,10 @@ form button:hover {
     line-height: 2em;
 }
 
-.headingComment .deleteComment button:hover{
+.authorDelete .deleteComment button:hover{
     background-color: #cb1710;
 }
 
-.headingComment .deleteComment button:before{
+.authorDelete .deleteComment button:before{
     content: 'x';
 }
