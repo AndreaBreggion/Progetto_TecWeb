@@ -2,7 +2,7 @@
   session_start();
   require_once('connection.php');
   $timestamp = trim($_POST['timestamp']);
-  $query = 'DELETE FROM comments WHERE uId = ? AND pId = ? AND timestamp = ?';
+  $query = 'DELETE FROM comments WHERE uId = ? AND pId = ? AND timeStamp = ?';
   $connection = connect();
   $stmt = mysqli_stmt_init($connection);
   mysqli_stmt_prepare($stmt, $query);

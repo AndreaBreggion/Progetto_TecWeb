@@ -22,7 +22,7 @@
   $replacement = '';
   if(isset($_POST['submit'])) {
     $result = '';
-    $query = 'SELECT * FROM user WHERE mail = ?';
+    $query = 'SELECT * FROM users WHERE mail = ?';
     $data = statementQuery($connection, $_POST['mail'], $query);
     if($data) {
       $passwordCheck = password_verify($_POST['password'], $data['password']);

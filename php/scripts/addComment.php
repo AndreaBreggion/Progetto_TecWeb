@@ -6,7 +6,7 @@
     exit;
   } else {
     $connection = connect();
-    $query = 'INSERT INTO comments (uId, pId, comment, timestamp) VALUES (?,?,?,?)';
+    $query = 'INSERT INTO comments (uId, pId, comment, timeStamp) VALUES (?,?,?,?)';
     $comment = trim($_POST['comment']);
     $comment = htmlspecialchars($comment);
     $datetime = date('Y-m-d h:i:s').'.000';

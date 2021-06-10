@@ -70,7 +70,7 @@ if(isset($_POST['submit'])) {
   $res = trim($nameFinalResult . $mailFinalResult . $surnameFinalResult . $passwordFinalResult . $userNameFinalResult);
   if(strlen($res) === 0) {
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO user (mail, name, surname, password, username) VALUES (?,?,?,?,?);";
+    $query = "INSERT INTO users (mail, name, surname, password, username) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($connection);
     mysqli_stmt_prepare($stmt, $query);
     mysqli_stmt_bind_param($stmt, "sssss", $mail , $name, $surname, $password, $username);
