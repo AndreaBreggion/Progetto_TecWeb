@@ -100,7 +100,7 @@ if(isset($_POST['submit'])) {
   $page = str_replace('mailvaluePlaceholder', '', $page);
   $page = str_replace('usernameValuePlaceholder', '', $page);
   $page = str_replace('nameValuePlaceholder', '', $page);
-  $page = str_replace('surnameValuePlaceholder', '', $page);
+  $page = str_replace('surNameValuePlaceholder', '', $page);
   $page = str_replace('passwordValuePlaceholder', '', $page);
 }
 $connection->close();
