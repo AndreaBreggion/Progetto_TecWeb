@@ -91,6 +91,11 @@ if(isset($_POST['submit'])) {
     $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> La registrazione non è andata a buon fine, ricontrolla i campi </p>', $page);
   }
 } else {
+  $page = str_replace('<mailHint />', '', $page);
+  $page = str_replace('<usernameHint />', '', $page);
+  $page = str_replace('<nameHint />', '', $page);
+  $page = str_replace('<surnameHint />', '', $page);
+  $page = str_replace('<passwordHint />', '', $page);
   $page = str_replace('mailvaluePlaceholder', '', $page);
   $page = str_replace('usernameValuePlaceholder', '', $page);
   $page = str_replace('nameValuePlaceholder', '', $page);
