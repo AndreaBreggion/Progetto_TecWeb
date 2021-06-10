@@ -2,7 +2,7 @@
     require_once("../php/templateBuilder.php");
 
     // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
-    $builder = new TemplateBuilder("user", "..");
+    $builder = new TemplateBuilder("users", "..");
 
     $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"));
     

@@ -22,7 +22,7 @@
   $replacement = '';
   if(isset($_POST['submit'])) {
     $result = '';
-    $query = 'SELECT * FROM user WHERE mail = ?';
+    $query = 'SELECT * FROM users WHERE mail = ?';
     $data = statementQuery($connection, $_POST['mail'], $query);
     if($data) {
       $passwordCheck = password_verify($_POST['password'], $data['password']);
@@ -32,6 +32,11 @@
         session_start();
         $_SESSION["uId"] = $data["id"];
         $_SESSION["uName"] = $data["username"];
+        if($data["admin"]) {
+          $_SESSION["loggedin"] = 'admin';
+        } else {
+          $_SESSION["loggedin"] = 'users';
+        }
         $result = true;
       }
     } else {

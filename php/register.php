@@ -28,11 +28,11 @@ if(isset($_POST['submit'])) {
   if(strlen($username) < 3) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username non può avere meno di 3 caratteri</p>';
   if(strlen($username) > 10) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username non può avere più di dieci caratteri</p>';
   if(!preg_match('/^[a-zA-Z][a-zA-Z0-9.,$;]+$/', $username)) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username deve contenere solo caratteri alfanumerici e iniziare con una lettera</p>';
-  $query = 'SELECT * FROM user WHERE username = ?';
+  $query = 'SELECT * FROM users WHERE username = ?';
   $isUserNameAlreadyTaken = statementQuery($connection, $username, $query);
   if($isUserNameAlreadyTaken) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Questo username è già stato scelto!</p>';
   $mail = trim($_POST['mail']);
-  $query = 'SELECT * FROM user WHERE mail = ?';
+  $query = 'SELECT * FROM users WHERE mail = ?';
   $isMailAlreadyRegistered = statementQuery($connection, $mail, $query);
   $mailFinalResult = '';
   if($isMailAlreadyRegistered) $mailFinalResult = '<p class="errorMsg" tabindex="0">Questa mail è già stata registrata!</p>';
@@ -69,7 +69,7 @@ if(isset($_POST['submit'])) {
   $res = trim($nameFinalResult . $mailFinalResult . $surnameFinalResult . $passwordFinalResult . $userNameFinalResult);
   if(strlen($res) === 0) {
     $password = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO user (mail, name, surname, password, username) VALUES (?,?,?,?,?);";
+    $query = "INSERT INTO users (mail, name, surname, password, username) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($connection);
     mysqli_stmt_prepare($stmt, $query);
     mysqli_stmt_bind_param($stmt, "sssss", $mail , $name, $surname, $password, $username);

@@ -18,7 +18,7 @@ function createPresepePost($row, $connection) {
 }
 
 function createPresepeList($connection) {
-    $query = 'SELECT presepi.*, user.username as username, user.id as UID from presepi INNER JOIN user on presepi.uId = user.id';
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id';
     $result = $connection->query($query);
     $returnValue = '';
     while($row = mysqli_fetch_assoc($result)) {
