@@ -16,11 +16,11 @@
     <div class="loginWrapper">
         <h2 class="sectionTitle"> Accedi </h2>
         <div class="formContainer">
-            <form id="formLogin" action="./login.php" method="POST">
-                    <label for="mail" class="formLabel" lang="en">Mail</label>
+            <form id="formLogin" action="./login.php" onsubmit="return validateMail()" method="POST">
+                    <label for="mail" class="formLabel" id="mailLabel" lang="en">Mail</label>
                     <input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required />
 
-                    <label for="password" class="formLabel" lang="en">Password</label>
+                    <label for="password" class="formLabel" id="passwordLabel" lang="en">Password</label>
                     <input type="password" id="password" class="formInput" name="password" placeholder="Password" required />
 
                     <button class="formButton" name="submit">Accedi</button>
@@ -30,6 +30,7 @@
         <span class="registerHint"> Non ti sei ancora registrato? <a href="<rootDIR></rootDIR>/php/register.php"> Registrati </a></span>
     </div>
 </main>
+<script src="scripts/js/validateForm.js"></script>
 <footerPH></footerPH>
 </body>
 

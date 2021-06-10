@@ -13,7 +13,9 @@ $builder = new TemplateBuilder( "/common/_pageTemplate", "..");
 $builder->setHead(file_get_contents(__DIR__ . "/content/common/_head.html"));
 $builder->setHeader(file_get_contents(__DIR__ . "/content/common/_header.html"), checkUserConnection());
 $builder->setFooter(file_get_contents(__DIR__ . "/content/common/_footer.html"));
-$builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location"><span lang="en">Home</span></li>'));
+$builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumbs.html"), array('<li><a href="../index.php" lang="en">Home</a></li>',
+  '<li><a href="./presepiInGara.php">Presepi in gara</a></li>',
+  '<li class="current" aria-current="page"><span class="currentCrumb"><presepeBreadcrumbPlaceholder /></span></li>'));
 $page = $builder->build();
 $replacement= '<h1> 404 not found </h1>';
 if(isset($_GET['presepeId'])) {
@@ -39,6 +41,7 @@ if(isset($_GET['presepeId'])) {
     if($result) {
       $cancelPresepe = $_SESSION['uId'] == $result['UID'] ? file_get_contents(__DIR__ . "/content/common/_deletePresepeForm.html") : '';
 
+      $page = str_replace('<presepeBreadcrumbPlaceholder />', $result['presepeName'], $page);
       $replacement = file_get_contents(__DIR__ . "/content/common/_presepePage.html");
       $replacement = str_replace('<presepeCancelPlaceholder />', $cancelPresepe, $replacement);
       $replacement = str_replace('<placeholderImage />', $result['photoPath'], $replacement);
@@ -62,8 +65,8 @@ if(isset($_GET['presepeId'])) {
         $commentThread .= $commentTemplate;
       }
       $replacement = str_replace('<presepeCommentThreadPlaceholder />', $commentThread, $replacement);
-    }
-}
+    } else $page = str_replace('<presepeBreadcrumbPlaceholder />', 'Presepe non trovato', $page);
+} else $page = str_replace('<presepeBreadcrumbPlaceholder />', 'Presepe non trovato', $page);
 $page = str_replace('<placeholderContent></placeholderContent>', $replacement, $page);
 echo($page);
 

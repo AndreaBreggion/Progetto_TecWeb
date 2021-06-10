@@ -10,6 +10,7 @@ html {
     line-height: 1.6em;
     text-transform: none;
     color: #000;
+    height: 100%;
 }
 
 body {
@@ -196,6 +197,7 @@ header nav li a {
 }
 
 footer {
+    position: relative;
     background-color: #4267B2;
     color: white;
     font-size: 0.9em;
