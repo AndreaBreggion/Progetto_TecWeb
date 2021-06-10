@@ -22,7 +22,10 @@ session_start();
     else {
         $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/user.html'), $page);
     }
-    $page = str_replace('<placeholderNome />', $_SESSION["uName"], $page);
+    $page = str_replace('<placeholderNome />', $_SESSION["uRealName"], $page);
+    $page = str_replace('<placeholderCognome />', $_SESSION["uSurname"], $page);
+    $page = str_replace('<placeholderUser />', $_SESSION["uName"], $page);
+    $page = str_replace('<placeholderMail />', $_SESSION["uMail"], $page);
 
     echo($page);
 ?>

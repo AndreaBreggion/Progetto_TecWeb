@@ -1,22 +1,55 @@
-<div>
-    <section>
-        <h1>Pagina personale utente.</h1>
-        <div>
-            <p>Bentornato <placeholderNome />!</p>
-            <p>
-                In questa pagina avrai la possibilità di gestire le tue informazioni e di modificare i dettagli del tuo caricamento.
-            </p>
-        </div>
-    </section>
-    <section>
+<div class="welcomeUser-content">
+    <h1>Pagina personale utente.</h1>
+    <div>
+        <p>Bentornato <placeholderNome />!</p>
+        <p>
+            In questa pagina avrai la possibilità di gestire le tue informazioni e di modificare i dettagli del tuo caricamento.
+        </p>
+    </div>
+</div>
+<div class="infoUser-content">
+    <div class="userInformation">
         <h2>Le tue informazioni:</h2>
-        
-    </section>
-    <section>
-        <h2>I tuoi presepi:</h2>
-    </section>
-
-    
-
-        
+        <div class="formElement"></div>
+            <p class="formElementLabel">Nome:</p>
+            <p id="nameInformation"><placeholderNome /></p>
+        </div>
+        <div class="formElement">
+            <p class="formElementLabel">Cognome:</p>
+            <p id="lastnameInformation"><placeholderCognome /></p>
+        </div>
+        <form class="informationForm" action="" method="post" title="Informazioni personali">
+            <fieldset>
+            <legend class="legend">Modifica le informazioni che desideri aggiornare:</legend>
+            
+                <div class="form_element">
+                    <label class="formElementLabel" for="usernameInfo"><span xml:lang="en">Username</span>:</label>
+                    <input class="formElementInput" id="usernameInfo" name="usernameInformation" type="text" maxlength="40" value="<placeholderUser />" required="true" />
+                </div>
+                
+                <div class="form_element">
+                    <label class="formElementLabel" for="emailInfo"><span xml:lang="en">E-mail</span>:</label>
+                    <input class="formElementInput" id="emailInfo" name="emailInformation" type="text" maxlength="40" value="<placeholderMail />" required="true" />
+                </div>
+                
+                <input class="button " name="updateInformations" type="submit" value="Aggiorna Informazioni" />
+                
+            </fieldset>
+        </form>
+    </div>
+    <div class="delete">
+        <form class="deleteForm" action="../php/scripts/deleteAccount.php" method="post" title="Elimina Profilo">
+            <fieldset>
+            <legend class="legend">Elimina account</legend>
+            
+                <!--label class="formElementLabel" for="passwordEliminaProfilo"><span xml:lang="en">Password</span>:</label-->
+                <!--input class="formElementInput" id="passwordEliminaProfilo" name="passwordEliminaProfilo" type="password" required="true" /-->
+                <input class="button delete" name="deleteAccount" type="submit" value="Elimina profilo" />
+                <p>
+                    <strong>Attenzione!</strong>
+                    Eliminando il profilo rimuoverai tutti i caricamenti e verrai automaticamente escluso dal concorso!
+                </p>
+            </fieldset>
+        </form>
+    </div> 
 </div>

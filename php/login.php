@@ -32,6 +32,9 @@
         session_start();
         $_SESSION["uId"] = $data["id"];
         $_SESSION["uName"] = $data["username"];
+        $_SESSION["uRealName"] = $data["name"];
+        $_SESSION["uSurname"] = $data["surname"];
+        $_SESSION["uMail"] = $data["mail"];
         if($data["admin"]) {
           $_SESSION["loggedin"] = 'admin';
         } else {

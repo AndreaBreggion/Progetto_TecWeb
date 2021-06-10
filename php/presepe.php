@@ -13,7 +13,11 @@ $builder = new TemplateBuilder( "/common/_pageTemplate", "..");
 $builder->setHead(file_get_contents(__DIR__ . "/content/common/_head.html"));
 $builder->setHeader(file_get_contents(__DIR__ . "/content/common/_header.html"), checkUserConnection());
 $builder->setFooter(file_get_contents(__DIR__ . "/content/common/_footer.html"));
-$builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location"><span lang="en">Home</span></li>'));
+$builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumbs.html"), array(
+  '<li><a href="../index.php" lang="en">Home</a></li>',
+  '<li><a href="../php/presepiInGara.php">Presepi In Gara</a></li>',
+  '<li class="current" aria-current="page"><span class="currentCrumb">Dettagli Presepe</span></li>'
+));
 $page = $builder->build();
 $replacement= '<h1> 404 not found </h1>';
 if(isset($_GET['presepeId'])) {
