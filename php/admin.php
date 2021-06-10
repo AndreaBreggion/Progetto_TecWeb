@@ -15,6 +15,7 @@ session_start();
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
     $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location"><span lang="en">Admin</span></li>'));
     $page = $builder->build();
+    $page = str_replace('<a href="../php/admin.php" role="button">admin</a>', 'admin', $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainAdmin">', $page);
     if(!isset($_SESSION['uId']) || $_SESSION["loggedin"]!='admin') {
         header('location: ../index.php');
