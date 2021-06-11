@@ -19,7 +19,7 @@ CREATE TABLE presepi(
 	description TEXT NOT NULL,
 	dateOfCreation date NOT NULL,
     winner BOOLEAN DEFAULT FALSE,
-	FOREIGN KEY(uId) REFERENCES users(id)
+	FOREIGN KEY(uId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE likes(
