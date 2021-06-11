@@ -24,9 +24,5 @@ session_start();
         $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/admin.html'), $page);
         
     }
-    $connection = connect();
-    $replacement = createPresepeList($connection);
-    $page = str_replace('<placeholderList></placeholderList>', $replacement, $page);
-
     echo($page);
 ?>
