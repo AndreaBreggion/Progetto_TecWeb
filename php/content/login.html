@@ -16,7 +16,7 @@
     <div class="loginWrapper">
         <h2 class="sectionTitle"> Accedi </h2>
         <div class="formContainer">
-            <form id="formLogin" action="./login.php" onsubmit="return validateMail()" method="POST">
+            <form id="formLogin" action="./login.php" onsubmit="return validateMail() && validatePassword()" method="POST">
                     <label for="mail" class="formLabel" id="mailLabel" lang="en">Mail</label>
                     <input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required />
 

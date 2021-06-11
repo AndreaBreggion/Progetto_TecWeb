@@ -42,7 +42,7 @@ if(isset($_POST['submit'])) {
   $password = trim($_POST['password']);
   $passwordFinalResult = '';
   if(empty($password)) $passwordFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
-  if(strlen($password) < 6) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password deve contenere almeno 6 caratteri!</p>';
+  if(strlen($password) < 4) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password deve contenere almeno 4 caratteri!</p>';
   if(strlen($password) > 64) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password non può avere più di 64 caratteri!</p>';
   if(empty($password)) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password non può essere vuota!</p>';
 

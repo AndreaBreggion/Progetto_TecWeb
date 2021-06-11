@@ -2,7 +2,7 @@
 html {
     margin: 0;
     padding: 0;
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 16px;
@@ -138,14 +138,23 @@ header nav li a {
 #content .sectionContainer{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 #content section{
     width: 70%;
+    display: block;
+    border-top: 1px solid lightgray;
+    margin: 1em 0 1em 0;
+}
+
+.sectionContainer:last-child{
+    border-bottom: 1px solid lightgray;
 }
 
 .sectionTitle {
-    color: #33C3F0;
+    color: #06a0d2;
+    text-align: center;
 }
 #content.mainPresepi  {
     background-color: white;
