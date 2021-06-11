@@ -6,8 +6,7 @@ function createPresepePost($row, $connection) {
     $post = str_replace('<datePlaceHolder />', '<p class="postDate">'.$row['dateOfCreation'].'</p>', $post);
     $post = str_replace('<titlePlaceholder />', '<h5>'.$row['presepeName'] .' - categoria '. $row['category'].'</h5>', $post);
     $post = str_replace('<descriptionPlaceHolder />', '<p>'.$row['description'].'</p>', $post);
-    $imgPath = $row['photoPath'];
-    $img = '<img src=../sources/images/'.$imgPath.'/>';
+    $img = $row['photoPath'];
     $post = str_replace('<imagePlaceHolder />', $img, $post);
     $post = str_replace('<presepeLinkPlaceholder />', '<a href="/php/presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
     $query = 'SELECT COUNT(*) FROM likes WHERE pId ='. $row['id'];
