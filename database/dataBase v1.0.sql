@@ -5,6 +5,7 @@
 	surname varchar(24) NOT NULL,
 	password varchar(64) NOT NULL,
     username varchar(24) NOT NULL,
+    admin BOOLEAN DEFAULT FALSE,
     UNIQUE (mail),
     UNIQUE (username)
 );
@@ -17,7 +18,8 @@ CREATE TABLE presepi(
 	category ENUM('adulti','ragazzi') NOT NULL,
 	description TEXT NOT NULL,
 	dateOfCreation date NOT NULL,
-	FOREIGN KEY(uId) REFERENCES users(id)
+    winner BOOLEAN DEFAULT FALSE,
+	FOREIGN KEY(uId) REFERENCES users(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE likes(
