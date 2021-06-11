@@ -47,10 +47,6 @@ header a {
     color: white;
 }
 
-header a:visited {
-    color: yellow;
-}
-
 #headerContainer {
     display: flex;
     justify-content: space-between;
@@ -230,7 +226,6 @@ header nav li a {
 .breadcrumbs li a {
     font-size: 0.8em;
     text-decoration: none;
-    color: yellow;
 }
 
 .breadcrumbs li span {
