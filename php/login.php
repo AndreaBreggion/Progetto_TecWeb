@@ -48,6 +48,7 @@
       $replacement = '<span> Login avvenuto correttamente! benvenuto ' .$_SESSION["uName"] .'!</span>';
       header('location: '.$_SESSION['lastPages'][1]);
     } else {
+      $page = str_replace('<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required />', '<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" value="'.htmlspecialchars($_POST['mail']).'" required />', $page);
       $replacement = '<span> Login non corretto </span>';
     }
   }

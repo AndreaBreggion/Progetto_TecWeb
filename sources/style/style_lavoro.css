@@ -1,9 +1,8 @@
 
 html {
-    /*max-width: 1280px;*/
     margin: 0;
     padding: 0;
-    font-family: Raleway;
+    font-family: Raleway, sans-serif;
     font-weight: 300;
     font-style: normal;
     font-size: 16px;
@@ -11,6 +10,7 @@ html {
     line-height: 1.6em;
     text-transform: none;
     color: #000;
+    height: 100%;
 }
 
 body {
@@ -66,14 +66,14 @@ header a:visited {
 }
 
 #headerTitle h1 {
-    /*font-family: -apple-system;*/
+    font-family: -apple-system;
     padding: 10px 0 0 0;
     margin: 0;
     overflow: hidden;
 }
 
 #headerTitle a {
-    /*font-family: -apple-system;*/
+    font-family: -apple-system;
     padding: 10px 0 0 0;
     margin: 0;
     text-decoration: none;
@@ -93,10 +93,10 @@ header a:visited {
 header nav {
     height: 2em;
     width: 100%;
-    /*border: 1px solid lightsteelblue;*/
+    border: 1px solid lightsteelblue;
     padding: 0;
     margin: 0;
-    /*background-color: white;*/
+    background-color: white;
 }
 
 header nav ul {
@@ -125,25 +125,22 @@ header nav .current {
     padding-top: 0.3em;
 }
 
-/*
 header nav .current:hover {
     background-color: burlywood;
 }
-*/
 
 header nav li:last-child{
     border-right: 1px solid lightsteelblue;
 }
 
-/*
+
 header nav li:hover {
     background-color: #e2e2e2aa;
 }
-*/
 
 header nav li a {
     margin: auto;
-    /*text-decoration: none;*/
+    text-decoration: none;
     padding: 0em 1em 0em 1em;
 }
 
@@ -166,16 +163,25 @@ header nav li a {
 #content .sectionContainer{
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
-/*
+
 #content section{
     width: 70%;
+    display: block;
+    border-top: 1px solid lightgray;
+    margin: 1em 0 1em 0;
 }
-*/
+
+.sectionContainer:last-child{
+    border-bottom: 1px solid lightgray;
+}
+
 
 .sectionTitle {
-    color: #33C3F0;
+    color: #06a0d2;
+    text-align: center;
 }
 
 #content.mainPresepi  {
@@ -193,45 +199,46 @@ header nav li a {
     /*padding: 0em 0em 0.2em 1em;*/
     background-color: #4267B2;
     display: flex;
-    justify-content: left;
+    justify-content: center;
     color: white;
 }
 
-
+.breacrumbContainer {
+    width: 70%;
+    display: flex;
+    justify-content: left;
+}
 .breadcrumbsPre {
-    margin: 0.2em 0em 0em 1em;
-    padding-bottom: 2em;
+    margin: 0em 0em 0em 3.1em;
+    padding: 0;
     display: inline;
     /*font-size: 0.8em;*/
 }
 
 .breadcrumbs {
-    padding-left: 0.5em;
-    margin: 0.2em 0em 0em 0em;
+    margin: 0 0 0 0em;
     list-style: none;
 }
 
 
 .breadcrumbs li {
     display: inline;
-    padding-left: 0.5em;
-    /*margin: 0.2em 0em 0em 0em;*/
+    margin: 0 0 0 0em;
     list-style: none;
 }
 
 .breadcrumbs li a {
-    /*font-size: 0.8em;*/
-    /*text-decoration: none;*/
+    font-size: 0.8em;
+    text-decoration: none;
     color: yellow;
 }
 
-/*
 .breadcrumbs li span {
     font-size: 0.8em;
 }
-*/
 
 footer {
+    position: relative;
     background-color: #4267B2;
     color: white;
     font-size: 0.9em;
@@ -436,16 +443,16 @@ form button:hover {
     justify-content: left;
     text-align: center;
 }
-.headingComment .author{
+.authorDelete .author{
     font-weight: bold;
 }
-.headingComment .deleteComment {
+.authorDelete .deleteComment {
     margin: 0.2em 0 0 0.5em;
     margin-top: 0.4em;
     height: 2em;
     width: 3em;
 }
-.headingComment .deleteComment button{
+.authorDelete .deleteComment button{
     background-color: #E62117;
     height: 2em;
     width: 3em;
@@ -453,10 +460,10 @@ form button:hover {
     line-height: 2em;
 }
 
-.headingComment .deleteComment button:hover{
+.authorDelete .deleteComment button:hover{
     background-color: #cb1710;
 }
 
-.headingComment .deleteComment button:before{
+.authorDelete .deleteComment button:before{
     content: 'x';
 }

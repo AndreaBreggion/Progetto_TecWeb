@@ -42,7 +42,7 @@ if(isset($_POST['submit'])) {
   $password = trim($_POST['password']);
   $passwordFinalResult = '';
   if(empty($password)) $passwordFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
-  if(strlen($password) < 6) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password deve contenere almeno 6 caratteri!</p>';
+  if(strlen($password) < 4) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password deve contenere almeno 4 caratteri!</p>';
   if(strlen($password) > 64) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password non può avere più di 64 caratteri!</p>';
   if(empty($password)) $passwordFinalResult= '<p class="errorMsg" tabindex="0">La password non può essere vuota!</p>';
 
@@ -66,8 +66,14 @@ if(isset($_POST['submit'])) {
   $page = str_replace('<surnameHint />', $surnameFinalResult, $page);
   $page = str_replace('<passwordHint />', $passwordFinalResult, $page);
 
+
   $res = trim($nameFinalResult . $mailFinalResult . $surnameFinalResult . $passwordFinalResult . $userNameFinalResult);
   if(strlen($res) === 0) {
+    $page = str_replace('mailvaluePlaceholder', '', $page);
+    $page = str_replace('usernameValuePlaceholder', '', $page);
+    $page = str_replace('nameValuePlaceholder', '', $page);
+    $page = str_replace('surNameValuePlaceholder', '', $page);
+    $page = str_replace('passwordValuePlaceholder', '', $page);
     $password = password_hash($password, PASSWORD_DEFAULT);
     $query = "INSERT INTO users (mail, name, surname, password, username) VALUES (?,?,?,?,?);";
     $stmt = mysqli_stmt_init($connection);
@@ -77,9 +83,25 @@ if(isset($_POST['submit'])) {
     mysqli_stmt_close($stmt);
     $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> La registrazione è andata a buon fine! <a href="login.php"> Effettua il login! </a> </p>', $page);
   } else {
+    $page = str_replace('mailvaluePlaceholder', htmlspecialchars($mail), $page);
+    $page = str_replace('usernameValuePlaceholder', htmlspecialchars($username), $page);
+    $page = str_replace('nameValuePlaceholder', htmlspecialchars($name), $page);
+    $page = str_replace('surNameValuePlaceholder', htmlspecialchars($surname), $page);
+    $page = str_replace('passwordValuePlaceholder', htmlspecialchars($password), $page);
     $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> La registrazione non è andata a buon fine, ricontrolla i campi </p>', $page);
   }
-
+} else {
+  $page = str_replace('<mailHint />', '', $page);
+  $page = str_replace('<usernameHint />', '', $page);
+  $page = str_replace('<nameHint />', '', $page);
+  $page = str_replace('<surnameHint />', '', $page);
+  $page = str_replace('<passwordHint />', '', $page);
+  $page = str_replace('<msgPlaceholder></msgPlaceholder>', '', $page);
+  $page = str_replace('mailvaluePlaceholder', '', $page);
+  $page = str_replace('usernameValuePlaceholder', '', $page);
+  $page = str_replace('nameValuePlaceholder', '', $page);
+  $page = str_replace('surNameValuePlaceholder', '', $page);
+  $page = str_replace('passwordValuePlaceholder', '', $page);
 }
 $connection->close();
 echo($page);
