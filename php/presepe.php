@@ -13,7 +13,11 @@ $builder = new TemplateBuilder( "/common/_pageTemplate", "..");
 $builder->setHead(file_get_contents(__DIR__ . "/content/common/_head.html"));
 $builder->setHeader(file_get_contents(__DIR__ . "/content/common/_header.html"), checkUserConnection());
 $builder->setFooter(file_get_contents(__DIR__ . "/content/common/_footer.html"));
-$builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location"><span lang="en">Home</span></li>'));
+$builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumbs.html"), array(
+  '<li><a href="../index.php" lang="en">Home</a></li>',
+  '<li><a href="../php/presepiInGara.php">Presepi In Gara</a></li>',
+  '<li class="current" aria-current="page"><span class="currentCrumb">Dettagli Presepe</span></li>'
+));
 $page = $builder->build();
 $replacement= '<h1> 404 not found </h1>';
 if(isset($_GET['presepeId'])) {
@@ -21,13 +25,13 @@ if(isset($_GET['presepeId'])) {
     $where = $_GET['presepeId'];
     $_SESSION['lastVisitedPresepe'] = $_GET['presepeId'];
     $connection = connect();
-    $query = 'SELECT presepi.*, user.username as username, user.id as UID FROM presepi JOIN user ON presepi.uId = user.id AND presepi.id = ?';
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID FROM presepi JOIN users ON presepi.uId = users.id AND presepi.id = ?';
     $result = statementQuery($connection, $where, $query);
     $query = 'SELECT COUNT(*) FROM likes WHERE pId = ?';
     $likeNumber = statementQuery($connection, $where, $query);
     $hasUserLikedPresepe = isset($_SESSION['uId']) ? hasUserLiked($connection, $_SESSION['uId'], $_GET['presepeId']) : null;
     $form = isset($_SESSION['uId']) ? file_get_contents(__DIR__ .'/content/common/_presepeCommentForm.html') : '';
-    $query = 'SELECT comments.uId as uId, comments.comment as comment, comments.timestamp as timestamp, user.username as username from comments join user ON comments.uId = user.id WHERE comments.pId = ? ORDER BY timestamp DESC';
+    $query = 'SELECT comments.uId as uId, comments.comment as comment, comments.timestamp as timestamp, users.username as username from comments join users ON comments.uId = users.id WHERE comments.pId = ? ORDER BY timestamp DESC';
     $stmt = mysqli_stmt_init($connection);
     mysqli_stmt_prepare($stmt, $query);
     mysqli_stmt_bind_param($stmt, 's', $where);

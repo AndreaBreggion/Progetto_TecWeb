@@ -1,6 +1,6 @@
 
 html {
-    max-width: 1024px;
+    /*max-width: 1280px;*/
     margin: 0;
     padding: 0;
     font-family: Raleway;
@@ -22,7 +22,6 @@ body {
 }
 
 html, body {
-    max-width: 1280px;
     margin: 0em auto;
     padding: 0em 0em;
 }
@@ -144,14 +143,22 @@ header nav li:hover {
 
 header nav li a {
     margin: auto;
-    text-decoration: none;
+    /*text-decoration: none;*/
     padding: 0em 1em 0em 1em;
+}
+
+.listaInCorsoAdmin {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
 }
 
 #content {
     background-color: white;
     min-height: 60%;
-    /*width: 70%;*/
+    width: 70%;
     margin: auto;
     padding: 2em;
 }
@@ -161,9 +168,11 @@ header nav li a {
     justify-content: center;
 }
 
+/*
 #content section{
     width: 70%;
 }
+*/
 
 .sectionTitle {
     color: #33C3F0;
@@ -221,7 +230,6 @@ header nav li a {
     font-size: 0.8em;
 }
 */
-
 
 footer {
     background-color: #4267B2;
