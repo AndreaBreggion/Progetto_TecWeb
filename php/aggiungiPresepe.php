@@ -57,7 +57,7 @@
     $number = $connection->query('SELECT COUNT(presepeName) FROM presepi');
     $number = mysqli_fetch_row($number)[0];
     $imageName = $_SESSION['uId']. '_'. $number . '.' . pathinfo($_FILES['presepeImage']['name'], PATHINFO_EXTENSION);
-    if(empty($finalResult)) $isImageSaved = move_uploaded_file($_FILES['presepeImage']['tmp_name'], '../sources/images/'.$imageName);
+    if(empty($finalResult)) $isImageSaved = move_uploaded_file($_FILES['presepeImage']['tmp_name'], __DIR__.'/../sources/images/'.$imageName);
     $date = date('Y-m-d');
     if(empty($finalResult) && $isImageSaved) {
       $page = str_replace('titlePlaceholder', '', $page);
