@@ -76,7 +76,7 @@
       $page = str_replace('descriptionPlaceholder', $description, $page);
       $page = $category == 'adulti' ? str_replace('adultiSelected', 'selected', $page) : str_replace('adultiSelected', '', $page);
       $page = $category == 'ragazzi' ? str_replace('ragazziSelected', 'selected', $page) : str_replace('ragazziSelected', '', $page);
-      $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page);
+      $page = $isImageSaved ? str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page) : str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> Errore durante il caricamento dell\'immagine </p>', $page);
     }
   } else {
     $page = str_replace('titlePlaceholder', '', $page);
