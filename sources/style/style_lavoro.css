@@ -43,10 +43,6 @@ header {
     background-color: #4267B2;
 }
 
-header a {
-    color: white;
-}
-
 #headerContainer {
     display: flex;
     justify-content: space-between;
@@ -110,6 +106,7 @@ header nav li {
     border-left: 1px solid lightsteelblue;
     display: flex;
     justify-content: center;
+    color: #000000;
 }
 
 header nav .current {
@@ -138,6 +135,7 @@ header nav li a {
     margin: auto;
     text-decoration: none;
     padding: 0em 1em 0em 1em;
+    color: #000000;
 }
 
 .listaInCorsoAdmin {
