@@ -4,7 +4,7 @@ function connect() {
 
   $serverName = 'localhost:3306';
   $username = 'root';
-  $password = 'Dalaskogen1444';
+  $password = '';
   $db = 'tecweb';
 
   $connection = mysqli_connect($serverName, $username, $password, $db);
