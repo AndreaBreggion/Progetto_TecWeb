@@ -27,7 +27,7 @@
       if(!$passwordCheck){
         $result = false;
       } else {
-        // session_start();
+        session_start();
         $_SESSION["uId"] = $data["id"];
         $_SESSION["uName"] = $data["username"];
         $_SESSION["uRealName"] = $data["name"];
