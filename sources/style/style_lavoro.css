@@ -112,11 +112,12 @@ header nav li {
 
 header nav .current {
     background-color: lightgoldenrodyellow;
-    padding: 0em 1em 0em 1em;
+    padding: 0em 0em 0em 0em;
 }
 
 .current span {
     padding-top: 0.3em;
+    padding: 0em 1em 0em 1em;
 }
 
 header nav .current:hover {
@@ -137,6 +138,34 @@ header nav li a {
     text-decoration: none;
     padding: 0em 1em 0em 1em;
     color: #000000;
+}
+.loginAndSearch {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+    text-align: right;
+}
+.loginAndSearch button{
+    padding: 0 10px;
+    margin: 0 1em 0 1em;
+
+}
+.loginAndSearch a{
+    color: yellow;
+}
+.searchBar {
+    display: flex;
+    height: 2em;
+    width: 100%;
+    margin-top: 0.5em;
+}
+
+.searchBar input{
+    font-size: 16px;
+    margin-top: 0.2em;
+    border-radius: 4px;
+    border: 1px solid #bbbbbb;
 }
 
 .listaInCorsoAdmin {
@@ -223,6 +252,7 @@ header nav li a {
 }
 
 .breadcrumbs li a {
+    color: yellow;
     font-size: 0.8em;
     text-decoration: none;
 }
@@ -333,7 +363,10 @@ form button:hover {
     display: block;
     font-weight: bold;
 }
-
+.searchResult {
+    width: 100%;
+    text-align: center;
+}
 .postWrapper {
     display: block;
     /*
