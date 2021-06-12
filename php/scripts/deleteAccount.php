@@ -6,24 +6,23 @@
 
     $username = $_SESSION["uName"];
     $uID = $_SESSION["uId"];
-    $insertedPwd = $_POST["passwordEliminaProfilo"];
+    $insertedPwd = trim($_POST["passwordEliminaProfilo"]);
 
-
-    $query = "SELECT * FROM users WHERE users.id = ?";
-    $data = statementQuery($connection, $uID, $query);
-
+    $data = statementQuery($connection, $uID, "SELECT * FROM users WHERE id = ?");
+    $passwordCheck = false;
     if($data) {
-        $passwordCheck = password_verify($insertedPwd, $data['password']);
+        $passwordCheck = password_verify($insertedPwd, $data["password"]);
     }
     
     if(isset($_POST["deleteAccount"]) && $passwordCheck) {
         $connection->query("DELETE FROM users WHERE users.id = '$uID'");
-        unset($_SESSION['loggedin']);
+        unset($_SESSION["loggedin"]);
         session_destroy();
-        header('location: ../../index.php');
+        header("location: ../../index.php");
         exit;
         
-    } else {
+    }
+    else {
         $_SESSION["wrongPwd"] = true;
         header("Location: ../user.php");
         exit;
