@@ -14,8 +14,9 @@
 
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
-    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location">Utente</li>'));
+    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location">Pagina personale ' . $_SESSION["uName"] . '</li>'));
     $page = $builder->build();
+    $page = str_replace('<a href="../php/user.php" role="button">' . $_SESSION["uName"] . '</a>', $_SESSION["uName"], $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainUtente">', $page);
 
     if(!isset($_SESSION['uId']) || $_SESSION["loggedin"]!='users') {

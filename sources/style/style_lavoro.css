@@ -43,6 +43,14 @@ header {
     background-color: #4267B2;
 }
 
+header a {
+    color:white;
+}
+
+header a:visited {
+    color: yellow;
+}
+
 #headerContainer {
     display: flex;
     justify-content: space-between;
@@ -58,14 +66,12 @@ header {
 }
 
 #headerTitle h1 {
-    font-family: -apple-system;
     padding: 10px 0 0 0;
     margin: 0;
     overflow: hidden;
 }
 
 #headerTitle a {
-    font-family: -apple-system;
     padding: 10px 0 0 0;
     margin: 0;
     text-decoration: none;
@@ -84,9 +90,10 @@ header {
 }
 
 header nav {
-    height: 2em;
+    height: 2.5em;
     width: 100%;
-    border: 1px solid lightsteelblue;
+    border-top: 1px solid lightsteelblue;
+    border-bottom: 1px solid lightsteelblue;
     padding: 0;
     margin: 0;
     background-color: white;
@@ -102,6 +109,8 @@ header nav ul {
 }
 
 header nav li {
+    font-size: 1.1em;
+    font-weight: bolder;
     margin: 0;
     height: 100%;
     border-left: 1px solid lightsteelblue;
@@ -116,7 +125,7 @@ header nav .current {
 }
 
 .current span {
-    padding-top: 0.3em;
+    padding-top: 0.5em;
 }
 
 header nav .current:hover {
@@ -136,6 +145,10 @@ header nav li a {
     margin: auto;
     text-decoration: none;
     padding: 0em 1em 0em 1em;
+    color: #000000;
+}
+
+header nav li a:visited {
     color: #000000;
 }
 
@@ -173,7 +186,6 @@ header nav li a {
     border-bottom: 1px solid lightgray;
 }
 
-
 .sectionTitle {
     color: #06a0d2;
     text-align: center;
@@ -188,10 +200,9 @@ header nav li a {
 }
 
 .breadcrumbsBlock {
-    height: 2em;
+    height: 2.25em;
     width: 100%;
     margin-top: 0;
-    /*padding: 0em 0em 0.2em 1em;*/
     background-color: #4267B2;
     display: flex;
     justify-content: center;
@@ -203,32 +214,27 @@ header nav li a {
     display: flex;
     justify-content: left;
 }
+
 .breadcrumbsPre {
-    margin: 0em 0em 0em 3.1em;
-    padding: 0;
+    margin: 0.35em 0em 0em 0em;
     display: inline;
-    font-size: 0.8em;
 }
 
 .breadcrumbs {
-    margin: 0;
+    padding-left: 0.5em;
+    margin: 0.35em 0em 0em 0em;
     list-style: none;
 }
 
-
 .breadcrumbs li {
     display: inline;
+    padding-left: 0.5em;
     margin: 0;
     list-style: none;
 }
 
 .breadcrumbs li a {
-    font-size: 0.8em;
-    text-decoration: none;
-}
-
-.breadcrumbs li span {
-    font-size: 0.8em;
+    color: yellow;
 }
 
 footer {
@@ -268,6 +274,7 @@ footer {
 .loginWrapper span {
     display:block;
 }
+
 .formContainer {
     display: flex;
     justify-content: space-around;
@@ -284,21 +291,30 @@ select {
     display: block;
     width: 100%;
     font-size: 1.1em;
+    height: 2em;
     box-sizing: border-box;
 }
 
 form label {
     margin-top: 1em;
-    margin-bottom: .5rem;
-    font-size: 1.5em;
+    margin-bottom: 0.5rem;
     text-align: left;
+}
+
+input, select {
+    font-size: 1em;
+}
+
+textarea {
+    height: 10em;
+    resize: none;
 }
 
 button {
     height: 38px;
     padding: 0 30px;
     margin-top: 1em;
-    color: #FFF;
+    color: black;
     background-color: #33C3F0;
     border-color: #33C3F0;
     text-align: center;
@@ -314,6 +330,7 @@ button {
     cursor: pointer;
     box-sizing: border-box;
 }
+
 .formText {
     padding: 0 0 5em 0;
 }
@@ -329,7 +346,7 @@ form button:hover {
 }
 
 .successMsg {
-    color: greenyellow;
+    color: green;
     display: block;
     font-weight: bold;
 }
@@ -417,6 +434,8 @@ form button:hover {
     width: 100%;
 }
 .commentForm textarea {
+    height: 5em;
+    resize: none;
     margin-right: 1em;
 }
 .comment {
@@ -460,4 +479,56 @@ form button:hover {
 
 .authorDelete .deleteComment button:before{
     content: 'x';
+}
+
+/* Pagina Utente */
+.delete {
+    display: block;
+}
+
+.fieldsetForm {
+    border: none;
+    margin: 0 0 5em 0;
+}
+
+.informationForm {
+    margin-right: 0;
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.formElement {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
+}
+
+.formLabelUser {
+    max-width: 10em;
+}
+
+.formInput {
+    font-size: 1.1em;
+    height: 2.5em;
+}
+
+@media screen and (max-width: 1024px) {
+    #content {
+        width: 85%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #content {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
