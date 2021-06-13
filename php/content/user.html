@@ -1,7 +1,8 @@
 <div class="welcomeUserContent">
     <h2>Pagina personale utente.</h2>
-    <p>Bentornato <placeholderUsername />!</p>
     <p>
+        Bentornato <placeholderUsername />!
+        <br />
         In questa pagina avrai la possibilità di gestire le tue informazioni e, se necessario, eliminare il tuo profilo.
     </p>
 </div>
@@ -20,7 +21,7 @@
                         <label class="formLabelUser" for="nameInformation">Nome:</label>
                         <input class="formInput" id="nameInformation" name="nameInformation" type="text" maxlength="24" required="true" />
                     </div>
-                    <button class="formButton" type="submit" form="nomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Info</button>
+                    <button class="formButton" type="submit" form="nomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Nome</button>
                 </div>
             </fieldset>
         </form>
@@ -33,7 +34,7 @@
                         <label class="formLabelUser" for="surnameInformation">Cognome:</label>
                         <input class="formInput" id="surnameInformation" name="surnameInformation" type="text" maxlength="24" required="true" />
                     </div>
-                    <button class="formButton" type="submit" form="cognomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Info</button>
+                    <button class="formButton" type="submit" form="cognomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Cognome</button>
                 </div>
             </fieldset>
         </form>
@@ -46,7 +47,7 @@
                         <label class="formLabelUser" for="usernameInformation"><span xml:lang="en">Username</span>:</label>
                         <input class="formInput" id="usernameInformation" name="usernameInformation" type="text" maxlength="10" required="true" />
                     </div>
-                    <button class="formButton" type="submit" form="usernameForm" name="updateInformations" value="Aggiorna Info">Aggiorna Info</button>
+                    <button class="formButton" type="submit" form="usernameForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span xml:lang="en">Username</button>
                 </div>
             </fieldset>
         </form>
@@ -59,7 +60,7 @@
                         <label class="formLabelUser" for="mailInformation"><span xml:lang="en">Mail</span>:</label>
                         <input class="formInput" id="mailInformation" name="mailInformation" type="text" required="true" />
                     </div>
-                    <button class="formButton" type="submit" form="emailForm" name="updateInformations" value="Aggiorna Info">Aggiorna Info</button>
+                    <button class="formButton" type="submit" form="emailForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span xml:lang="en">Mail</span></button>
                 </div>
             </fieldset>
         </form>
@@ -77,7 +78,7 @@
                         <label class="formLabelUser" for="newPasswordInformation">Nuova <span xml:lang="en">password</span>:</label>
                         <input class="formInput" id="newPasswordInformation" name="newPasswordInformation" type="password" required="true">
                     </div>
-                    <button class="formButton" type="submit" form="passwordForm" name="updateInformations" value="Aggiorna Info">Aggiorna Info</button>
+                    <button class="formButton" type="submit" form="passwordForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span xml:lang="en">Password</span></button>
                 </div>
             </fieldset>
         </form>
@@ -89,16 +90,17 @@
             <fieldset class="fieldsetForm">
                 <legend class="legend">Elimina Profilo</legend>
                 <div class="formContent">
-                    <p>Per eliminare il profilo è necessario inserire correttamente la <span xml:lang="en">password</span>.</p>
+                    <p>
+                        <strong>Attenzione!</strong>
+                        Eliminando il profilo rimuoverai tutti i caricamenti e verrai automaticamente escluso dal concorso!
+                        <br />
+                        Per questo, prima di procedere, ti chiediamo di inserire correttamente la <span xml:lang="en">password</span>.
+                    </p>
                     <div class="formElement">
                         <label class="formLabelUser" for="passwordEliminaProfilo"><span xml:lang="en">Password</span>:</label>
                         <input class="formInput" id="passwordEliminaProfilo" name="passwordEliminaProfilo" type="password" required="true">
                     </div>
                     <button class="formButton" type="submit" form="deleteForm" name="deleteAccount" value="Aggiorna Info">Elimina Profilo</button>
-                    <p>
-                        <strong>Attenzione!</strong>
-                        Eliminando il profilo rimuoverai tutti i caricamenti e verrai automaticamente escluso dal concorso!
-                    </p>
                 </div>
             </fieldset>
         </form>
