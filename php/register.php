@@ -51,14 +51,14 @@ if(isset($_POST['submit'])) {
   if(empty($name)) $nameFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
   if(strlen($name) < 3) $nameFinalResult= '<p class="errorMsg" tabindex="0">Il nome deve avere almeno 3 caratteri</p>';
   if(strlen($name) > 24) $nameFinalResult= '<p class="errorMsg" tabindex="0">Il nome non deve avere più di 24 caratteri</p>';
-  if(preg_match('/[0-9!#$%&\'*+\=?^_\`{|}~\-]/', $name)) $nameFinalResult = '<p class="errorMsg" tabindex="0">Nome non valido!</p>';
+  if(preg_match('/[0-9\!\#\$\%\&\'\*\+\/\=\?\^\_\`\{\|\}\~\-]/', $name)) $nameFinalResult = '<p class="errorMsg" tabindex="0">Nome non valido!</p>';
 
   $surname = trim($_POST['surname']);
   $surnameFinalResult = '';
   if(empty($surname)) $surnameFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
   if(strlen($surname) < 3) $surnameFinalResult= '<p class="errorMsg" tabindex="0">Il cognome deve avere almeno 3 caratteri</p>';
   if(strlen($surname) > 24) $surnameFinalResult= '<p class="errorMsg" tabindex="0">Il cognome non deve avere più di 24 caratteri</p>';
-  if(preg_match('/[0-9!#$%&\'*+\=?^_\`{|}~\-]/', $surname)) $surnameFinalResult = '<p class="errorMsg" tabindex="0">Cognome non valido!</p>';
+  if(preg_match('/[0-9\!\#\$\%\&\'\*\+\/\=\?\^\_\`\{\|\}\~\-]/', $surname)) $surnameFinalResult = '<p class="errorMsg" tabindex="0">Cognome non valido!</p>';
 
   $page = str_replace('<mailHint />', $mailFinalResult, $page);
   $page = str_replace('<usernameHint />', $userNameFinalResult, $page);

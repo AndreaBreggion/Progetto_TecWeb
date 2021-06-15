@@ -17,7 +17,7 @@ $builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumb
   '<li><a href="./presepiInGara.php">Presepi in gara</a></li>',
   '<li class="current" aria-current="page"><span class="currentCrumb"><presepeBreadcrumbPlaceholder /></span></li>'));
 $page = $builder->build();
-$replacement= '<h1> 404 not found </h1>';
+$replacement= '<h2 tabindex="1"><em> Errore 404: presepe non trovato! </em></h2>';
 if(isset($_GET['presepeId'])) {
     handleVisitedPages('/php/presepe.php?presepeId='.$_GET['presepeId']);
     $where = $_GET['presepeId'];

@@ -1,12 +1,18 @@
 <header>
-    <a class="screenreaderOnly" href="#content">Salta il menu</a>
     <div id="headerContainer">
         <div id="headerTitle">
             <img id="logo" src="<rootDIR></rootDIR>/sources/images/star.png" alt="logo del concorso presepi di Farra di Soligo"/>
             <h1><a href="../index.php">I presepi di Farra di Soligo</a></h1>
         </div>
-        <placeholderLog></placeholderLog>
+        <div class="loginAndSearch">
+            <placeholderLog></placeholderLog>
+            <form method="GET" action="/php/presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">
+                <input aria-label="barra di ricerca dei presepi" type="text" id="search" class="formInput" name="search" placeholder="cerca tra i presepi" required />
+                <button type="submit" name="submit">Cerca</button>
+            </form>
+        </div>
     </div>
+    <a class="screenreaderOnly" href="#content" tabindex="1">Salta il menu</a>
     <nav id="navBar">
         <ul id="menu">
             <li><a lang="en" href="<rootDIR></rootDIR>/index.php">Home</a></li>
