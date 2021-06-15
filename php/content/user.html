@@ -1,59 +1,107 @@
-
-<div class="welcomeUser-content">
+<div class="welcomeUserContent">
     <h2>Pagina personale utente.</h2>
-    <div>
-        <p>Bentornato <placeholderUsername />!</p>
-        <p>
-            In questa pagina avrai la possibilità di gestire le tue informazioni e, se necessario, eliminare il tuo profilo.
-        </p>
-    </div>
+    <p>
+        Bentornato <placeholderUsername />!
+        <br />
+        In questa pagina avrai la possibilità di gestire le tue informazioni e, se necessario, eliminare il tuo profilo.
+    </p>
 </div>
-<div class="infoUser-content">
+
+<div class="infoUserContent">
     <div class="information">
-        <h2>Le tue informazioni:</h2>
-        <div class="formElement"></div>
-            <p class="formElementLabel">Nome:</p>
-            <p id="nameInformation"><placeholderNome /></p>
-        </div>
-        <div class="formElement">
-            <p class="formElementLabel">Cognome:</p>
-            <p id="lastnameInformation"><placeholderCognome /></p>
-        </div>
+        <h3>Informazioni personali:</h3>
         <placeholderMod />
         <placeholderErr />
-        <form class="informationForm" action="../php/scripts/editAccount.php" method="post" title="Informazioni personali">
-            <fieldset>
-            <legend class="legend">Modifica le informazioni che desideri aggiornare</legend>
-            
-                <div class="form_element">
-                    <label class="formElementLabel" for="usernameInfo"><span xml:lang="en">Username</span>:</label>
-                    <input class="formElementInput" id="usernameInfo" name="usernameInformation" type="text" maxlength="40" value="<placeholderUser />" required="true" />
+
+        <form class="informationForm" id="nomeForm" action="../php/scripts/editAccount.php" method="post" title="Nome">
+            <fieldset class="fieldsetForm">
+                <legend class="legend">Aggiorna il Nome</legend>
+                <div class="formContent">
+                    <div class="formElement">
+                        <label class="formLabelUser" for="nameInformation">Nome:</label>
+                        <input class="formInput" id="nameInformation" name="nameInformation" type="text" maxlength="24" required="true" />
+                    </div>
+                    <button class="formButton" type="submit" form="nomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Nome</button>
                 </div>
-                
-                <div class="form_element">
-                    <label class="formElementLabel" for="emailInformation"><span xml:lang="en">E-mail</span>:</label>
-                    <input class="formElementInput" id="emailInfo" name="emailInformation" type="text" maxlength="40" value="<placeholderMail />" required="true" />
+            </fieldset>
+        </form>
+
+        <form class="informationForm" id="cognomeForm" action="../php/scripts/editAccount.php" method="post" title="Cognome">
+            <fieldset class="fieldsetForm">
+                <legend class="legend">Aggiorna il Cognome</legend>
+                <div class="formContent">
+                    <div class="formElement">
+                        <label class="formLabelUser" for="surnameInformation">Cognome:</label>
+                        <input class="formInput" id="surnameInformation" name="surnameInformation" type="text" maxlength="24" required="true" />
+                    </div>
+                    <button class="formButton" type="submit" form="cognomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Cognome</button>
                 </div>
-                
-                <input class="button " name="updateInformations" type="submit" value="Aggiorna Informazioni" />
-                
+            </fieldset>
+        </form>
+
+        <form class="informationForm" id="usernameForm" action="../php/scripts/editAccount.php" method="post" title="Username">
+            <fieldset class="fieldsetForm">
+                <legend class="legend">Aggiorna lo <span xml:lang="en">Username</span></legend>
+                <div class="formContent">
+                    <div class="formElement">
+                        <label class="formLabelUser" for="usernameInformation"><span xml:lang="en">Username</span>:</label>
+                        <input class="formInput" id="usernameInformation" name="usernameInformation" type="text" maxlength="10" required="true" />
+                    </div>
+                    <button class="formButton" type="submit" form="usernameForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span xml:lang="en">Username</button>
+                </div>
+            </fieldset>
+        </form>
+
+        <form class="informationForm" id="emailForm" action="../php/scripts/editAccount.php" method="post" title="Mail">
+            <fieldset class="fieldsetForm">
+                <legend class="legend">Aggiorna la <span xml:lang="en">Mail</span></legend>
+                <div class="formContent">
+                    <div class="formElement">
+                        <label class="formLabelUser" for="mailInformation"><span xml:lang="en">Mail</span>:</label>
+                        <input class="formInput" id="mailInformation" name="mailInformation" type="text" required="true" />
+                    </div>
+                    <button class="formButton" type="submit" form="emailForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span xml:lang="en">Mail</span></button>
+                </div>
+            </fieldset>
+        </form>
+
+        <form class="informationForm" id="passwordForm" action="../php/scripts/editAccount.php" method="post" title="Informazioni personali">
+            <fieldset class="fieldsetForm">
+                <legend class="legend">Aggiorna la <span xml:lang="en">Password</span></legend>
+                <div class="formContent">
+                    <p>Per modificare la <span xml:lang="en">password</span> è necessario inserire correttamente l'attuale.</p>
+                    <div class="formElement">
+                        <label class="formLabelUserUser" for="oldPasswordInformation"><span xml:lang="en">Password</span> attuale:</label>
+                        <input class="formInput" id="oldPasswordInformation" name="oldPasswordInformation" type="password" required="true">
+                    </div>
+                    <div class="formElement">
+                        <label class="formLabelUser" for="newPasswordInformation">Nuova <span xml:lang="en">password</span>:</label>
+                        <input class="formInput" id="newPasswordInformation" name="newPasswordInformation" type="password" required="true">
+                    </div>
+                    <button class="formButton" type="submit" form="passwordForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span xml:lang="en">Password</span></button>
+                </div>
             </fieldset>
         </form>
     </div>
+   
     <div class="delete">
-        <h2>Eliminazione profilo:</h2>
-        <placeholderDel />
-        <form class="deleteForm" action="../php/scripts/deleteAccount.php" method="post" title="Elimina Profilo">
-            <fieldset>
-            <legend class="legend">Elimina Profilo</legend>
-                <p>Per eliminare il profilo è necessario inserire correttamente la password.</p>
-                <label class="formElementLabel" for="passwordEliminaProfilo"><span xml:lang="en">Password</span>:</label>
-                <input class="formElementInput" id="passwordEliminaProfilo" name="passwordEliminaProfilo" type="password" required="true">
-                <input class="button delete" name="deleteAccount" type="submit" value="Elimina profilo" />
-                <p>
-                    <strong>Attenzione!</strong>
-                    Eliminando il profilo rimuoverai tutti i caricamenti e verrai automaticamente escluso dal concorso!
-                </p>
+        <h3>Eliminazione profilo:</h3>
+        <form class="deleteForm" id="deleteForm" action="../php/scripts/deleteAccount.php" method="post" title="Elimina Profilo">
+            <fieldset class="fieldsetForm">
+                <legend class="legend">Elimina Profilo</legend>
+                <div class="formContent">
+                    <p>
+                        <strong>Attenzione!</strong>
+                        Eliminando il profilo rimuoverai tutti i caricamenti e verrai automaticamente escluso dal concorso!
+                        <br />
+                        Per questo, prima di procedere, ti chiediamo di inserire correttamente la <span xml:lang="en">password</span>.
+                    </p>
+                    <div class="formElement">
+                        <label class="formLabelUser" for="passwordEliminaProfilo"><span xml:lang="en">Password</span>:</label>
+                        <input class="formInput" id="passwordEliminaProfilo" name="passwordEliminaProfilo" type="password" required="true">
+                    </div>
+                    <button class="formButton" type="submit" form="deleteForm" name="deleteAccount" value="Aggiorna Info">Elimina Profilo</button>
+                </div>
             </fieldset>
         </form>
     </div> 

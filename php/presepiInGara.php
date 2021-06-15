@@ -29,10 +29,12 @@ if(isset($_GET['search'])) {
   $page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', $page);
 } else $page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Presepi in Gara</span></li>', $page);
 $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
+$page = str_replace('<placeholderContent></placeholderContent>', '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
+
 $connection = connect();
 $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
 $replacement = strlen($replacement) == 0 ? '<h2 tabindex="1"><em> Errore 404: presepi non trovati! </em></h2>' : $replacement;
 $connection->close();
-$page = str_replace(' <placeholderContent></placeholderContent>', $replacement, $page);
+$page = str_replace('<placeholderLista />', $replacement, $page);
 echo($page);
 ?>

@@ -43,6 +43,14 @@ header {
     background-color: #4267B2;
 }
 
+header a {
+    color:white;
+}
+
+header a:visited {
+    color: yellow;
+}
+
 #headerContainer {
     display: flex;
     justify-content: space-between;
@@ -58,14 +66,12 @@ header {
 }
 
 #headerTitle h1 {
-    font-family: -apple-system;
     padding: 10px 0 0 0;
     margin: 0;
     overflow: hidden;
 }
 
 #headerTitle a {
-    font-family: -apple-system;
     padding: 10px 0 0 0;
     margin: 0;
     text-decoration: none;
@@ -84,9 +90,10 @@ header {
 }
 
 header nav {
-    height: 2em;
+    height: 2.5em;
     width: 100%;
-    border: 1px solid lightsteelblue;
+    border-top: 1px solid lightsteelblue;
+    border-bottom: 1px solid lightsteelblue;
     padding: 0;
     margin: 0;
     background-color: white;
@@ -102,6 +109,8 @@ header nav ul {
 }
 
 header nav li {
+    font-size: 1.1em;
+    font-weight: bolder;
     margin: 0;
     height: 100%;
     border-left: 1px solid lightsteelblue;
@@ -116,8 +125,7 @@ header nav .current {
 }
 
 .current span {
-    padding-top: 0.3em;
-    padding: 0em 1em 0em 1em;
+    padding-top: 0.5em;
 }
 
 header nav .current:hover {
@@ -168,12 +176,8 @@ header nav li a {
     border: 1px solid #bbbbbb;
 }
 
-.listaInCorsoAdmin {
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
+header nav li a:visited {
+    color: #000000;
 }
 
 #content {
@@ -202,25 +206,24 @@ header nav li a {
     border-bottom: 1px solid lightgray;
 }
 
-
 .sectionTitle {
     color: #06a0d2;
     text-align: center;
 }
 
-#content.mainPresepi  {
-    background-color: white;
+.listaPresepi  {
+    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .breadcrumbsBlock {
-    height: 2em;
+    height: 2.25em;
     width: 100%;
     margin-top: 0;
-    /*padding: 0em 0em 0.2em 1em;*/
     background-color: #4267B2;
     display: flex;
     justify-content: center;
@@ -232,40 +235,33 @@ header nav li a {
     display: flex;
     justify-content: left;
 }
+
 .breadcrumbsPre {
-    margin: 0em 0em 0em 3.1em;
-    padding: 0;
+    margin: 0.35em 0em 0em 0em;
     display: inline;
-    font-size: 0.8em;
 }
 
 .breadcrumbs {
-    margin: 0;
+    padding-left: 0.5em;
+    margin: 0.35em 0em 0em 0em;
     list-style: none;
 }
 
-
 .breadcrumbs li {
     display: inline;
+    padding-left: 0.5em;
     margin: 0;
     list-style: none;
 }
 
 .breadcrumbs li a {
     color: yellow;
-    font-size: 0.8em;
-    text-decoration: none;
-}
-
-.breadcrumbs li span {
-    font-size: 0.8em;
 }
 
 footer {
     position: relative;
     background-color: #4267B2;
     color: white;
-    font-size: 0.9em;
     border-top: 1px solid gray;
     text-align: center;
     display: flex;
@@ -288,6 +284,8 @@ footer {
 
 #footerContatti {
     list-style: none;
+    margin-top: 2em;
+    padding: 0;
 }
 
 /* login Form */
@@ -298,6 +296,7 @@ footer {
 .loginWrapper span {
     display:block;
 }
+
 .formContainer {
     display: flex;
     justify-content: space-around;
@@ -314,42 +313,59 @@ select {
     display: block;
     width: 100%;
     font-size: 1.1em;
+    height: 2em;
     box-sizing: border-box;
 }
 
 form label {
     margin-top: 1em;
-    margin-bottom: .5rem;
-    font-size: 1.5em;
+    margin-bottom: 0.5rem;
     text-align: left;
 }
 
+input, select {
+    font-size: 1em;
+}
+
+select {
+    border-radius: 5px;
+}
+
+textarea {
+    height: 10em;
+    resize: none;
+    border-radius: 5px;
+}
+
 button {
-    height: 38px;
     padding: 0 30px;
     margin-top: 1em;
-    color: #FFF;
-    background-color: #33C3F0;
-    border-color: #33C3F0;
+    color: black;
+    background-color: #bfbfbf;
     text-align: center;
-    font-size: 11px;
-    font-weight: 600;
+    font-size: 0.75em;
+    font-weight: bold;
     line-height: 38px;
-    letter-spacing: .1rem;
+    letter-spacing: 0.1rem;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    border-radius: 4px;
-    border: 1px solid #bbb;
+    border-radius: 2px;
+    border: none;
     cursor: pointer;
     box-sizing: border-box;
 }
+
+.formButton {
+    width: 25em;
+}
+
 .formText {
     padding: 0 0 5em 0;
 }
 
 form button:hover {
-    background-color: #24b6e3;
+    background-color: #a6a6a6;
 }
 
 .errorMsg {
@@ -359,7 +375,7 @@ form button:hover {
 }
 
 .successMsg {
-    color: greenyellow;
+    color: green;
     display: block;
     font-weight: bold;
 }
@@ -368,25 +384,13 @@ form button:hover {
     text-align: center;
 }
 .postWrapper {
-    display: block;
-    /*
-    margin-right: 7em;
-    margin-bottom: 2em;
-    */
     margin: 2em;
     padding: 1em;
-    width: 35%;
-    /*height: 30%;*/
+    width: 25em;
+    max-height: 42em;
     background-color: white;
     border-radius: 15px;
     border: 1px solid gray;
-}
-
-
-.postWrapper h4,
-.postWrapper h5{
-    margin: 0.2em 0em 0em 0em;
-    padding: 0;
 }
 
 .postText p {
@@ -394,15 +398,20 @@ form button:hover {
     padding: 0;
 }
 
-.postText .postDate {
-    margin: 0em 0em 0.5em 0em;
-    padding: 0;
-    font-size: 0.7em;
-}
-
 .postText {
     text-align: left;
 }
+
+.postDescrizione {
+    max-height: 6em;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.postCategoria, .postData, .postAutore, .postDescrizione span, .postMiPiace {
+    font-weight: bold;
+}
+
 
 .postWrapper img{
     object-fit: cover;
@@ -450,6 +459,8 @@ form button:hover {
     width: 100%;
 }
 .commentForm textarea {
+    height: 5em;
+    resize: none;
     margin-right: 1em;
 }
 .comment {
@@ -488,9 +499,66 @@ form button:hover {
 }
 
 .authorDelete .deleteComment button:hover{
-    background-color: #cb1710;
+    background-color: red;
 }
 
 .authorDelete .deleteComment button:before{
     content: 'x';
+}
+
+/* Pagina Utente */
+.information {
+    margin-top: 3em;
+}
+
+.delete {
+    display: block;
+}
+
+.fieldsetForm {
+    border: none;
+    padding: 0;
+    margin: 0 0 3em 0;
+}
+
+.informationForm {
+    margin-right: 0;
+}
+
+.formContent {
+    margin-left: 1.5em;
+}
+
+.formElement {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: left;
+}
+
+.formLabelUser {
+    font-size: 1em;
+    max-width: 10em;
+}
+
+.formInput {
+    height: 2.5em;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+    #content {
+        width: 85%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #content {
+        width: 90%;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }

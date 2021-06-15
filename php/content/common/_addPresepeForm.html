@@ -3,18 +3,16 @@
   <div class="formContainer">
     <form id="formLogin" action="./aggiungiPresepe.php" method="POST" enctype="multipart/form-data">
       <titleHint />
-      <label for="title" class="formLabel" lang="en">Titolo del presepe</label>
+      <label for="title" class="formLabel" lang="en">Che nome hai dato alla tua opera? Scrivilo qui sotto:</label>
       <input type="text" id="title" class="formInput" value="titlePlaceholder" name="title" placeholder="Titolo" required />
-
 
       <descrizioneHint />
       <label for="description" class="formLabel" lang="en">Dicci cosa rende il tuo presepe fantastico!</label>
-      <textarea type="text" id="description" class="formText" name="description" placeholder="descrizione" required > descriptionPlaceholder </textarea>
+      <textarea type="text" id="description" class="formText" name="description" placeholder="Descrizione" required ><descriptionPlaceholder /></textarea>
 
       <selectHint />
-      <label for="selectCategory" class="formLabel" lang="en">Scegli una categoria</label>
+      <label for="selectCategory" class="formLabel" lang="en">Scegli una categoria tra Adulti e Ragazzi:</label>
       <select name="selectCategory" id="selectCategory" required>
-        <option value="">--Scegli categoria adulti o ragazzi--</option>
         <option value="adulti" adultiSelected>Adulti</option>
         <option value="ragazzi" ragazziSelected>Ragazzi</option>
       </select>

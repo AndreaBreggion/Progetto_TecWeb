@@ -71,8 +71,6 @@
             $this->_whole_page = str_replace("<footerPH></footerPH>", $footer, $this->_whole_page);
         }
 
-
-
         // costruisce l'intera pagina
         public function build() {
             $this->_whole_page = str_replace("<rootDIR></rootDIR>", $this->_rootDIR, $this->_whole_page);

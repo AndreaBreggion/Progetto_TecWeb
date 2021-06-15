@@ -14,11 +14,10 @@
 
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
-    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location">Utente</li>'));
+    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location">Pagina personale ' . $_SESSION["uName"] . '</li>'));
     $page = $builder->build();
+    $page = str_replace('<a href="../php/user.php" role="button">' . $_SESSION["uName"] . '</a>', $_SESSION["uName"], $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainUtente">', $page);
-
-
 
     if(!isset($_SESSION['uId']) || $_SESSION["loggedin"]!='users') {
         header('location: ../index.php');
@@ -27,51 +26,62 @@
         $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/user.html'), $page);
     }
 
-    // Se le informazioni sono state modificate correttamente
+
+    // Se le informazioni utente sono state modificate correttamente
     if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="done") {
         $page = str_replace('<placeholderMod />', '<p class="successMsg">Informazioni modificate con successo!</p>', $page);
         unset($_SESSION["editMsg"]);
+    } else {
+        $page = str_replace('<placeholderMod />', '', $page);
     }
 
-    // Controllo nuova mail
-    if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="notValidMail") {
-        $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">mail</span> inserita non è valida!</p>', $page);
-        unset($_SESSION["editMsg"]);
-    }
-    if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="alreadyExistingMail") {
-        $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">mail</span> inserita è già stata usata!</p>', $page);
-        unset($_SESSION["editMsg"]);
-    }
-
-    // Controllo username
-    if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="notValidUser") {
-        $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che lo <span xml:lang="en">username</span> abbia una lunghezza
-                            compresa tra i tre e dieci caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
-        unset($_SESSION["editMsg"]);
-    }
-    if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="alreadyExistingUser") {
-        $page = str_replace('<placeholderErr />', '<p class="errorMsg">Lo <span xml:lang="en">username</span> inserito è già stato usato!</p>', $page);
-        unset($_SESSION["editMsg"]);
-    }
-
-    // Controllo campi vuoto (ridondante, farebbe già html)
-    if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="empty") {
-        $page = str_replace("<placeholderErr />", "<p class=\"errorMsg\">Controlla di aver riempito tutti i campi!</p>", $page);
+    if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]!="done") {
+        // Controllo nome
+        if($_SESSION["editMsg"]=="notValidName") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che il nome inserito abbia una lunghezza
+                                compresa tra i tre e dieci caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
+        }
+        // Controllo cognome
+        else if($_SESSION["editMsg"]=="notValidSurname") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che il cognome inserito abbia una lunghezza
+                                compresa tra i tre e dieci caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
+        }
+        // Controllo username
+        else if($_SESSION["editMsg"]=="notValidUser") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che lo <span xml:lang="en">username</span> inserito abbia una lunghezza
+                                compresa tra i tre e dieci caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
+        }
+        else if($_SESSION["editMsg"]=="alreadyExistingUser") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Lo <span xml:lang="en">username</span> inserito è già stato usato!</p>', $page);
+        }
+        // Controllo mail
+        else if($_SESSION["editMsg"]=="notValidMail") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">mail</span> inserita non è valida!</p>', $page);
+        }
+        else if($_SESSION["editMsg"]=="alreadyExistingMail") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">mail</span> inserita è già stata usata!</p>', $page);
+        }
+        // Controllo password
+        else if($_SESSION["editMsg"]=="notValidPassword") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che la nuova <span xml:lang="en">password</span> inserita abbia una lunghezza
+                                compresa tra i quattro e sessantaquattro caratteri!</p>', $page);
+        }
+        // Controllo campi vuoto (ridondante, farebbe già html5)
+        else if($_SESSION["editMsg"]=="empty") {
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Controlla di aver riempito tutti i campi!</p>', $page);
+        }
         unset($_SESSION["editMsg"]);
     }
     
     // Password errata in form eliminazione
     if(key_exists("wrongPwd", $_SESSION) && $_SESSION["wrongPwd"]) {
-        $page = str_replace("<placeholderDel />", "<p class=\"errorMsg\">La <span xml:lang=\"en\">password</span> inserita è errata!</p>", $page);
+        $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">password</span> inserita è errata!</p>', $page);
         unset($_SESSION["wrongPwd"]);
     }
-
+    else {
+        $page = str_replace('<placeholderErr />', '', $page);
+    }
 
     $page = str_replace('<placeholderUsername />', $_SESSION["uName"], $page);
-    $page = str_replace('<placeholderNome />', $_SESSION["uRealName"], $page);
-    $page = str_replace('<placeholderCognome />', $_SESSION["uSurname"], $page);
-    $page = str_replace('<placeholderUser />', $_SESSION["uName"], $page);
-    $page = str_replace('<placeholderMail />', $_SESSION["uMail"], $page);
-
     echo($page);
 ?>
