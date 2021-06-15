@@ -152,14 +152,6 @@ header nav li a:visited {
     color: #000000;
 }
 
-.listaInCorsoAdmin {
-    background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: auto;
-}
-
 #content {
     background-color: white;
     min-height: 60%;
@@ -191,12 +183,13 @@ header nav li a:visited {
     text-align: center;
 }
 
-#content.mainPresepi  {
-    background-color: white;
+.listaPresepi  {
+    list-style-type: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .breadcrumbsBlock {
@@ -241,7 +234,6 @@ footer {
     position: relative;
     background-color: #4267B2;
     color: white;
-    font-size: 0.9em;
     border-top: 1px solid gray;
     text-align: center;
     display: flex;
@@ -264,6 +256,8 @@ footer {
 
 #footerContatti {
     list-style: none;
+    margin-top: 2em;
+    padding: 0;
 }
 
 /* login Form */
@@ -305,9 +299,14 @@ input, select {
     font-size: 1em;
 }
 
+select {
+    border-radius: 5px;
+}
+
 textarea {
     height: 10em;
     resize: none;
+    border-radius: 5px;
 }
 
 button {
@@ -487,6 +486,7 @@ form button:hover {
 
 .fieldsetForm {
     border: none;
+    padding: 0;
     margin: 0 0 3em 0;
 }
 
@@ -494,13 +494,9 @@ form button:hover {
     margin-right: 0;
 }
 
-/*
 .formContent {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
+    margin-left: 1.5em;
 }
-*/
 
 .formElement {
     display: flex;
@@ -515,8 +511,9 @@ form button:hover {
 }
 
 .formInput {
-    font-size: 1.1em;
     height: 2.5em;
+    border: 1px solid gray;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 1024px) {

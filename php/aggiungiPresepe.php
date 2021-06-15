@@ -61,7 +61,7 @@
     $date = date('Y-m-d');
     if(empty($finalResult) && $isImageSaved) {
       $page = str_replace('titlePlaceholder', '', $page);
-      $page = str_replace('descriptionPlaceholder', '', $page);
+      $page = str_replace('<descriptionPlaceholder />', '', $page);
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', '', $page);
       $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> Il tuo presepe è stato caricato!</p>', $page);
@@ -73,14 +73,14 @@
       mysqli_stmt_close($stmt);
     } else {
       $page = str_replace('titlePlaceholder', htmlspecialchars($title), $page);
-      $page = str_replace('descriptionPlaceholder', $description, $page);
+      $page = str_replace('<descriptionPlaceholder />', $description, $page);
       $page = $category == 'adulti' ? str_replace('adultiSelected', 'selected', $page) : str_replace('adultiSelected', '', $page);
       $page = $category == 'ragazzi' ? str_replace('ragazziSelected', 'selected', $page) : str_replace('ragazziSelected', '', $page);
       $page = $isImageSaved ? str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page) : str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> Errore durante il caricamento dell\'immagine </p>', $page);
     }
   } else {
     $page = str_replace('titlePlaceholder', '', $page);
-    $page = str_replace('descriptionPlaceholder', '', $page);
+    $page = str_replace('<descriptionPlaceholder />', '', $page);
     $page = str_replace('adultiSelected', '', $page);
     $page = str_replace('ragazziSelected', '', $page);
     $page = str_replace('<titleHint />', '', $page);
