@@ -8,11 +8,13 @@ function createPresepePost($row, $connection) {
     $post = str_replace('<authorPlaceHolder />', '<p><span class="postAutore">Autore:</span> '.$row['username'].'</p>', $post);
     $presepeName = $row['presepeName'];
     $presepeName = str_replace(' ', '', $presepeName);
-    $post = str_replace('<descriptionPlaceHolder />',
-                        '<p class="postDescrizione" id="' . $presepeName . $row['category'] . $row['username'] . 'longdesc"><span>Descrizione:</span><br />' . $row['description'] .'</p>', $post);
     $img = $row['photoPath'];
+    $longdesc = str_replace('.', '', $img);
+    $post = str_replace('<descriptionPlaceHolder />',
+                        '<p class="postDescrizione" id="#' . $longdesc . 'longdesc"><span>Descrizione:</span><br />' . $row['description'] .'</p>', $post);
     $post = str_replace('<placeholderImage />', $img, $post);
-    $post = str_replace('<placeholderLongdesc />', '#' . $presepeName . $row['category'] . $row['username'] . 'longdesc' , $post);
+    $post = str_replace('<placeholderAlt />', 'Foto del presepe ' . $row['presepeName'], $post);
+    $post = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $post);
     $post = str_replace('<presepeLinkPlaceholder />', '<a href="/php/presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
     $query = 'SELECT COUNT(*) FROM likes WHERE pId ='. $row['id'];
     $count = $connection->query($query);
