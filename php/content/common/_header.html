@@ -4,15 +4,11 @@
             <img id="logo" src="<rootDIR></rootDIR>/sources/images/star.png" alt="logo del concorso presepi di Farra di Soligo"/>
             <h1><a href="../index.php">I presepi di Farra di Soligo</a></h1>
         </div>
-        <div class="loginAndSearch">
+        <div class="login">
             <placeholderLog></placeholderLog>
-            <form method="GET" action="/php/presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">
-                <input aria-label="barra di ricerca dei presepi" type="text" id="search" class="formInput" name="search" placeholder="cerca tra i presepi" required />
-                <button type="submit" name="submit">Cerca</button>
-            </form>
         </div>
     </div>
-    <a class="screenreaderOnly" href="#content" tabindex="1">Salta il menu</a>
+    <a class="screenreaderOnly" href="#content">Salta il menu</a>
     <nav id="navBar">
         <ul id="menu">
             <li><a lang="en" href="<rootDIR></rootDIR>/index.php">Home</a></li>
@@ -22,4 +18,14 @@
             <li><a href="<rootDIR></rootDIR>/php/vincitori.php">Vincitori</a></li>
         </ul>
     </nav>
+    <div class="search">
+        <form method="get" action="/php/presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">
+        <fieldset class="fieldsetSearch">
+            <legend class="searchLegend">Ricerca</legend>
+            <label class="searchLabel" for="search">Cerca tra i Presepi:</label>
+            <input aria-label="Barra di ricerca dei presepi" type="text" id="search" class="formInput" name="search" placeholder="Cerca tra i presepi" required>
+            <button type="submit" name="submit" class="searchButton">Cerca</button>
+        </fieldset>
+        </form>
+    </div>
 </header>

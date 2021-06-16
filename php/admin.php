@@ -13,7 +13,7 @@ session_start();
 
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
-    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="location"><span lang="en">Admin</span></li>'));
+    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="page"><span lang="en">Admin</span></li>'));
     $page = $builder->build();
     $page = str_replace('<a href="../php/admin.php" role="button">admin</a>', 'admin', $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainAdmin">', $page);

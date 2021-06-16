@@ -7,7 +7,6 @@ html {
     font-style: normal;
     font-size: 16px;
     letter-spacing: .03em;
-    line-height: 1.6em;
     text-transform: none;
     color: #000;
     height: 100%;
@@ -37,7 +36,6 @@ html, body {
 header {
     padding-top: 1em;
     display: flex;
-    height: 9em;
     justify-content: space-between;
     flex-direction: column;
     background-color: #4267B2;
@@ -56,6 +54,7 @@ header a:visited {
     justify-content: space-between;
     flex-wrap: nowrap;
     color: white;
+    margin-bottom: 2em;
 }
 
 #headerTitle {
@@ -124,10 +123,6 @@ header nav .current {
     padding: 0em 0em 0em 0em;
 }
 
-.current span {
-    padding-top: 0.5em;
-}
-
 header nav .current:hover {
     background-color: burlywood;
 }
@@ -135,7 +130,6 @@ header nav .current:hover {
 header nav li:last-child{
     border-right: 1px solid lightsteelblue;
 }
-
 
 header nav li:hover {
     background-color: #e2e2e2aa;
@@ -147,33 +141,61 @@ header nav li a {
     padding: 0em 1em 0em 1em;
     color: #000000;
 }
-.loginAndSearch {
+
+.current span {
+    padding-top: 0.5em;
+}
+
+.login {
     width: 30%;
     display: flex;
     flex-direction: column;
     justify-content: right;
     text-align: right;
 }
-.loginAndSearch button{
-    padding: 0 10px;
-    margin: 0 1em 0 1em;
 
-}
-.loginAndSearch a{
+.login a{
     color: yellow;
 }
-.searchBar {
+
+.search {
     display: flex;
-    height: 2em;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.searchBar {
+    width: 30%;
+    margin-top: 1em;
+}
+
+.fieldsetSearch {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     width: 100%;
-    margin-top: 0.5em;
+    border: none;
+    padding: 0;
+}
+
+.searchLabel {
+    display: none;
+}
+
+.searchButton {
+    margin: 0;
+    margin-right: 1em;
 }
 
 .searchBar input{
     font-size: 16px;
-    margin-top: 0.2em;
-    border-radius: 4px;
     border: 1px solid #bbbbbb;
+    margin: 0 1em 0 1em;
+}
+
+.searchLegend {
+    height: 0;
+    overflow: hidden;
 }
 
 header nav li a:visited {
@@ -224,6 +246,7 @@ header nav li a:visited {
     height: 2.25em;
     width: 100%;
     margin-top: 0;
+    padding-top: 2em;
     background-color: #4267B2;
     display: flex;
     justify-content: center;
@@ -518,11 +541,10 @@ form button:hover {
 .fieldsetForm {
     border: none;
     padding: 0;
-    margin: 0 0 3em 0;
 }
 
 .informationForm {
-    margin-right: 0;
+    margin: 0 0 3em 0;
 }
 
 .formContent {
