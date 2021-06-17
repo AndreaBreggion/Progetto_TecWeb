@@ -1,26 +1,36 @@
 <div class="loginWrapper">
-  <h2 class="sectionTitle"> Aggiungi il tuo Presepe </h2>
+  <h2 class="sectionTitle">Aggiungi il tuo Presepe</h2>
   <div class="formContainer">
     <form id="formLogin" action="./aggiungiPresepe.php" method="POST" enctype="multipart/form-data">
-      <titleHint />
-      <label for="title" class="formLabel" lang="en">Che nome hai dato alla tua opera? Scrivilo qui sotto:</label>
-      <input type="text" id="title" class="formInput" value="titlePlaceholder" name="title" placeholder="Titolo" required>
-
-      <descrizioneHint />
-      <label for="description" class="formLabel" lang="en">Dicci cosa rende il tuo presepe fantastico!</label>
-      <textarea type="text" id="description" class="formText" name="description" placeholder="Descrizione" required ><descriptionPlaceholder /></textarea>
-
-      <selectHint />
-      <label for="selectCategory" class="formLabel" lang="en">Scegli una categoria tra Adulti e Ragazzi:</label>
-      <select name="selectCategory" id="selectCategory" required>
-        <option value="adulti" adultiSelected>Adulti</option>
-        <option value="ragazzi" ragazziSelected>Ragazzi</option>
-      </select>
-
-      <imageHint />
-      <label for="presepeImage" class="formLabel" lang="en">Facci vedere il tuo presepe!</label>
-      <input type="file" accept=".gif,.jpg,.jpeg,.png" name="presepeImage" id="presepeImage" required>
-
+      <fieldset class="fieldsetForm">
+        <legend class="formLegend">Inserisci il nome</legend>
+        <titleHint />
+        <label for="title" class="formLabel">Che nome hai dato alla tua opera? Scrivilo qui sotto:</label>
+        <input type="text" id="title" class="formInput" value="titlePlaceholder" name="title" placeholder="Titolo" required>
+      </fieldset>
+      <fieldset class="fieldsetForm">
+        <legend class="formLegend">Inserisci una breve descrizione</legend>
+        <descrizioneHint />
+        <label for="description" class="formLabel">Dicci cosa rende il tuo presepe fantastico!</label>
+        <textarea type="text" id="description" class="formText" name="description" placeholder="Descrizione" required ><descriptionPlaceholder /></textarea>
+      </fieldset>
+      <fieldset class="fieldsetForm">
+        <legend class="formLegend">Scegli la categoria</legend>
+        <selectHint />
+        <label for="selectCategory" class="formLabel">Scegli una categoria, tra Adulti e Ragazzi:</label>
+        <select name="selectCategory" id="selectCategory" required>
+          <optgroup label="--Scegli la categoria--">
+            <option value="adulti" adultiSelected>Adulti</option>
+            <option value="ragazzi" ragazziSelected>Ragazzi</option>
+          </optgroup>
+        </select>
+      </fieldset>
+      <fieldset class="fieldsetForm">
+        <legend class="formLegend">Carica una foto</legend>
+        <imageHint />
+        <label for="presepeImage" class="formLabel">Facci vedere il tuo presepe! Carica una foto!</label>
+        <input type="file" accept=".gif,.jpg,.jpeg,.png" name="presepeImage" id="presepeImage" required>
+      </fieldset>
       <button class="formButton" name="submit">Invia!</button>
     </form>
   </div>

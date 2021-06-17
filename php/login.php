@@ -14,8 +14,8 @@
     '<li><a href="../index.php" lang="en">Home</a></li>',
     '<li class="current" aria-current="page"><span class="currentCrumb" lang="en">Login</span></li>'
   ));
-
   $page = $builder->build();
+  $page = str_replace('<a href="../php/login.php" lang="en">Login</a>', ' <span>Login</span>', $page);
   $connection = connect();
   $replacement = '';
   if(isset($_POST['submit'])) {

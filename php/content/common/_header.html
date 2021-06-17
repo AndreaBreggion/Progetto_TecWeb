@@ -4,20 +4,28 @@
             <img id="logo" src="<rootDIR></rootDIR>/sources/images/star.png" alt="logo del concorso presepi di Farra di Soligo"/>
             <h1><a href="../index.php">I presepi di Farra di Soligo</a></h1>
         </div>
+        <span id="menuIcon">
+            <img id="menuImage" src="<rootDIR></rootDIR>/sources/images/icons/hamburger_icon.png" alt="apri menu" onclick="openNav()">
+        </span>
+    </div>
+
+    <div id="menuContainer" >
         <div class="login">
             <placeholderLog></placeholderLog>
         </div>
+        <a class="screenreaderOnly" href="#content">Salta il menu</a>
+
+        <nav id="navBar">
+            <ul id="menu">
+                <li><a lang="en" href="<rootDIR></rootDIR>/index.php">Home</a></li>
+                <li><a href="<rootDIR></rootDIR>/php/aggiungiPresepe.php">Aggiungi Presepe</a></li>
+                <li><a href="<rootDIR></rootDIR>/php/presepiInGara.php">Presepi in Gara</a></li>
+                <li><a href="<rootDIR></rootDIR>/php/regole.php">Regole del concorso</a></li>
+                <li><a href="<rootDIR></rootDIR>/php/vincitori.php">Vincitori</a></li>
+            </ul>
+        </nav>
     </div>
-    <a class="screenreaderOnly" href="#content">Salta il menu</a>
-    <nav id="navBar">
-        <ul id="menu">
-            <li><a lang="en" href="<rootDIR></rootDIR>/index.php">Home</a></li>
-            <li><a href="<rootDIR></rootDIR>/php/aggiungiPresepe.php">Aggiungi Presepe</a></li>
-            <li><a href="<rootDIR></rootDIR>/php/presepiInGara.php">Presepi in Gara</a></li>
-            <li><a href="<rootDIR></rootDIR>/php/regole.php">Regole del concorso</a></li>
-            <li><a href="<rootDIR></rootDIR>/php/vincitori.php">Vincitori</a></li>
-        </ul>
-    </nav>
+
     <div class="search">
         <form method="get" action="/php/presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">
         <fieldset class="fieldsetSearch">

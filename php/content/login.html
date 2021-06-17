@@ -5,6 +5,7 @@
     <meta name="description" content="Condividi il tuo presepe e partecipa al concorso a premi di Farra di Soligo!"/>
     <meta name="Keywords" content="presepe, natale, natività, famiglia, concorso, Farra, Soligo"/>
     <meta name="robots" content="index, follow"/>
+    <script src="scripts/js/validateForm.js"></script>
 </head>
 
 <body>
@@ -16,7 +17,7 @@
         <div class="formContainer">
             <form id="formLogin" action="./login.php" onsubmit="return validateMail() && validatePassword()" method="POST">
                 <fieldset class="fieldsetForm">
-                    <legend class="registerLegend">Inserisci le credenziali per il <span lang="en">login</span></legend>
+                    <legend class="formLegend">Inserisci le credenziali per il <span lang="en">login</span></legend>
                     <label for="mail" class="formLabel" id="mailLabel">La tua <span lang="en">Mail</span>:</label>
                     <input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required>
 
@@ -33,7 +34,6 @@
         </p>
     </div>
 </main>
-<script src="scripts/js/validateForm.js"></script>
 <footerPH></footerPH>
 </body>
 
