@@ -23,13 +23,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1262b208-9385-4672-9ab9-6743856360a2" name="Default Changelist" comment="Ah yes, bee.">
-      <change beforePath="$PROJECT_DIR$/Home.xhtml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/style/style_lavoro.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/style_lavoro.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/scripts/createPresepeListSelected.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/php/scripts/hasAdminSelected.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sources/images/1_0.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/content/vincitori.html" beforeDir="false" afterPath="$PROJECT_DIR$/php/content/vincitori.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/presepe.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/presepe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/scripts/deletePresepe.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/scripts/deletePresepe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/vincitori.php" beforeDir="false" afterPath="$PROJECT_DIR$/php/vincitori.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,16 +63,18 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="XHTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/php/scripts" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="Errors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Progetto_TecWeb\php\scripts" />
       <recent name="C:\Users\aless\WebstormProjects\Progetto_TecWeb" />
     </key>
   </component>
@@ -79,6 +90,8 @@
       <workItem from="1606772956254" duration="252000" />
       <workItem from="1606773217646" duration="1869000" />
       <workItem from="1608042231362" duration="1603000" />
+      <workItem from="1623768409251" duration="1601000" />
+      <workItem from="1623853227113" duration="6751000" />
     </task>
     <task id="LOCAL-00001" summary="I just added home because i could">
       <created>1606759711327</created>
