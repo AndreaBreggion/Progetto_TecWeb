@@ -316,14 +316,15 @@ footer {
     text-align: center;
 }
 
-.loginWrapper span {
-    display:block;
-}
-
 .formContainer {
     display: flex;
     justify-content: space-around;
 }
+
+.registerHint {
+    margin-top: 3em;
+}
+
 
 form {
     width: 60%;
@@ -381,6 +382,7 @@ button {
 
 .formButton {
     width: 25em;
+    margin-top: 3em;
 }
 
 .formText {
@@ -406,6 +408,18 @@ form button:hover {
     width: 100%;
     text-align: center;
 }
+
+/* Register Form*/
+.registerLegend {
+    height: 0;
+    overflow: hidden;
+}
+
+.formLabelRegister {
+    font-size: 1em;
+    max-width: 10em;
+}
+
 .postWrapper {
     margin: 2em;
     padding: 1em;
@@ -541,6 +555,7 @@ form button:hover {
 .fieldsetForm {
     border: none;
     padding: 0;
+    margin-top: 2em;
 }
 
 .informationForm {

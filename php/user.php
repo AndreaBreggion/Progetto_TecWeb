@@ -48,22 +48,22 @@
         }
         // Controllo username
         else if($_SESSION["editMsg"]=="notValidUser") {
-            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che lo <span xml:lang="en">username</span> inserito abbia una lunghezza
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che lo <span lang="en">username</span> inserito abbia una lunghezza
                                 compresa tra i tre e dieci caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
         }
         else if($_SESSION["editMsg"]=="alreadyExistingUser") {
-            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Lo <span xml:lang="en">username</span> inserito è già stato usato!</p>', $page);
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Lo <span lang="en">username</span> inserito è già stato usato!</p>', $page);
         }
         // Controllo mail
         else if($_SESSION["editMsg"]=="notValidMail") {
-            $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">mail</span> inserita non è valida!</p>', $page);
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span lang="en">mail</span> inserita non è valida!</p>', $page);
         }
         else if($_SESSION["editMsg"]=="alreadyExistingMail") {
-            $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">mail</span> inserita è già stata usata!</p>', $page);
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span lang="en">mail</span> inserita è già stata usata!</p>', $page);
         }
         // Controllo password
         else if($_SESSION["editMsg"]=="notValidPassword") {
-            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che la nuova <span xml:lang="en">password</span> inserita abbia una lunghezza
+            $page = str_replace('<placeholderErr />', '<p class="errorMsg">Verifica che la nuova <span lang="en">password</span> inserita abbia una lunghezza
                                 compresa tra i quattro e sessantaquattro caratteri!</p>', $page);
         }
         // Controllo campi vuoto (ridondante, farebbe già html5)
@@ -75,7 +75,7 @@
     
     // Password errata in form eliminazione
     if(key_exists("wrongPwd", $_SESSION) && $_SESSION["wrongPwd"]) {
-        $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span xml:lang="en">password</span> inserita è errata!</p>', $page);
+        $page = str_replace('<placeholderErr />', '<p class="errorMsg">La <span lang="en">password</span> inserita è errata!</p>', $page);
         unset($_SESSION["wrongPwd"]);
     }
     else {
