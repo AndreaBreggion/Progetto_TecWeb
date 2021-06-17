@@ -121,7 +121,7 @@ header nav li {
 
 header nav .current {
     background-color: lightgoldenrodyellow;
-    padding: 0em 0em 0em 0em;
+    padding: 0em 1em 0em 1em;
 }
 
 .current span {
@@ -147,6 +147,8 @@ header nav li a {
     padding: 0em 1em 0em 1em;
     color: #000000;
 }
+
+
 .loginAndSearch {
     width: 30%;
     display: flex;
@@ -533,7 +535,7 @@ form button:hover {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: left;
+    align-items: flex-start;
 }
 
 .formLabelUser {

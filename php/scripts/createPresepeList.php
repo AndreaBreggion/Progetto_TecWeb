@@ -2,7 +2,7 @@
 
 function createPresepePost($row, $connection) {
     $post = file_get_contents(__DIR__.'/../content/common/_presepePost.html');
-    $post = str_replace('<titlePlaceholder />', '<h2>Nome: '.$row['presepeName'] .'</h2>', $post);
+    $post = str_replace('<titlePlaceholder />', '<h2>' .$row['presepeName'] .'</h2>', $post);
     $post = str_replace('<categoryPlaceholder />', '<p><span class="postCategoria">Categoria:</span> '. $row['category']. '</p>', $post);
     $post = str_replace('<datePlaceHolder />', '<p><span class="postData">Data di caricamento:</span> '.$row['dateOfCreation'].'</p>', $post);
     $post = str_replace('<authorPlaceHolder />', '<p><span class="postAutore">Autore:</span> '.$row['username'].'</p>', $post);
