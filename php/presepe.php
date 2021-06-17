@@ -45,6 +45,10 @@ if(isset($_GET['presepeId'])) {
       $replacement = file_get_contents(__DIR__ . "/content/common/_presepePage.html");
       $replacement = str_replace('<presepeCancelPlaceholder />', $cancelPresepe, $replacement);
       $replacement = str_replace('<placeholderImage />', $result['photoPath'], $replacement);
+      $replacement = str_replace('<placeholderAlt />', 'Foto del presepe ' . $result['presepeName'], $replacement);
+      $longdesc = str_replace('.', '', $result['photoPath']);
+      $replacement = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $replacement);
+      $replacement = str_replace('<placeholderIdLongdesc />', $longdesc . 'longdesc' , $replacement);
       $replacement = str_replace('<placeholderTitle />', $result['presepeName'], $replacement);
       $replacement = str_replace('<placeholderAuthor />', $result['username'], $replacement);
       $replacement = str_replace('<placeholderDate />', $result['dateOfCreation'], $replacement);
