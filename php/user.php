@@ -16,7 +16,7 @@
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
     $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="page">Pagina personale ' . $_SESSION["uName"] . '</li>'));
     $page = $builder->build();
-    $page = str_replace('<a href="../php/user.php" role="button">' . $_SESSION["uName"] . '</a>', $_SESSION["uName"], $page);
+    $page = str_replace('<a href="../php/user.php" role="button">' . $_SESSION["uName"] . '</a>', ' <span id="spanUser">' . $_SESSION["uName"] . '</span>', $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainUtente">', $page);
 
     if(!isset($_SESSION['uId']) || $_SESSION["loggedin"]!='users') {
@@ -25,7 +25,6 @@
     else {
         $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/user.html'), $page);
     }
-
 
     // Se le informazioni utente sono state modificate correttamente
     if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="done") {

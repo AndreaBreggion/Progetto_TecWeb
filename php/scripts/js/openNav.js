@@ -1,16 +1,16 @@
+window.onload=function jsAttivo() {
+    document.getElementById("openImage").classList.add("jsActive");
+    document.getElementById("closeImage").classList.add("jsActive");
+    document.getElementById("menuContainer").classList.add("jsActive");
+
+}
+
 function openNav(){
     var menu = document.getElementById("menuContainer");
-    var path=document.getElementById("menuImage").src;
-    path=path.replace("hamburger_icon.png","");
-    path=path.replace("close_icon.png","");
-    var closeIcon=path+("close_icon.png");
-    var hamburgerIcon=path+("hamburger_icon.png");
 
-    if (menu.className !== "openMenu") {
-        document.getElementById("menuImage").src=closeIcon;
+    if (menu.className !== "jsActive openMenu") {
         menu.classList.add("openMenu");
     } else {
         menu.classList.remove("openMenu");
-        document.getElementById("menuImage").src=hamburgerIcon;
     }
 }

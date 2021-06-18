@@ -14,7 +14,7 @@ $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
 $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li><a href="../index.php" lang="en">Home</a></li>',
     '<li class="current" aria-current="page"><span class="currentCrumb">Registrati</span></li>'));
 $page = $builder->build();
-$page = str_replace('<a href="../php/register.php">Registrati</a>', 'Registrati ', $page);
+$page = str_replace('<a href="../php/register.php">Registrati</a>', ' <span>Registrati</span>', $page);
 if(!isset($_SESSION['uId'])) {
   $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__."/content/common/_registerForm.html"), $page);
 } else {

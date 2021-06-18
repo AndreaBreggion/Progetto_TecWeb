@@ -84,7 +84,11 @@ header a:visited {
     padding: 1em 1em 0 0;
 }
 
-#menuIcon{
+#openImage {
+    display: none;
+}
+
+#closeImage {
     display: none;
 }
 
@@ -102,7 +106,7 @@ header a:visited {
 }
 
 header nav {
-    height: 2.5em;
+    height: 3em;
     width: 100%;
     border-top: 1px solid lightsteelblue;
     border-bottom: 1px solid lightsteelblue;
@@ -133,7 +137,6 @@ header nav li {
 
 header nav .current {
     background-color: lightgoldenrodyellow;
-    padding: 0em 0em 0em 0em;
 }
 
 header nav .current:hover {
@@ -179,7 +182,7 @@ form button:hover {
 }
 
 .current span {
-    padding-top: 0.5em;
+    margin: auto;
 }
 
 .search {
@@ -200,6 +203,7 @@ form button:hover {
     align-items: center;
     border: none;
     padding: 0;
+    margin: 0;
 }
 
 .searchLabel {
@@ -215,7 +219,6 @@ form button:hover {
 .searchButton:hover {
     background-color: #c9c9c9;
 }
-
 
 .searchBar input{
     font-size: 16px;
@@ -245,7 +248,6 @@ header nav li a:visited {
     justify-content: center;
     flex-wrap: wrap;
 }
-
 
 #content section{
     width: 70%;
@@ -282,7 +284,7 @@ header nav li a:visited {
     padding-bottom: 1em;
 }
 
-.breacrumbContainer {
+.breadcrumbContainer {
     width: 70%;
     display: flex;
     justify-content: left;
@@ -305,6 +307,10 @@ header nav li a:visited {
 
 .breadcrumbs li a {
     color: yellow;
+}
+
+span.currentCrumb {
+    padding: 0;
 }
 
 footer {
@@ -415,6 +421,7 @@ textarea {
     display: block;
     font-weight: bold;
 }
+
 .searchResult {
     width: 100%;
     text-align: center;
@@ -487,18 +494,22 @@ textarea {
     text-align: left;
     margin: 1em 0 0 6em;
 }
+
 .presepePageImage {
     width: 100%;
     object-fit: contain;
     max-height: 30em;
     margin: 1em 0 0 0em;
 }
+
 .likeButtonForm{
     text-align: center;
 }
+
 .likeButton {
     background-color: #E62117;
 }
+
 .likeButton:hover {
     background-color: #cb1710;
 }
@@ -509,38 +520,47 @@ textarea {
     justify-content: center;
     width: 100%;
 }
+
 .commentForm textarea {
     height: 5em;
     resize: none;
     margin-right: 1em;
 }
+
 .comment {
     border-top: 1px solid lightgray;
 }
+
 .presepePage article:last-child{
     border-bottom: 1px solid lightgray;
 }
+
 .flexContainer {
     display: flex;
 
 }
+
 .spaceBetween {
     justify-content: space-between;
 }
+
 .authorDelete {
     display: flex;
     justify-content: left;
     text-align: center;
 }
+
 .authorDelete .author{
     font-weight: bold;
 }
+
 .authorDelete .deleteComment {
     margin: 0.2em 0 0 0.5em;
     margin-top: 0.4em;
     height: 2em;
     width: 3em;
 }
+
 .authorDelete .deleteComment button{
     background-color: #E62117;
     height: 2em;
@@ -584,7 +604,6 @@ textarea {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-items: left;
 }
 
 .formLabelUser {
@@ -610,7 +629,6 @@ textarea {
     }
 }
 
-
 @media screen and (max-width: 1024px) {
     #content {
         width: 90%;
@@ -620,7 +638,7 @@ textarea {
         width: 90%;
     }
 
-    #menuIcon{
+    #openImage.jsActive {
         width: 3.5em;
         height: 3.5em;
         justify-content: flex-end;
@@ -630,31 +648,44 @@ textarea {
         margin-left: 1.25em;
     }
 
-    .login{
+    .login {
+        flex-direction: column;
+        margin: 5em 0 0 0;
+    }
+
+    #spanUser {
+        display: block;
+        margin: 2em 0;
+    }
+
+    .logHint {
+        display: flex;
         flex-direction: column;
         justify-content: center;
-        margin: 0;
-    }
-    
-    .logHint {
+        align-items: center;
         padding: 0;
+        border-top: 1px solid lightsteelblue;
+        border-bottom: 1px solid lightsteelblue;
     }
 
     .logHint span {
         display: none;
     }
 
-    .login span a{
-        height: 3em;
+    .login span a {
+        height: 6em;
+        width: 100%;
+        padding: 0;
         display: flex;
         justify-content: center;
+        align-items: center;
     }
 
     .login span a:hover {
-        background: #bfbfbf;
+        background: #314c81;
     }
 
-    #menuContainer{
+    #menuContainer.jsActive {
         display: block;
         position: fixed;
         top: 0em;
@@ -665,10 +696,19 @@ textarea {
         z-index: 1;
     }
 
-    #menuContainer.openMenu{
+    #menuContainer.openMenu {
         height: 100%;
         overflow: visible;
         width: 30em;
+    }
+
+    #closeImage.jsActive {
+        display: block;
+        padding-right: 1em;
+        padding-top: 1.25em;
+        width: 3.5em;
+        height: 3.5em;
+        float: right;
     }
 
     .search {
@@ -684,23 +724,45 @@ textarea {
     header nav {
         height: 100%;
         background: #314c81;
+        border: 0;
     }
 
     header nav ul {
+        height: 60%;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: space-around;
+        align-items: center;
     }
 
     header nav li {
-        height: 3.5em;
+        height: 4.5em;
         border: none;
     }
 
-    header nav li a:visited {
+    header nav li a {
         color: #ffffff;
+        text-decoration: underline;
     }
 
-    .breacrumbContainer {
+    header nav li a:visited {
+        color: yellow;
+    }
+
+    header nav li:last-child{
+        border: none;
+    }
+
+    header nav li:hover {
+        background-color: #314c81;
+    }
+
+    header nav .current {
+        width: 100%;
+        border-left: 1px solid #314c81;
+        border-left: 1px solid #314c81;
+    }
+
+    .breadcrumbContainer {
         width: 100%;
         padding-left: 1em;
     }
@@ -710,11 +772,7 @@ textarea {
     }
 }
 
-@media screen and (max-width: 768px) {
-    #headerTitle h1 {
-        font-size: 1.75em;
-    }
-    
+@media screen and (max-width: 768px) {    
     #content {
         width: 92%;
     }
@@ -732,19 +790,23 @@ textarea {
         margin-top: 1em;
     }
 
+    .fieldsetSearch {
+        margin-left: 0.25em;
+    }
+
     form {
         width: 90%;
     }
 
-    #headerTitle img {
-        padding-left: 0.5em;
+    #headerTitle h1 {
+        overflow: visible;
     }
-
+    
     .searchButton {
-        margin-right: 0.5em;
+        margin-right: 1.25em;
     }
 
-    .searchBar input{
+    .searchBar input {
         margin: 0 0.5em 0 0.5em;
     }
 
@@ -779,7 +841,7 @@ textarea {
     }
 
     #headerTitle {
-        padding-left: 1em;
+        padding-left: 0.75em;
     }
 
     form {
