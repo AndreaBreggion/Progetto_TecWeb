@@ -79,6 +79,25 @@ function createPresepeListAdulti($connection) {
     }
     return($returnValue);
 }
-?>
+
+function mostLiked($connection) {
+    $query = 'SELECT pId, COUNT(*) FROM likes GROUP BY pId LIMIT 3';
+    $result = $connection->query($query);
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.id = ?';
+    $stmt = mysqli_stmt_init($connection);
+    if( !mysqli_stmt_prepare($stmt, $query) ) {
+        exit;
+    }
+    $returnValue = '';
+    while($row = mysqli_fetch_assoc($result)){
+        mysqli_stmt_bind_param($stmt, 's', $row['pId']);
+        mysqli_stmt_execute($stmt);
+        $presepe = mysqli_stmt_get_result($stmt);
+        $presepe = mysqli_fetch_assoc($presepe);
+        $returnValue .= createPresepePost($presepe, $connection);
+    }
+    mysqli_stmt_close($stmt);
+    return $returnValue;
+}
 
 ?>

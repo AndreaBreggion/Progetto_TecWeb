@@ -120,7 +120,7 @@ header nav li {
 }
 
 header nav .current {
-    background-color: lightgoldenrodyellow;
+    background-color: #c7c765;
     padding: 0em 1em 0em 1em;
 }
 
@@ -204,6 +204,10 @@ header nav li a:visited {
     margin: 1em 0 1em 0;
 }
 
+#content .sectionLikes{
+    width: 100%;
+}
+
 .sectionContainer:last-child{
     border-bottom: 1px solid lightgray;
 }
@@ -259,7 +263,10 @@ header nav li a:visited {
 .breadcrumbs li a {
     color: yellow;
 }
-
+.hottestShit{
+    display: flex;
+    list-style: none;
+}
 footer {
     position: relative;
     background-color: #4267B2;
@@ -393,7 +400,6 @@ form button:hover {
     background-color: white;
     border-radius: 15px;
     border: 1px solid gray;
-    list-style: none;
 }
 
 .postText p {
