@@ -29,7 +29,7 @@ if(isset($_GET['presepeId'])) {
     $query = 'SELECT COUNT(*) FROM likes WHERE pId = ?';
     $likeNumber = statementQuery($connection, $where, $query);
     $hasUserLikedPresepe = isset($_SESSION['uId']) ? hasUserLiked($connection, $_SESSION['uId'], $_GET['presepeId']) : null;
-    $hasAdminSelected = isset($_SESSION['uId']) ? hasAdminSelected($connection, $_SESSION['uId'], $_GET['presepeId']) : null;
+    $hasAdminSelected = isset($_SESSION['uId']) ? hasAdminSelected($connection, $_GET['presepeId']) : null;
     $form = isset($_SESSION['uId']) ? file_get_contents(__DIR__ .'/content/common/_presepeCommentForm.html') : '';
     $query = 'SELECT comments.uId as uId, comments.comment as comment, comments.timestamp as timestamp, users.username as username from comments join users ON comments.uId = users.id WHERE comments.pId = ? ORDER BY timestamp DESC';
     $stmt = mysqli_stmt_init($connection);
@@ -61,7 +61,7 @@ if(isset($_GET['presepeId'])) {
       $replacement = str_replace('<placeholderVincitore />', $winnerPresepe, $replacement);
       $replacement = str_replace('<presepeFormPlaceholder />', $form, $replacement);
       if($hasUserLikedPresepe) $replacement = str_replace('<button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>', '<button class="likeButton" aria-label="Rimuovi Mi piace presepe" type="submit" name="like">Non mi piace più!</button>', $replacement);
-      if($hasAdminSelected) $replacement = str_replace('<button class="likeButton" aria-label="Aggiungi a vincitori" type="submit" name="like">Aggiungi a vincitori</button>', '<button class="likeButton" aria-label="Rimuovi vincitore" type="submit" name="like">Togli vincitore</button>', $replacement);
+      if($hasAdminSelected) $replacement = str_replace('<button class="likeButton" type="submit" name="Admin">Vincitore</button>', '<button class="likeButton" aria-label="Rimuovi vincitore" type="submit" name="like">Togli vincitore</button>', $replacement);
 
       for($i = 1; $row = mysqli_fetch_assoc($comments); $i++) {
         $cancelComment = $_SESSION['uId'] == $row['uId'] ? file_get_contents(__DIR__ . "/content/common/_deleteCommentForm.html") : '';
