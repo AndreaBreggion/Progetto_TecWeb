@@ -1,5 +1,5 @@
 <?php
-  session_start();
+session_start();
   require_once('connection.php');
   $connection = connect();
   $query = 'SELECT uId as id FROM presepi WHERE id = '.$_SESSION['lastVisitedPresepe'];
