@@ -393,6 +393,7 @@ form button:hover {
     background-color: white;
     border-radius: 15px;
     border: 1px solid gray;
+    list-style: none;
 }
 
 .postText p {

@@ -1,9 +1,10 @@
 <?php
-  function hasAdminSelected($connection, $uId, $id) {
-      $query = 'SELECT EXISTS (SELECT * FROM presepi WHERE uId = "$uId"  AND pId = "$id"  AND presepi.winner=1)';
+  function hasAdminSelected($connection, $id) {
+      $query = 'SELECT winner FROM presepi WHERE id = '. $id;
       //$connection->query("DELETE FROM users WHERE users.id = '$uID'");
       $result = $connection->query($query);
-      if ($result) {
+      $result = mysqli_fetch_assoc($result);
+      if ($result['winner']) {
           //echo("Ok questo è vincitore");
           return true;
       } else {

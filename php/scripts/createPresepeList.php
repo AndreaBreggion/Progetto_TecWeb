@@ -58,4 +58,27 @@ function createPresepeSearchList($connection, $where) {
   } else $returnValue = '<p tabindex="0" class="searchResult"> La tua ricerca ha prodotto '.$i.' risultati! </p>' . $returnValue;
   return($returnValue);
 }
+
+
+function createPresepeListRagazzi($connection) {
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.winner=1 AND presepi.category = "ragazzi"';
+    $result = $connection->query($query);
+    $returnValue = '';
+    while($row = mysqli_fetch_assoc($result)) {
+        $returnValue .= createPresepePost($row, $connection);
+    }
+    return($returnValue);
+}
+
+function createPresepeListAdulti($connection) {
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.winner=1 AND presepi.category = "adulti"';
+    $result = $connection->query($query);
+    $returnValue = '';
+    while($row = mysqli_fetch_assoc($result)) {
+        $returnValue .= createPresepePost($row, $connection);
+    }
+    return($returnValue);
+}
+?>
+
 ?>

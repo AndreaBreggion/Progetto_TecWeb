@@ -2,7 +2,7 @@
     session_start();
     require_once("../php/templateBuilder.php");
     require_once('scripts/checkUserConnected.php');
-    require_once('scripts/createPresepeListSelected.php');
+    require_once('scripts/createPresepeList.php');
     require_once('scripts/connection.php');
     require_once('scripts/lastVisitedPages.php');
     // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
@@ -23,8 +23,13 @@
     $page = $builder->build();
     $page = str_replace('<li><a href="../php/vincitori.php">Vincitori</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Vincitori</span></li>', $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
+    $page = str_replace('<placeholderContent></placeholderContent>', '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
+    $page = str_replace('<ul class="listaPresepi"><placeholderLista /></ul>', file_get_contents(__DIR__."/content/common/_presepiWinnerContent.html"), $page);
+
     $connection = connect();
-    $replacement = createPresepeListSelected($connection);//create presepi list da problemi ma lo fixo
-    $page = str_replace(' <placeholderContent></placeholderContent>', $replacement, $page);
+    $replacement = createPresepeListRagazzi($connection);//create presepi list da problemi ma lo fixo
+    $page = str_replace('<placeholderRagazzi />', $replacement, $page);
+    $replacement = createPresepeListAdulti($connection);
+    $page = str_replace('<placeholderAdulti />', $replacement, $page);
     echo($page);
 ?>
