@@ -17,6 +17,7 @@
         <form class="informationForm" id="nomeForm" action="../php/scripts/editAccount.php" method="post" title="Nome">
             <fieldset class="fieldsetForm">
                 <legend class="userLegend">Aggiorna il Nome</legend>
+                <nameHint />
                 <div class="formContent">
                     <div class="formElement">
                         <label class="formLabelUser" for="nameInformation">Nome:</label>
@@ -30,6 +31,7 @@
         <form class="informationForm" id="cognomeForm" action="../php/scripts/editAccount.php" method="post" title="Cognome">
             <fieldset class="fieldsetForm">
                 <legend class="userLegend">Aggiorna il Cognome</legend>
+                <surnameHint />
                 <div class="formContent">
                     <div class="formElement">
                         <label class="formLabelUser" for="surnameInformation">Cognome:</label>
@@ -43,6 +45,7 @@
         <form class="informationForm" id="usernameForm" action="../php/scripts/editAccount.php" method="post" title="Username">
             <fieldset class="fieldsetForm">
                 <legend class="userLegend">Aggiorna lo <span lang="en">Username</span></legend>
+                <usernameHint />
                 <div class="formContent">
                     <div class="formElement">
                         <label class="formLabelUser" for="usernameInformation"><span lang="en">Username</span>:</label>
@@ -56,6 +59,7 @@
         <form class="informationForm" id="emailForm" action="../php/scripts/editAccount.php" method="post" title="Mail">
             <fieldset class="fieldsetForm">
                 <legend class="userLegend">Aggiorna la <span lang="en">Mail</span></legend>
+                <mailHint />
                 <div class="formContent">
                     <div class="formElement">
                         <label class="formLabelUser" for="mailInformation"><span lang="en">Mail</span>:</label>
@@ -69,6 +73,7 @@
         <form class="informationForm" id="passwordForm" action="../php/scripts/editAccount.php" method="post" title="Informazioni personali">
             <fieldset class="fieldsetForm">
                 <legend class="userLegend">Aggiorna la <span lang="en">Password</span></legend>
+                <passwordHint />
                 <div class="formContent">
                     <p>Per modificare la <span lang="en">password</span> è necessario inserire correttamente l'attuale.</p>
                     <div class="formElement">
@@ -90,6 +95,7 @@
         <form class="deleteForm" id="deleteForm" action="../php/scripts/deleteAccount.php" method="post" title="Elimina Profilo">
             <fieldset class="fieldsetForm">
                 <legend class="userLegend">Elimina Profilo</legend>
+                <passwordElimHint />
                 <div class="formContent">
                     <p>
                         <strong>Attenzione!</strong>

@@ -81,14 +81,14 @@ if(isset($_POST['submit'])) {
     mysqli_stmt_bind_param($stmt, "sssss", $mail , $name, $surname, $password, $username);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
-    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> La registrazione è andata a buon fine! <a href="login.php"> Effettua il login! </a> </p>', $page);
+    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> La registrazione è andata a buon fine! <a href="login.php"> Effettua il login! </a></p>', $page);
   } else {
     $page = str_replace('mailvaluePlaceholder', htmlspecialchars($mail), $page);
     $page = str_replace('usernameValuePlaceholder', htmlspecialchars($username), $page);
     $page = str_replace('nameValuePlaceholder', htmlspecialchars($name), $page);
     $page = str_replace('surNameValuePlaceholder', htmlspecialchars($surname), $page);
     $page = str_replace('passwordValuePlaceholder', htmlspecialchars($password), $page);
-    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> La registrazione non è andata a buon fine, ricontrolla i campi </p>', $page);
+    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> La registrazione non è andata a buon fine, ricontrolla i campi. </p>', $page);
   }
 } else {
   $page = str_replace('<mailHint />', '', $page);

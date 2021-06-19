@@ -49,9 +49,9 @@
       header('location: '.$_SESSION['lastPages'][1]);
     } else {
       $page = str_replace('<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required>', '<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" value="'.htmlspecialchars($_POST['mail']).'" required>', $page);
-      $replacement = '<span> Login non corretto </span>';
+      $replacement = '<span class="errorMsg" tabindex="1">Login non corretto</span>';
     }
   }
-  $page = str_replace(' <loginMsgPlaceholder></loginMsgPlaceholder>', $replacement, $page);
+  $page = str_replace('<loginMsgPlaceholder></loginMsgPlaceholder>', $replacement, $page);
   echo($page);
 ?>

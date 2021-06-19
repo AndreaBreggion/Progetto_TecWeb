@@ -61,7 +61,6 @@ header a:visited {
 }
 
 #headerTitle h1 {
-    padding: 10px 0 0 0;
     margin: 0;
     overflow: hidden;
 }
@@ -182,7 +181,7 @@ form button:hover {
 }
 
 .current span {
-    margin: auto;
+    margin: auto 1em auto 1em;
 }
 
 .search {
@@ -237,7 +236,7 @@ header nav li a:visited {
 
 #content {
     background-color: #ffffff;
-    min-height: 60%;
+    min-height: 75%;
     width: 70%;
     margin: auto;
     padding: 2em;
@@ -311,6 +310,7 @@ header nav li a:visited {
 
 span.currentCrumb {
     padding: 0;
+    margin: 0;
 }
 
 footer {
@@ -411,15 +411,17 @@ textarea {
 }
 
 .errorMsg {
-    color: red;
+    color: #b30000;
     display: block;
     font-weight: bold;
+    margin-top: 1.5em;
 }
 
 .successMsg {
     color: green;
     display: block;
     font-weight: bold;
+    margin-top: 3em;
 }
 
 .searchResult {
@@ -570,7 +572,7 @@ textarea {
 }
 
 .authorDelete .deleteComment button:hover{
-    background-color: red;
+    background-color: #b30000;
 }
 
 .authorDelete .deleteComment button:before{
@@ -589,7 +591,12 @@ textarea {
 .fieldsetForm {
     border: none;
     padding: 0;
-    margin-top: 2em;
+    margin: 0;
+    margin-top: 1em;
+}
+
+.userLegend {
+    padding: 0;
 }
 
 .informationForm {
@@ -661,11 +668,10 @@ textarea {
     .logHint {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
         padding: 0;
-        border-top: 1px solid lightsteelblue;
-        border-bottom: 1px solid lightsteelblue;
+        border: none;
     }
 
     .logHint span {
@@ -673,7 +679,7 @@ textarea {
     }
 
     .login span a {
-        height: 6em;
+        height: 5em;
         width: 100%;
         padding: 0;
         display: flex;
