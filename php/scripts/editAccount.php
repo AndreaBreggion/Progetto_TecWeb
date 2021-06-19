@@ -8,8 +8,8 @@
 
     if(isset($_POST["updateInformations"])) {
         // Nome
-        if(isset($_POST["nameInformation"])) {
-            $newName = trim($_POST["nameInformation"]);
+        if(isset($_POST["name"])) {
+            $newName = trim($_POST["name"]);
             if(strlen($newName)<3 || strlen($newName)>24 || preg_match('/[0-9!#$%&\'*+\=?^_\`{|}~\-]/', $newName)) {
                 $_SESSION["editMsg"] = "notValidName";
             }
@@ -20,8 +20,8 @@
             }
         }
         // Cognome
-        else if(isset($_POST["surnameInformation"])) {
-            $newSurname = trim($_POST["surnameInformation"]);
+        else if(isset($_POST["surname"])) {
+            $newSurname = trim($_POST["surname"]);
             if(strlen($newSurname)<3 || strlen($newSurname)>24 || preg_match('/[0-9!#$%&\'*+\=?^_\`{|}~\-]/', $newSurname)) {
                 $_SESSION["editMsg"] = "notValidSurname";
             }
@@ -32,9 +32,9 @@
             }
         }
         // Username
-        else if(isset($_POST["usernameInformation"])) {
+        else if(isset($_POST["username"])) {
             $currentUsername = $_SESSION["uName"];
-            $newUsername = trim($_POST["usernameInformation"]);
+            $newUsername = trim($_POST["username"]);
             $isUsernameAlreadyTaken = statementQuery($connection, $newUsername, "SELECT * FROM users WHERE username = ? AND username <> '$currentUsername'");
             if(strlen($newUsername)<3 || strlen($newUsername)>10 || !preg_match('/^[a-zA-Z][a-zA-Z0-9.,$;]+$/', $newUsername)) {
                 $_SESSION["editMsg"] = "notValidUser";
@@ -49,9 +49,9 @@
             }
         }
         // Mail
-        else if(isset($_POST["mailInformation"])) {
+        else if(isset($_POST["mail"])) {
             $currentMail = $_SESSION["uMail"];
-            $newMail = trim($_POST["mailInformation"]);
+            $newMail = trim($_POST["mail"]);
             $isMailAlreadyRegistered = statementQuery($connection, $newMail, "SELECT * FROM users WHERE mail = ? AND mail <> '$currentMail'");
             if(!preg_match('/^(([^<>()\[\]\\.,;:\s@\"]+(\.[^<>()\[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/', $newMail)) {
                 $_SESSION["editMsg"] = "notValidMail";
@@ -69,9 +69,9 @@
             }
         }
         // Password
-        else if(isset($_POST["oldPasswordInformation"]) && isset($_POST["newPasswordInformation"])) {
+        else if(isset($_POST["oldPasswordInformation"]) && isset($_POST["password"])) {
             $oldPwd = trim($_POST["oldPasswordInformation"]);
-            $newPwd = trim($_POST["newPasswordInformation"]);
+            $newPwd = trim($_POST["password"]);
             $data = statementQuery($connection, $uID, "SELECT * FROM users WHERE id = ?");
             $passwordCheck = false;
             if($data) {

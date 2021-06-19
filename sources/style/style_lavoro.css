@@ -608,9 +608,7 @@ textarea {
 }
 
 .formElement {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: block;
 }
 
 .formLabelUser {
