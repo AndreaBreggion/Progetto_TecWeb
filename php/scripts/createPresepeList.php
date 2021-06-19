@@ -81,7 +81,7 @@ function createPresepeListAdulti($connection) {
 }
 
 function mostLiked($connection) {
-    $query = 'SELECT pId, COUNT(*) FROM likes GROUP BY pId LIMIT 3';
+    $query = 'SELECT pId, COUNT(*) FROM likes GROUP BY pId ORDER BY COUNT(*) DESC LIMIT 3';
     $result = $connection->query($query);
     $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.id = ?';
     $stmt = mysqli_stmt_init($connection);
