@@ -433,6 +433,14 @@ textarea {
     margin-top: 3em;
 }
 
+.successPageMsg{
+    text-align: center;
+    color: green;
+    display: block;
+    font-weight: bold;
+    margin-top: 3em;
+}
+
 .searchResult {
     width: 100%;
     text-align: center;
