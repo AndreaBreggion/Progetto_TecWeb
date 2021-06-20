@@ -17,6 +17,8 @@
   $page = str_replace('<h1><a href="../index.php">I presepi di Farra di Soligo</a></h1>', '<h1>I presepi di Farra di Soligo</h1>', $page);
   $page = str_replace('<li><a lang="en" href="./index.php">Home</a></li>', '<li class="current" aria-current="page"><span class="currentPage" lang="en">Home</span></li>', $page);
   $connection = connect();
-  $page = str_replace('<mostLikedPlaceholder />', mostLiked($connection), $page);
+  $replacement = mostLiked($connection);
+  $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato votato alcun presepe.</p>' : $replacement;
+  $page = str_replace('<mostLikedPlaceholder />', $replacement, $page);
   echo($page);
 ?>
