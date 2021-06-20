@@ -3,6 +3,8 @@
   require_once("php/templateBuilder.php");
   require_once('php/scripts/checkUserConnected.php');
   require_once('php/scripts/lastVisitedPages.php');
+  require_once('php/scripts/connection.php');
+  require_once('php/scripts/createPresepeList.php');
   handleVisitedPages('/index.php');
 
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
@@ -14,5 +16,7 @@
   $page = $builder->build();
   $page = str_replace('<h1><a href="../index.php">I presepi di Farra di Soligo</a></h1>', '<h1>I presepi di Farra di Soligo</h1>', $page);
   $page = str_replace('<li><a lang="en" href="./index.php">Home</a></li>', '<li class="current" aria-current="page"><span class="currentPage" lang="en">Home</span></li>', $page);
+  $connection = connect();
+  $page = str_replace('<mostLikedPlaceholder />', mostLiked($connection), $page);
   echo($page);
 ?>

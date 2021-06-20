@@ -2,7 +2,7 @@
 
 function createPresepePost($row, $connection) {
     $post = file_get_contents(__DIR__.'/../content/common/_presepePost.html');
-    $post = str_replace('<titlePlaceholder />', '<h2>Nome: '.$row['presepeName'] .'</h2>', $post);
+    $post = str_replace('<titlePlaceholder />', '<h2>' .$row['presepeName'] .'</h2>', $post);
     $post = str_replace('<categoryPlaceholder />', '<p><span class="postCategoria">Categoria:</span> '. $row['category']. '</p>', $post);
     $post = str_replace('<datePlaceHolder />', '<p><span class="postData">Data di caricamento:</span> '.$row['dateOfCreation'].'</p>', $post);
     $post = str_replace('<authorPlaceHolder />', '<p><span class="postAutore">Autore:</span> '.$row['username'].'</p>', $post);
@@ -58,4 +58,46 @@ function createPresepeSearchList($connection, $where) {
   } else $returnValue = '<p tabindex="0" class="searchResult"> La tua ricerca ha prodotto '.$i.' risultati! </p>' . $returnValue;
   return($returnValue);
 }
+
+
+function createPresepeListRagazzi($connection) {
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.winner=1 AND presepi.category = "ragazzi"';
+    $result = $connection->query($query);
+    $returnValue = '';
+    while($row = mysqli_fetch_assoc($result)) {
+        $returnValue .= createPresepePost($row, $connection);
+    }
+    return($returnValue);
+}
+
+function createPresepeListAdulti($connection) {
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.winner=1 AND presepi.category = "adulti"';
+    $result = $connection->query($query);
+    $returnValue = '';
+    while($row = mysqli_fetch_assoc($result)) {
+        $returnValue .= createPresepePost($row, $connection);
+    }
+    return($returnValue);
+}
+
+function mostLiked($connection) {
+    $query = 'SELECT pId, COUNT(*) FROM likes GROUP BY pId ORDER BY COUNT(*) DESC LIMIT 3';
+    $result = $connection->query($query);
+    $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.id = ?';
+    $stmt = mysqli_stmt_init($connection);
+    if( !mysqli_stmt_prepare($stmt, $query) ) {
+        exit;
+    }
+    $returnValue = '';
+    while($row = mysqli_fetch_assoc($result)){
+        mysqli_stmt_bind_param($stmt, 's', $row['pId']);
+        mysqli_stmt_execute($stmt);
+        $presepe = mysqli_stmt_get_result($stmt);
+        $presepe = mysqli_fetch_assoc($presepe);
+        $returnValue .= createPresepePost($presepe, $connection);
+    }
+    mysqli_stmt_close($stmt);
+    return $returnValue;
+}
+
 ?>

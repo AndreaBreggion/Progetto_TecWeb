@@ -1,17 +1,18 @@
 <div class="presepePage">
     <article aria-label="titolo e descrizione del presepe" class="pageProper">
-        <img class="presepePageImage" src="../sources/images/<placeholderImage />" />
+        <img class="presepePageImage" src="../sources/images/<placeholderImage />" alt="<placeholderAlt />" longdesc="<placeholderLongdesc />" />
         <div class="presepeText">
-            <h3><placeholderTitle /></h3>
-                <h4> di <placeholderAuthor /> - categoria <placeholderCategory /></h4>
+            <h2><placeholderTitle /></h2>
+                <h3> di <placeholderAuthor /> - categoria <placeholderCategory /></h3>
             <p class="presepePageDate"><placeholderDate /></p>
-            <p><placeholderDescription /></p>
+            <p id="<placeholderIdLongdesc />"><placeholderDescription /></p>
         </div>
     </article>
     <div class="flexContainer spaceBetween">
         <form method="POST" action="./scripts/addRemoveLike.php" class="likeButtonForm">
             <span><placeholderLikeNumber /> Mi piace </span> <button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>
         </form>
+        <placeholderVincitore />
         <presepeCancelPlaceholder />
     </div>
     <presepeFormPlaceholder />

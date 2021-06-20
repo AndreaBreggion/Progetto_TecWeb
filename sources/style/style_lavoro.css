@@ -255,6 +255,10 @@ header nav li a:visited {
     margin: 1em 0 1em 0;
 }
 
+#content .sectionLikes{
+    width: 100%;
+}
+
 .sectionContainer:last-child{
     border-bottom: 1px solid lightgray;
 }
@@ -311,6 +315,11 @@ header nav li a:visited {
 span.currentCrumb {
     padding: 0;
     margin: 0;
+}
+
+.hottestShit{
+    display: flex;
+    list-style: none;
 }
 
 footer {

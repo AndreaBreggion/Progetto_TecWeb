@@ -11,7 +11,7 @@ a {
     color: black;
 }
 
-footer,#menuImage,#menuContainer,legend,.screenreaderonly {
+footer, #openImage, #menuContainer, legend,.screenreaderonly {
     display: none;
 }
 

@@ -7,6 +7,7 @@ require_once('scripts/connection.php');
 require_once('scripts/statementQuery.php');
 require_once('scripts/hasUserLiked.php');
 require_once('scripts/lastVisitedPages.php');
+require_once('scripts/hasAdminSelected.php');
 
 // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
 $builder = new TemplateBuilder( "/common/_pageTemplate", "..");
@@ -28,6 +29,7 @@ if(isset($_GET['presepeId'])) {
     $query = 'SELECT COUNT(*) FROM likes WHERE pId = ?';
     $likeNumber = statementQuery($connection, $where, $query);
     $hasUserLikedPresepe = isset($_SESSION['uId']) ? hasUserLiked($connection, $_SESSION['uId'], $_GET['presepeId']) : null;
+    $hasAdminSelected = isset($_SESSION['uId']) ? hasAdminSelected($connection, $_GET['presepeId']) : null;
     $form = isset($_SESSION['uId']) ? file_get_contents(__DIR__ .'/content/common/_presepeCommentForm.html') : '';
     $query = 'SELECT comments.uId as uId, comments.comment as comment, comments.timestamp as timestamp, users.username as username from comments join users ON comments.uId = users.id WHERE comments.pId = ? ORDER BY timestamp DESC';
     $stmt = mysqli_stmt_init($connection);
@@ -39,20 +41,31 @@ if(isset($_GET['presepeId'])) {
     mysqli_stmt_close($stmt);
     $connection->close();
     if($result) {
-      $cancelPresepe = $_SESSION['uId'] == $result['UID'] ? file_get_contents(__DIR__ . "/content/common/_deletePresepeForm.html") : '';
-
+      if(isset($_SESSION['uId'])) {
+        $cancelPresepe = $_SESSION['uId'] == $result['UID'] || $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_deletePresepeForm.html") : '';
+        $winnerPresepe = $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_setWinnerForm.html") : '';
+      } else {
+        $cancelPresepe = '';
+        $winnerPresepe = '';
+      }
       $page = str_replace('<presepeBreadcrumbPlaceholder />', $result['presepeName'], $page);
       $replacement = file_get_contents(__DIR__ . "/content/common/_presepePage.html");
       $replacement = str_replace('<presepeCancelPlaceholder />', $cancelPresepe, $replacement);
       $replacement = str_replace('<placeholderImage />', $result['photoPath'], $replacement);
+      $replacement = str_replace('<placeholderAlt />', 'Foto del presepe ' . $result['presepeName'], $replacement);
+      $longdesc = str_replace('.', '', $result['photoPath']);
+      $replacement = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $replacement);
+      $replacement = str_replace('<placeholderIdLongdesc />', $longdesc . 'longdesc' , $replacement);
       $replacement = str_replace('<placeholderTitle />', $result['presepeName'], $replacement);
       $replacement = str_replace('<placeholderAuthor />', $result['username'], $replacement);
       $replacement = str_replace('<placeholderDate />', $result['dateOfCreation'], $replacement);
       $replacement = str_replace('<placeholderCategory />', $result['category'], $replacement);
       $replacement = str_replace('<placeholderDescription />', $result['description'], $replacement);
       $replacement = str_replace('<placeholderLikeNumber />', $likeNumber['COUNT(*)'], $replacement);
+      $replacement = str_replace('<placeholderVincitore />', $winnerPresepe, $replacement);
       $replacement = str_replace('<presepeFormPlaceholder />', $form, $replacement);
       if($hasUserLikedPresepe) $replacement = str_replace('<button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>', '<button class="likeButton" aria-label="Rimuovi Mi piace presepe" type="submit" name="like">Non mi piace più!</button>', $replacement);
+      if($hasAdminSelected) $replacement = str_replace('<button class="likeButton" type="submit" name="Admin">Vincitore</button>', '<button class="likeButton" aria-label="Rimuovi vincitore" type="submit" name="like">Togli vincitore</button>', $replacement);
 
       for($i = 1; $row = mysqli_fetch_assoc($comments); $i++) {
         $cancelComment = $_SESSION['uId'] == $row['uId'] ? file_get_contents(__DIR__ . "/content/common/_deleteCommentForm.html") : '';
