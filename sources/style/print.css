@@ -1,0 +1,98 @@
+html{
+    margin: 10mm 10mm 10mm 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16pt;
+    color: black;
+    page-break-inside: initial;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+footer, #openImage, #menuContainer, legend,.screenreaderonly {
+    display: none;
+}
+
+#headerTitle{
+    display: flex;
+}
+
+#logo{
+    height: 4em;
+    width: 4em;
+}
+
+fieldset{
+    border: 0;
+}
+
+.breadcrumbsBlock {
+    height: 2em;
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    justify-content: left;
+}
+
+.breacrumbContainer{
+    display: flex;
+}
+
+.breadcrumbsPre {
+    margin: 0.2em 0em 0em 0em;
+    padding-bottom: 2em;
+}
+
+.breadcrumbs {
+    padding-left: 0.5em;
+    margin: 0.2em 0em 0em 0em;
+    list-style: none;
+    display: flex;
+}
+
+.breadcrumbs li {
+    padding-left: 0.5em;
+}
+
+#content{
+    padding: 0 0.5em 0.5em 0;
+}
+
+.postWrapper{
+    padding-top: 1.5cm;
+    page-break-inside: avoid;
+    display: flex;
+}
+
+.postWrapper img{
+    display: flex;
+    padding-left: 5mm;
+    width: 10cm;
+    height: 10cm;
+
+}
+.postWrapper h2{
+    text-decoration: none;
+}
+.postWrapper a,.postMiPiace{
+    display: none;
+}
+.postWrapper p{
+    grid-column: 1;
+
+}
+
+.postText h2{
+    font-size: 18pt;
+}
+.postText{
+    height: 12cm;
+    overflow: hidden;
+}
+ .postDescrizione{
+    height: 4.7cm;
+    overflow: hidden;
+}
+

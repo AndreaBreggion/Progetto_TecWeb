@@ -5,9 +5,8 @@
     <meta name="description" content="Condividi il tuo presepe e partecipa al concorso a premi di Farra di Soligo!"/>
     <meta name="Keywords" content="presepe, natale, natività, famiglia, concorso, Farra, Soligo"/>
     <meta name="robots" content="index, follow"/>
-
+    <script src="scripts/js/validateForm.js"></script>
 </head>
-
 
 <body>
 <headerPH></headerPH>
@@ -17,20 +16,24 @@
         <h2 class="sectionTitle"> Accedi </h2>
         <div class="formContainer">
             <form id="formLogin" action="./login.php" onsubmit="return validateMail() && validatePassword()" method="POST">
-                    <label for="mail" class="formLabel" id="mailLabel" lang="en">Mail</label>
-                    <input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required />
+                <fieldset class="fieldsetForm">
+                    <legend class="formLegend">Inserisci le credenziali per il <span lang="en">login</span></legend>
+                    <label for="mail" class="formLabel" id="mailLabel">La tua <span lang="en">Mail</span>:</label>
+                    <input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required>
 
-                    <label for="password" class="formLabel" id="passwordLabel" lang="en">Password</label>
-                    <input type="password" id="password" class="formInput" name="password" placeholder="Password" required />
+                    <label for="password" class="formLabel" id="passwordLabel"><span lang="en">Password</span>:</label>
+                    <input type="password" id="password" class="formInput" name="password" placeholder="Password" required>
 
                     <button class="formButton" name="submit">Accedi</button>
+                </fieldset>
             </form>
         </div>
         <loginMsgPlaceholder></loginMsgPlaceholder>
-        <span class="registerHint"> Non ti sei ancora registrato? <a href="<rootDIR></rootDIR>/php/register.php"> Registrati </a></span>
+        <p class="registerHint">
+            Non ti sei ancora registrato? <a href="<rootDIR></rootDIR>/php/register.php">Registrati</a>
+        </p>
     </div>
 </main>
-<script src="scripts/js/validateForm.js"></script>
 <footerPH></footerPH>
 </body>
 

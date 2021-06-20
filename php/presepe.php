@@ -41,9 +41,13 @@ if(isset($_GET['presepeId'])) {
     mysqli_stmt_close($stmt);
     $connection->close();
     if($result) {
-      $cancelPresepe = $_SESSION['uId'] == $result['UID'] || $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_deletePresepeForm.html") : '';
-      $winnerPresepe = $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_setWinnerForm.html") : '';
-
+      if(isset($_SESSION['uId'])) {
+        $cancelPresepe = $_SESSION['uId'] == $result['UID'] || $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_deletePresepeForm.html") : '';
+        $winnerPresepe = $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_setWinnerForm.html") : '';
+      } else {
+        $cancelPresepe = '';
+        $winnerPresepe = '';
+      }
       $page = str_replace('<presepeBreadcrumbPlaceholder />', $result['presepeName'], $page);
       $replacement = file_get_contents(__DIR__ . "/content/common/_presepePage.html");
       $replacement = str_replace('<presepeCancelPlaceholder />', $cancelPresepe, $replacement);
