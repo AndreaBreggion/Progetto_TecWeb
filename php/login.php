@@ -14,8 +14,8 @@
     '<li><a href="../index.php" lang="en">Home</a></li>',
     '<li class="current" aria-current="page"><span class="currentCrumb" lang="en">Login</span></li>'
   ));
-
   $page = $builder->build();
+  $page = str_replace('<a href="../php/login.php" lang="en">Login</a>', ' <span>Login</span>', $page);
   $connection = connect();
   $replacement = '';
   if(isset($_POST['submit'])) {
@@ -44,14 +44,14 @@
       $result = false;
     }
     if($result) {
-      $page = str_replace('<span class="registerHint"> Non ti sei ancora registrato? <a href="../php/register.php"> Registrati </a></span>', '', $page);
+      $page = str_replace('<p class="registerHint"> Non ti sei ancora registrato? <a href="../php/register.php"> Registrati </a></p>', '', $page);
       $replacement = '<span> Login avvenuto correttamente! benvenuto ' .$_SESSION["uName"] .'!</span>';
       header('location: '.$_SESSION['lastPages'][1]);
     } else {
-      $page = str_replace('<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required />', '<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" value="'.htmlspecialchars($_POST['mail']).'" required />', $page);
-      $replacement = '<span> Login non corretto </span>';
+      $page = str_replace('<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required>', '<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" value="'.htmlspecialchars($_POST['mail']).'" required>', $page);
+      $replacement = '<span class="errorMsg" tabindex="1">Login non corretto</span>';
     }
   }
-  $page = str_replace(' <loginMsgPlaceholder></loginMsgPlaceholder>', $replacement, $page);
+  $page = str_replace('<loginMsgPlaceholder></loginMsgPlaceholder>', $replacement, $page);
   echo($page);
 ?>
