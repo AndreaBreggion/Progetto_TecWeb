@@ -68,11 +68,12 @@ if(isset($_GET['presepeId'])) {
       if($hasAdminSelected) $replacement = str_replace('<button class="likeButton" type="submit" name="Admin">Vincitore</button>', '<button class="likeButton" aria-label="Rimuovi vincitore" type="submit" name="like">Togli vincitore</button>', $replacement);
 
       for($i = 1; $row = mysqli_fetch_assoc($comments); $i++) {
-        $cancelComment = $_SESSION['uId'] == $row['uId'] ? file_get_contents(__DIR__ . "/content/common/_deleteCommentForm.html") : '';
+        $cancelComment = ($_SESSION['uId'] == $row['uId']) || ($_SESSION['loggedin'] == 'admin') ? file_get_contents(__DIR__ . "/content/common/_deleteCommentForm.html") : '';
         $commentTemplate = file_get_contents(__DIR__.'/content/common/_commentTemplate.html');
         $commentTemplate = str_replace('<placeholderCommentDeleteForm />', $cancelComment, $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentNumber />', $i, $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentUsername />', $row['username'], $commentTemplate);
+        $commentTemplate = str_replace('<placeholderCommentUId />', $row['uId'], $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentoDatatime />', $row['timestamp'], $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentProper />', $row['comment'], $commentTemplate);
         $commentThread .= $commentTemplate;

@@ -63,6 +63,7 @@ function createPresepeSearchList($connection, $where) {
 function createPresepeListRagazzi($connection) {
     $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.winner=1 AND presepi.category = "ragazzi"';
     $result = $connection->query($query);
+    if(!$result) return('');
     $returnValue = '';
     while($row = mysqli_fetch_assoc($result)) {
         $returnValue .= createPresepePost($row, $connection);
@@ -73,6 +74,7 @@ function createPresepeListRagazzi($connection) {
 function createPresepeListAdulti($connection) {
     $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.winner=1 AND presepi.category = "adulti"';
     $result = $connection->query($query);
+    if(!$result) return('');
     $returnValue = '';
     while($row = mysqli_fetch_assoc($result)) {
         $returnValue .= createPresepePost($row, $connection);
