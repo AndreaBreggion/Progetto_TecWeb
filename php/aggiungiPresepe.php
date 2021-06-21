@@ -71,6 +71,7 @@
       mysqli_stmt_bind_param($stmt, "isssss", $_SESSION['uId'] , $imageName, $title, $category, $description, $date);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
+      header('location: successPage.php');
     } else {
       $page = str_replace('titlePlaceholder', htmlspecialchars($title), $page);
       $page = str_replace('<descriptionPlaceholder />', $description, $page);
