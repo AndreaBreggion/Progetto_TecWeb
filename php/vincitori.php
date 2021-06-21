@@ -10,7 +10,8 @@
 
     $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"));
 
-    $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"));
+    $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
+
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
 
     handleVisitedPages('/php/vincitori.php');

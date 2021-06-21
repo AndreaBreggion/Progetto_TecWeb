@@ -70,7 +70,7 @@ if(isset($_GET['presepeId'])) {
       $replacement = str_replace('<placeholderLikeNumber />', $likeNumber['COUNT(*)'], $replacement);
       $replacement = str_replace('<placeholderVincitore />', $winnerPresepe, $replacement);
       $replacement = str_replace('<presepeFormPlaceholder />', $form, $replacement);
-      if($hasUserLikedPresepe) $replacement = str_replace('<button class="presepeButton" aria-label="Aggiungi un Mi Piace al presepe" type="submit" name="like">Mi piace!</button>', '<button class="presepeButton" aria-label="Rimuovi il Mi piace al presepe" type="submit" name="like">Non mi piace più!</button>', $replacement);
+      if($hasUserLikedPresepe) $replacement = str_replace('<button class="presepeButton likeButton" aria-label="Aggiungi un Mi Piace al presepe" type="submit" name="like">Mi piace!</button>', '<button class="presepeButton likeButton" aria-label="Rimuovi il Mi piace al presepe" type="submit" name="like">Non mi piace più!</button>', $replacement);
       if($hasAdminSelected) $replacement = str_replace('<button class="presepeButton" type="submit" name="segna vincitore" aria-label="Segna il presepe come vincitore">Segna come Vincitore</button>', '<button class="presepeButton" aria-label="Rimuovi il presepe dai vincitori" type="submit" name="like">Rimuovi dai Vincitori</button>', $replacement);
 
       for($i = 1; $row = mysqli_fetch_assoc($comments); $i++) {
