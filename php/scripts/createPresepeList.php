@@ -79,6 +79,5 @@ function createPresepeListAdulti($connection) {
     }
     return($returnValue);
 }
-?>
 
 ?>
