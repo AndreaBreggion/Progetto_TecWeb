@@ -28,8 +28,10 @@
 
     $connection = connect();
     $replacement = createPresepeListRagazzi($connection);
+    $replacement = strlen($replacement) == 0 ? '<p>I vincitori della categoria Ragazzi non sono ancora stati eletti.</p>' : $replacement;
     $page = str_replace('<placeholderRagazzi />', $replacement, $page);
     $replacement = createPresepeListAdulti($connection);
+    $replacement = strlen($replacement) == 0 ? '<p>I vincitori della categoria Adulti non sono ancora stati eletti.</p>' : $replacement;
     $page = str_replace('<placeholderAdulti />', $replacement, $page);
     echo($page);
 ?>

@@ -34,7 +34,7 @@ $page = str_replace('<placeholderContent></placeholderContent>',
 
 $connection = connect();
 $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
-$replacement = strlen($replacement) == 0 ? '<h3 tabindex="1"><em> Errore 404: presepi non trovati! </em></h3>' : $replacement;
+$replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato caricatro alcun presepe!</p>' : $replacement;
 $connection->close();
 $page = str_replace('<placeholderLista />', $replacement, $page);
 echo($page);

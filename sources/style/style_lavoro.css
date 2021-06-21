@@ -504,39 +504,69 @@ textarea {
     padding: 1em 0 1em 0;
     border-bottom: 1px solid gray;
 }
+
 .pageProper {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
 }
 
+/*
 .presepePage {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
 }
+*/
 
-.presepeText {
-    width:60%;
-    text-align: left;
-    margin: 1em 0 0 6em;
+.presepeImageText {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    align-content: stretch;
 }
 
 .presepePageImage {
     width: 100%;
     object-fit: contain;
-    max-height: 30em;
-    margin: 1em 0 0 0em;
+    max-height: 40em;
+    margin: 0 2em 2em 0;
 }
 
-.likeButtonForm{
+.presepePageDesc {
+    margin: 0;
+    width: 60%;
+    text-align: justify;
+}
+
+.presepeMiPiace {
+    margin: 1.5em 0 1.5em 0;
+}
+
+.likeButtonForm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: fit-content;
+}
+
+.presepeButtonRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.presepeButton{
+    margin: auto;
     text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: #ABABAB;
 }
 
-.likeButton {
-    background-color: #E62117;
-}
-
-.likeButton:hover {
-    background-color: #cb1710;
+.presepeButton:hover {
+    background-color: #999999;
 }
 
 .commentForm {
@@ -560,14 +590,15 @@ textarea {
     border-bottom: 1px solid lightgray;
 }
 
+/*
 .flexContainer {
     display: flex;
-
 }
 
 .spaceBetween {
     justify-content: space-between;
 }
+*/
 
 .authorDelete {
     display: flex;
@@ -797,6 +828,16 @@ textarea {
     form {
         width: 80%;
     }
+
+    .presepeImageText {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .presepePageDesc {
+        width: 100%;
+        margin-bottom: 2em;
+    }
 }
 
 @media screen and (max-width: 768px) {    
@@ -860,6 +901,20 @@ textarea {
     .formButton {
         width: 100%;
     }
+    
+    .presepeButtonRow {
+        flex-direction: column;
+    }
+
+    .likeButtonForm {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .presepeButton{
+        width: 100%;
+    }
+    
 }
 
 @media screen and (max-width: 480px) {

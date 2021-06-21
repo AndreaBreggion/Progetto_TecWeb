@@ -1,20 +1,27 @@
 <div class="presepePage">
     <article aria-label="titolo e descrizione del presepe" class="pageProper">
-        <img class="presepePageImage" src="../sources/images/<placeholderImage />" alt="<placeholderAlt />" longdesc="<placeholderLongdesc />" />
-        <div class="presepeText">
-            <h2><placeholderTitle /></h2>
-                <h3> di <placeholderAuthor /> - categoria <placeholderCategory /></h3>
-            <p class="presepePageDate"><placeholderDate /></p>
-            <p id="<placeholderIdLongdesc />"><placeholderDescription /></p>
+        <h2><placeholderTitle /></h2>
+        <p class="postAutore">Di <placeholderAuthor /> - Categoria <placeholderCategory /></h3>
+        <p class="presepePageDate"><span class="postData">Data di caricamento:</span> <placeholderDate /></p>
+        <p class="postDescrizione"><span>Foto e Descrzione:</span></p>
+        <div class="presepeImageText">
+            <img class="presepePageImage" src="../sources/images/<placeholderImage />" alt="<placeholderAlt />" longdesc="<placeholderLongdesc />" />
+            <p id="<placeholderIdLongdesc />" class="presepePageDesc"><placeholderDescription /></p>
         </div>
     </article>
-    <div class="flexContainer spaceBetween">
+    <p class="presepeMiPiace postMiPiace">Questo presepe ha ricevuto <placeholderLikeNumber /> Mi Piace.</p>
+    <placeholderMiPiace />
+    <div class="flexContainer spaceBetween presepeButtonRow">
         <form method="POST" action="./scripts/addRemoveLike.php" class="likeButtonForm">
-            <span><placeholderLikeNumber /> Mi piace </span> <button class="likeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>
+            <button class="presepeButton" aria-label="Mi piace presepe" type="submit" name="like">Mi piace!</button>
         </form>
         <placeholderVincitore />
         <presepeCancelPlaceholder />
     </div>
-    <presepeFormPlaceholder />
-    <presepeCommentThreadPlaceholder />
+    <div class="pageComments">
+        <h2>Commenti</h2>
+        <placeholderCommenti />
+        <presepeFormPlaceholder />
+        <presepeCommentThreadPlaceholder />
+    </div>
 </div>
