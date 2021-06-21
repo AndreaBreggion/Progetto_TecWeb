@@ -37,7 +37,7 @@ header {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    background-color: #4267B2;
+    background-color: #375695;
 }
 
 header a {
@@ -264,7 +264,7 @@ header nav li a:visited {
 }
 
 .sectionTitle {
-    color: #06a0d2;
+    color: #087EA6;
     text-align: center;
 }
 
@@ -280,7 +280,7 @@ header nav li a:visited {
 .breadcrumbsBlock {
     height: 2em;
     width: 100%;
-    background-color: #4267B2;
+    background-color: #375695;
     display: flex;
     justify-content: center;
     color: #ffffff;
@@ -331,7 +331,7 @@ footer {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: #4267B2;
+    background-color: #375695;
     color: #ffffff;
     border-top: 1px solid gray;
     text-align: center;
@@ -505,19 +505,6 @@ textarea {
     border-bottom: 1px solid gray;
 }
 
-.pageProper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/*
-.presepePage {
-    display: flex;
-    flex-flow: column wrap;
-}
-*/
-
 .presepeImageText {
     display: flex;
     flex-direction: row;
@@ -540,7 +527,8 @@ textarea {
 }
 
 .presepeMiPiace {
-    margin: 1.5em 0 1.5em 0;
+    margin: 0;
+    margin-bottom: 1.5em;
 }
 
 .likeButtonForm {
@@ -560,7 +548,6 @@ textarea {
 .presepeButton{
     margin: auto;
     text-align: center;
-    margin-top: 1em;
     margin-bottom: 1em;
     background-color: #ABABAB;
 }
@@ -569,17 +556,39 @@ textarea {
     background-color: #999999;
 }
 
-.commentForm {
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
-    width: 100%;
+.pageComments {
+    margin-top: 3em;
 }
 
-.commentForm textarea {
+.pageComments h2 {
+    margin: 0;
+}
+
+.fieldsetCommento {
+    width: 100%;
+    padding: 0;
+    border: none;
+    margin-top: 1em;
+}
+
+.formLabelCommento {
+    font-size: 1em;
+}
+
+.commentLegend {
+    padding: 0;
+}
+
+.textAreaCommento {
     height: 5em;
     resize: none;
     margin-right: 1em;
+}
+
+.commentForm { 
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
 
 .comment {
@@ -698,8 +707,8 @@ textarea {
     }
 
     #openImage.jsActive {
-        width: 3.5em;
-        height: 3.5em;
+        width: 3em;
+        height: 3em;
         justify-content: flex-end;
         display: flex;
         padding-right: 1em;
@@ -740,7 +749,7 @@ textarea {
     }
 
     .login span a:hover {
-        background: #314c81;
+        background: #304C82;
     }
 
     #menuContainer.jsActive {
@@ -748,7 +757,7 @@ textarea {
         position: fixed;
         top: 0em;
         right: 0;
-        background: #314c81;
+        background: #304C82;
         overflow: hidden;
         width: 0em;
         z-index: 1;
@@ -764,8 +773,8 @@ textarea {
         display: block;
         padding-right: 1em;
         padding-top: 1.25em;
-        width: 3.5em;
-        height: 3.5em;
+        width: 3em;
+        height: 3em;
         float: right;
     }
 
@@ -781,7 +790,7 @@ textarea {
 
     header nav {
         height: 100%;
-        background: #314c81;
+        background: #304C82;
         border: 0;
     }
 
@@ -811,13 +820,13 @@ textarea {
     }
 
     header nav li:hover {
-        background-color: #314c81;
+        background-color: #304C82;
     }
 
     header nav .current {
         width: 100%;
-        border-left: 1px solid #314c81;
-        border-left: 1px solid #314c81;
+        border-left: 1px solid #304C82;
+        border-left: 1px solid #304C82;
     }
 
     .breadcrumbContainer {
