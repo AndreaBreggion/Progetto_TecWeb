@@ -11,7 +11,23 @@ require_once('scripts/hasAdminSelected.php');
 
 // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
 $builder = new TemplateBuilder( "/common/_pageTemplate", "..");
-$builder->setHead(file_get_contents(__DIR__ . "/content/common/_head.html"), "presepe");
+
+if(isset($_GET['presepeId'])) {
+  $where = $_GET['presepeId'];
+  $connection = connect();
+  $query = 'SELECT presepi.*, users.username as username, users.id as UID FROM presepi JOIN users ON presepi.uId = users.id AND presepi.id = ?';
+      $result = statementQuery($connection, $where, $query);
+  if($result) {
+    $builder->setHead(file_get_contents(__DIR__ . "/content/common/_head.html"), "presepe", $result['presepeName']);
+    $builder->setDescription("Pagina che illustra i dettagli del presepe " . $result['presepeName'] . " e permette di interagirvi");
+  } else {
+    $builder->setHead(file_get_contents(__DIR__ . "/content/common/_head.html"), "presepe", "presepe");
+    $builder->setDescription("Pagina che illustra i dettagli del presepe e permette di interagirvi");
+  }
+  $connection->close();
+}
+
+
 $builder->setHeader(file_get_contents(__DIR__ . "/content/common/_header.html"), checkUserConnection());
 $builder->setFooter(file_get_contents(__DIR__ . "/content/common/_footer.html"));
 $builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumbs.html"), array('<li><a href="../index.php" lang="en">Home</a></li>',
@@ -62,7 +78,7 @@ if(isset($_GET['presepeId'])) {
       $longdesc = str_replace('.', '', $result['photoPath']);
       $replacement = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $replacement);
       $replacement = str_replace('<placeholderIdLongdesc />', $longdesc . 'longdesc' , $replacement);
-      $replacement = str_replace('<placeholderTitle />', $result['presepeName'], $replacement);
+      $replacement = str_replace('<titlePH />', $result['presepeName'], $replacement);
       $replacement = str_replace('<placeholderAuthor />', $result['username'], $replacement);
       $replacement = str_replace('<placeholderDate />', $result['dateOfCreation'], $replacement);
       $replacement = str_replace('<placeholderCategory />', $result['category'], $replacement);

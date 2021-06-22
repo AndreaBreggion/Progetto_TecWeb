@@ -10,7 +10,7 @@
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
   $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "aggiungiPresepe");
-    
+  $builder->setDescription("Pagina di aggiunta del Presepe da parte dell'utente");
   $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
   $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
   $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(

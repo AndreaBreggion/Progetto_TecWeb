@@ -9,9 +9,8 @@
     $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
     $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "vincitori");
-
+    $builder->setDescription("Pagina che espone due liste contenenti i presepi vincitori delle due categorie (Ragazzi e Adulti)");
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
-
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
 
     handleVisitedPages('/php/vincitori.php');

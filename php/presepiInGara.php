@@ -9,20 +9,24 @@
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
-  $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "presepiInGara");
-
-  $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
-  $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
   if(isset($_GET['search'])){
+    $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "presepiInGara", "ricerca");
+    $builder->setDescription("Pagina che espone la lista dei risultai della ricerca tra i presepi attualmente in gara");
     $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
       '<li><a href="../index.php" lang="en">Home</a></li>',
       '<li><a href="/php/presepiInGara.php">Presepi in gara</a></li>',
       '<li class="current" aria-current="page"><span class="currentCrumb">Ricerca: '.htmlspecialchars($_GET['search']).'</span></li>'
     ));
-  } else $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
+  } else {
+    $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "presepiInGara");
+    $builder->setDescription("Pagina che espone la lista di tutti i presepi attualmente in gara");
+    $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
     '<li><a href="../index.php" lang="en">Home</a></li>',
     '<li class="current" aria-current="page"><span class="currentCrumb">Presepi in gara</span></li>'
-  ));
+    ));
+  }
+  $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
+  $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
 
   $page = $builder->build();
   if(isset($_GET['search'])) {

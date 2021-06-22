@@ -14,40 +14,48 @@
         }
 
         // setter per l'<head>
-        public function setHead($head, $name) {
+        public function setHead($head, string $name, string $otherInfo='') {
             if($name=="home") {
-                $head = str_replace("<placeholderTitle />", $this->_institution, $head);
+                $head = str_replace("<titlePH />", $this->_institution, $head);
             }
             else if($name=="presepiInGara") {
-                $head = str_replace("<placeholderTitle />", "Presepi in Gara | " . $this->_institution, $head);
+                if($otherInfo=="ricerca") {
+                    $head = str_replace("<titlePH />", "Risultati Ricerca | " . $this->_institution, $head);
+                } else {
+                    $head = str_replace("<titlePH />", "Presepi in Gara | " . $this->_institution, $head);
+                }
             }
             else if($name=="aggiungiPresepe") {
-                $head = str_replace("<placeholderTitle />", "Carica il tuo Presepe | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Carica il tuo Presepe | " . $this->_institution, $head);
             }
             else if($name=="presepe") {
-                $head = str_replace("<placeholderTitle />", "Informazioni Presepe | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Informazioni " . $otherInfo . " | " . $this->_institution, $head);
             }
             else if($name=="login") {
-                $head = str_replace("<placeholderTitle />", "Accedi | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Accedi | " . $this->_institution, $head);
             }
             else if($name=="register") {
-                $head = str_replace("<placeholderTitle />", "Registrati | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Registrati | " . $this->_institution, $head);
             }
             else if($name=="regole") {
-                $head = str_replace("<placeholderTitle />", "Regole del Concorso | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Regole del Concorso | " . $this->_institution, $head);
             }
             else if($name=="successo") {
-                $head = str_replace("<placeholderTitle />", "Conferma caricamento | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Conferma caricamento | " . $this->_institution, $head);
             }
             else if($name=="user") {
-                $head = str_replace("<placeholderTitle />", "Pagina personale | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Pagina personale " . $otherInfo . " | " . $this->_institution, $head);
             }
             else if($name=="vincitori") {
-                $head = str_replace("<placeholderTitle />", "Vincitori | " . $this->_institution, $head);
+                $head = str_replace("<titlePH />", "Vincitori | " . $this->_institution, $head);
             }
             // sostituisce il contenuto di <headPH /> (PlaceHolder) in $_whole_page
             // con quello di $head
             $this->_whole_page = str_replace("<headPH />", $head, $this->_whole_page);
+        }
+
+        public function setDescription(string $description) {
+            $this->_whole_page = str_replace("<descriptionPH />", $description, $this->_whole_page);
         }
 
         // setter per l'header
