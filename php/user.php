@@ -22,7 +22,7 @@
         header('location: ../index.php');
     }
     else {
-        $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/user.html'), $page);
+        $page = str_replace('<placeholderContent />', file_get_contents(__DIR__.'/content/user.html'), $page);
     }
 
     if($_SESSION["loggedin"]=="admin") {

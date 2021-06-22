@@ -12,7 +12,7 @@ $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.
   '<li><a href="aggiungiPresepe.php">Aggiungi presepe</a></li>',
   '<li class="current" aria-current="page"><span class="currentCrumb">Conferma caricamento</span></li>'));
 $page = $builder->build();
-$page = str_replace('<placeholderContent></placeholderContent>',
+$page = str_replace('<placeholderContent />',
                     '<h2 class="sectionTitle">Conferma caricamento</h2>
                      <p class="successPageMsg" tabindex="1">Il tuo presepe è stato caricato con successo!</p>', $page);
 echo($page);

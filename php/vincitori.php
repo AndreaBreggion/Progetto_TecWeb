@@ -24,7 +24,7 @@
     $page = $builder->build();
     $page = str_replace('<li><a href="../php/vincitori.php">Vincitori</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Vincitori</span></li>', $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
-    $page = str_replace('<placeholderContent></placeholderContent>', '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
+    $page = str_replace('<placeholderContent />', '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
     $page = str_replace('<ul class="listaPresepi"><placeholderLista /></ul>', file_get_contents(__DIR__."/content/common/_presepiWinnerContent.html"), $page);
 
     $connection = connect();

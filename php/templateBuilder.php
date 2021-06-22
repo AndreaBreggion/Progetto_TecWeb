@@ -34,20 +34,20 @@
                 $head = str_replace("{title}", "Vincitori", $head);
             }
             
-            // sostituisce il contenuto di <headPH></headPH> (PlaceHolder) in $_whole_page
+            // sostituisce il contenuto di <headPH /> (PlaceHolder) in $_whole_page
             // con quello di $head
-            $this->_whole_page = str_replace("<headPH></headPH>", $head, $this->_whole_page);
+            $this->_whole_page = str_replace("<headPH />", $head, $this->_whole_page);
         }
 
         // setter per l'header
         public function setHeader($header, $hint = null) {
-            // sostituisce il contenuto di <headerPH></headerPH> (PlaceHolder) in $_whole_page
+            // sostituisce il contenuto di <headerPH /> (PlaceHolder) in $_whole_page
             // con quello di $header
-            $this->_whole_page = str_replace("<headerPH></headerPH>", $header, $this->_whole_page);
+            $this->_whole_page = str_replace("<headerPH />", $header, $this->_whole_page);
             if( $hint ) {
-              $this->_whole_page = str_replace("<placeholderLog></placeholderLog>", $hint, $this->_whole_page);
+              $this->_whole_page = str_replace("<placeholderLog />", $hint, $this->_whole_page);
             } else {
-              $this->_whole_page = str_replace("<placeholderLog></placeholderLog>", '', $this->_whole_page);
+              $this->_whole_page = str_replace("<placeholderLog />", '', $this->_whole_page);
             }
         }
         
@@ -60,20 +60,20 @@
             $replacement .= $link;
             if($index != count($linkArray) -1) $replacement .= '<li aria-hidden="true"><span>/</span></li>';
           }
-          $breadcrumb = str_replace('<breadcrumbsPH></breadcrumbsPH>', $replacement, $breadcrumb);
-          $this->_whole_page = str_replace("<placeholderBreadcrumbsPH></placeholderBreadcrumbsPH>", $breadcrumb, $this->_whole_page);
+          $breadcrumb = str_replace('<breadcrumbsPH />', $replacement, $breadcrumb);
+          $this->_whole_page = str_replace("<placeholderBreadcrumbsPH />", $breadcrumb, $this->_whole_page);
         }
         
         // setter per il footer
         public function setFooter($footer) {
-            // sostituisce il contenuto di <footerPH></footerPH> (PlaceHolder) in $_whole_page
+            // sostituisce il contenuto di <footerPH /> (PlaceHolder) in $_whole_page
             // con quello di $footer
-            $this->_whole_page = str_replace("<footerPH></footerPH>", $footer, $this->_whole_page);
+            $this->_whole_page = str_replace("<footerPH />", $footer, $this->_whole_page);
         }
 
         // costruisce l'intera pagina
         public function build() {
-            $this->_whole_page = str_replace("<rootDIR></rootDIR>", $this->_rootDIR, $this->_whole_page);
+            $this->_whole_page = str_replace("<rootDIR />", $this->_rootDIR, $this->_whole_page);
             return $this->_whole_page;
         }
     }

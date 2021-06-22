@@ -94,7 +94,7 @@ if(isset($_GET['presepeId'])) {
       $replacement = str_replace('<presepeCommentThreadPlaceholder />', $commentThread, $replacement);
     } else $page = str_replace('<presepeBreadcrumbPlaceholder />', 'Presepe non trovato', $page);
 } else $page = str_replace('<presepeBreadcrumbPlaceholder />', 'Presepe non trovato', $page);
-$page = str_replace('<placeholderContent></placeholderContent>', $replacement, $page);
+$page = str_replace('<placeholderContent />', $replacement, $page);
 echo($page);
 
 ?>

@@ -14,6 +14,6 @@ $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.
   '<li class="current" aria-current="page"><span class="currentCrumb">Regole del concorso</span></li>'));
 $page = $builder->build();
 $page = str_replace('<li><a href="../php/regole.php">Regole del concorso</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Regole del concorso</span></li>', $page);
-$page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__."/content/common/_regoleContent.html"), $page);
+$page = str_replace('<placeholderContent />', file_get_contents(__DIR__."/content/common/_regoleContent.html"), $page);
 echo($page);
 ?>

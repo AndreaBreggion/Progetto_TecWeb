@@ -23,7 +23,7 @@
   if(!isset($_SESSION['uId'])) {
     header('location: login.php');
   } else {
-    $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/common/_addPresepeForm.html'), $page);
+    $page = str_replace('<placeholderContent />', file_get_contents(__DIR__.'/content/common/_addPresepeForm.html'), $page);
   }
 
   if(isset($_POST['submit'])) {
