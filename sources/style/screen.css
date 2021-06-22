@@ -671,6 +671,10 @@ textarea {
 }
 
 /* Pagina Utente */
+.infoUserContent {
+    margin-top: 3em;
+}
+
 .information {
     margin-top: 3em;
 }

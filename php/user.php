@@ -37,10 +37,17 @@
                             '<p>In qualità di amministratore hai la possibilità di eleggere i presepi vincitori del concorso,
                             eliminarli e moderare i commenti direttamente dalle pagine dei singoli presepi presenti in
                             <a href="../php/presepiInGara.php">Presepi in Gara</a></p>', $page);
+        $page = str_replace('<placeholderAlert />',
+                            '<p>Prima di procedere, sei pregato di inserire correttamente la
+                            <span lang="en">password</span>.</p>', $page);          
     }
     else if($_SESSION["loggedin"]=="users") {
         $page = str_replace('<placeholderUserType />', 'utente', $page);
         $page = str_replace('<placeholderAdmin />', '', $page);
+        $page = str_replace('<placeholderAlert />',
+                            '<p><strong>Attenzione!</strong>Eliminando il profilo rimuoverai tutti i caricamenti e verrai automaticamente
+                            escluso dal concorso!<br />Per questo, prima di procedere, sei pregato di inserire correttamente la
+                            <span lang="en">password</span>.</p>', $page);    
     }
 
     // Se le informazioni utente sono state modificate correttamente
@@ -108,5 +115,8 @@
     }
 
     $page = str_replace('<placeholderUsername />', $_SESSION["uName"], $page);
+    $page = str_replace('<placeholderName />', $_SESSION["uRealName"], $page);
+    $page = str_replace('<placeholderSurname />', $_SESSION["uSurname"], $page);
+    $page = str_replace('<placeholderMail />', $_SESSION["uMail"], $page);
     echo($page);
 ?>
