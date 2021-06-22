@@ -21,12 +21,12 @@ function openNav(){
 
 
     function scrollFunction() {
-        if (document.body.scrollTop > 150 || document.documentElement.scrollTop > 150) {
+        if (document.body.scrollTop < 150 || document.documentElement.scrollTop < 150) {
             //document.getElementById('returnButton').classList.add('Fade');
-            document.getElementById('returnButton').style.display = "block";
+            document.getElementById('returnButton').style.display = "none";
         } else {
             //document.getElementById('returnButton').classList.remove('Fade');
-            document.getElementById('returnButton').style.display = "none";
+            document.getElementById('returnButton').style.display = "block";
         }
     }
 
