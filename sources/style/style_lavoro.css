@@ -277,7 +277,6 @@ header nav li a:visited {
 
 .breadcrumbsBlock {
     height: 2em;
-    width: 100%;
     background-color: #375695;
     display: flex;
     justify-content: center;
@@ -813,7 +812,7 @@ textarea {
     }
 
     header nav ul {
-        height: 60%;
+        height: 55%;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
@@ -847,9 +846,13 @@ textarea {
         border-left: 1px solid #304C82;
     }
 
+    .breadcrumbsBlock {
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+
     .breadcrumbContainer {
         width: 100%;
-        padding-left: 1em;
     }
 
     form {
@@ -964,6 +967,24 @@ textarea {
 
     #headerTitle {
         padding-left: 0.75em;
+    }
+
+    .breadcrumbsBlock {
+        display: block;
+        height: auto;
+        padding-top: 1em;
+    }
+
+    .breadcrumbContainer {
+        display: inline;
+    }
+
+    .breadcrumbsPre {
+        min-width: 25%;
+    }
+
+    .breadcrumbs {
+        display: inline;
     }
 
     form {
