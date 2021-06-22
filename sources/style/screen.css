@@ -97,7 +97,12 @@ header a:visited {
     color: #ffffff;
 }
 
-.login a{
+.login a {
+    padding: 0.5em;
+    color: #ffffff;
+}
+
+.login a:visited {
     padding: 0.5em;
     color: yellow;
 }
@@ -186,7 +191,7 @@ form button:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 1em;
+    padding-top: 0.5em;
 }
 
 .searchBar {
@@ -831,6 +836,7 @@ textarea {
     header nav li {
         height: 4.5em;
         border: none;
+        width: 100%;
     }
 
     header nav li a {
@@ -852,8 +858,8 @@ textarea {
 
     header nav .current {
         width: 100%;
-        border-left: 1px solid #304C82;
-        border-left: 1px solid #304C82;
+        color: #ffffff;
+        background-color: #304C82;
     }
 
     .breadcrumbsBlock {
