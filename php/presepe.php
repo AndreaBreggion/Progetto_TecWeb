@@ -44,11 +44,13 @@ if(isset($_GET['presepeId'])) {
       if(isset($_SESSION['uId'])) {
         $cancelPresepe = $_SESSION['uId'] == $result['UID'] || $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_deletePresepeForm.html") : '';
         $winnerPresepe = $_SESSION["loggedin"] == 'admin' ? file_get_contents(__DIR__ . "/content/common/_setWinnerForm.html") : '';
+        $likePresepe = file_get_contents(__DIR__ . "/content/common/_addLikeForm.html");
         $avvisoMiPiace = '';
         $avvisoCommenti = '';
       } else {
         $cancelPresepe = '';
         $winnerPresepe = '';
+        $likePresepe = '';
         $avvisoMiPiace = '<p><a href="./login.php">Accedi</a> o <a href="./register.php">Registrati</a> per mettere il tuo <span lang="en">like</span> al presepe!</p>';
         $avvisoCommenti = '<p><a href="./login.php">Accedi</a> o <a href="./register.php">Registrati</a> per lasciare un commento!</p>';
       }
@@ -68,13 +70,18 @@ if(isset($_GET['presepeId'])) {
       $replacement = str_replace('<placeholderMiPiace />', $avvisoMiPiace, $replacement);
       $replacement = str_replace('<placeholderCommenti />', $avvisoCommenti, $replacement);
       $replacement = str_replace('<placeholderLikeNumber />', $likeNumber['COUNT(*)'], $replacement);
+      $replacement = str_replace('<placeholderLike />', $likePresepe, $replacement);
       $replacement = str_replace('<placeholderVincitore />', $winnerPresepe, $replacement);
       $replacement = str_replace('<presepeFormPlaceholder />', $form, $replacement);
       if($hasUserLikedPresepe) $replacement = str_replace('<button class="presepeButton likeButton" aria-label="Aggiungi un Mi Piace al presepe" type="submit" name="like">Mi piace!</button>', '<button class="presepeButton likeButton" aria-label="Rimuovi il Mi piace al presepe" type="submit" name="like">Non mi piace più!</button>', $replacement);
       if($hasAdminSelected) $replacement = str_replace('<button class="presepeButton" type="submit" name="segna vincitore" aria-label="Segna il presepe come vincitore">Segna come Vincitore</button>', '<button class="presepeButton" aria-label="Rimuovi il presepe dai vincitori" type="submit" name="like">Rimuovi dai Vincitori</button>', $replacement);
 
       for($i = 1; $row = mysqli_fetch_assoc($comments); $i++) {
-        $cancelComment = ($_SESSION['uId'] == $row['uId']) || ($_SESSION['loggedin'] == 'admin') ? file_get_contents(__DIR__ . "/content/common/_deleteCommentForm.html") : '';
+        if(isset($_SESSION['uId'])) {
+          $cancelComment = ($_SESSION['uId'] == $row['uId']) || ($_SESSION['loggedin'] == 'admin') ? file_get_contents(__DIR__ . "/content/common/_deleteCommentForm.html") : '';
+        } else {
+          $cancelComment = '';
+        }
         $commentTemplate = file_get_contents(__DIR__.'/content/common/_commentTemplate.html');
         $commentTemplate = str_replace('<placeholderCommentDeleteForm />', $cancelComment, $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentNumber />', $i, $commentTemplate);
