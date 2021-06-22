@@ -277,14 +277,15 @@ header nav li a:visited {
 
 .breadcrumbsBlock {
     height: auto;
+    padding: 1em 1em 1em 15em;
     background-color: #375695;
     display: block;
     color: #ffffff;
-    padding: 1em;
 }
 
 .breadcrumbContainer {
-    width: 70%;
+    width: 100%;
+    margin: auto;
     display: inline;
 }
 
@@ -710,6 +711,10 @@ textarea {
 @media screen and (max-width: 1440px) {
     #content {
         width: 85%;
+    }
+
+    .breadcrumbsBlock {
+        padding-left: 5em;
     }
 }
 
