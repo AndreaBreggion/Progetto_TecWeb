@@ -30,12 +30,14 @@
   } else $page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Presepi in Gara</span></li>', $page);
   $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
   $page = str_replace('<placeholderContent></placeholderContent>',
-                      '<h2 class="sectionTitle">Presepi attualmente in gara</h2><ul class="listaPresepi"><placeholderLista /></ul>', $page);
+                      '<h2 class="sectionTitle">Presepi attualmente in gara</h2><ul class="listaPresepi"><placeholderLista /></ul>
+                              <ul id="buttonTop"><placeholderButtonTop /></ul>', $page);
 
   $connection = connect();
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
   $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato caricato alcun presepe!</p>' : $replacement;
   $connection->close();
   $page = str_replace('<placeholderLista />', $replacement, $page);
+  $page = str_replace('<ul id="buttonTop"><placeholderButtonTop /></ul>', file_get_contents(__DIR__."/content/common/_addTopButton.html"), $page);
   echo($page);
 ?>
