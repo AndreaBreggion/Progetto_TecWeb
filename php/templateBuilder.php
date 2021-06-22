@@ -1,6 +1,7 @@
 <?php
     /* Classe necessaria alla costruzione delle varie pagine */
     class TemplateBuilder {
+        private $_institution = "Concorso Farra di Soligo";
         private $_pageName;
         private $_rootDIR;
         private $_whole_page;
@@ -13,27 +14,37 @@
         }
 
         // setter per l'<head>
-        public function setHead($head) {
-            // da creare un caso per ogni pagina
-            if($this->_pageName=="home") {
-                $head = str_replace("{title}", "Concorso Farra di Soligo", $head);
+        public function setHead($head, $name) {
+            if($name=="home") {
+                $head = str_replace("<placeholderTitle />", $this->_institution, $head);
             }
-            else if($this->_pageName=="presepiInGara") {
-                $head = str_replace("{title}", "Presepi in Gara", $head);
+            else if($name=="presepiInGara") {
+                $head = str_replace("<placeholderTitle />", "Presepi in Gara | " . $this->_institution, $head);
             }
-            else if($this->_pageName=="aggiungiPresepe") {
-                $head = str_replace("{title}", "Carica il tuo Presepe", $head);
+            else if($name=="aggiungiPresepe") {
+                $head = str_replace("<placeholderTitle />", "Carica il tuo Presepe | " . $this->_institution, $head);
             }
-            else if($this->_pageName=="edizioniPassate") {
-                $head = str_replace("{title}", "Edizioni Passate", $head);
+            else if($name=="presepe") {
+                $head = str_replace("<placeholderTitle />", "Informazioni Presepe | " . $this->_institution, $head);
             }
-            else if($this->_pageName=="articoli") {
-                $head = str_replace("{title}", "Articoli", $head);
+            else if($name=="login") {
+                $head = str_replace("<placeholderTitle />", "Accedi | " . $this->_institution, $head);
             }
-            else if($this->_pageName=="vincitori") {
-                $head = str_replace("{title}", "Vincitori", $head);
+            else if($name=="register") {
+                $head = str_replace("<placeholderTitle />", "Registrati | " . $this->_institution, $head);
             }
-            
+            else if($name=="regole") {
+                $head = str_replace("<placeholderTitle />", "Regole del Concorso | " . $this->_institution, $head);
+            }
+            else if($name=="successo") {
+                $head = str_replace("<placeholderTitle />", "Conferma caricamento | " . $this->_institution, $head);
+            }
+            else if($name=="user") {
+                $head = str_replace("<placeholderTitle />", "Pagina personale | " . $this->_institution, $head);
+            }
+            else if($name=="vincitori") {
+                $head = str_replace("<placeholderTitle />", "Vincitori | " . $this->_institution, $head);
+            }
             // sostituisce il contenuto di <headPH /> (PlaceHolder) in $_whole_page
             // con quello di $head
             $this->_whole_page = str_replace("<headPH />", $head, $this->_whole_page);

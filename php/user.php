@@ -10,7 +10,7 @@
     // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
     $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
-    $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"));
+    $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "user");
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
     $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li class="current" aria-current="page">Pagina personale ' . $_SESSION["uName"] . '</li>'));
