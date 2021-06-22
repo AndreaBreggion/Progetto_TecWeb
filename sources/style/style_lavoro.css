@@ -493,11 +493,11 @@ textarea {
     font-weight: bold;
 }
 
-.postWrapper img{
+.postWrapper img {
     object-fit: cover;
     height: 15em;
     min-width: 60%;
-    width:100%;
+    width: 100%;
     padding: 1em 0 1em 0;
     border-bottom: 1px solid gray;
 }
@@ -970,7 +970,16 @@ textarea {
         width: 100%;
     }
 
+    .postWrapper {
+        max-height: 35em;
+    }
+
     .postDescrizione {
         max-height: 3.75em;
+    }
+
+    .postWrapper img {
+        height: 10em;
+        min-width: 40%;
     }
 }
