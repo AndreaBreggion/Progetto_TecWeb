@@ -276,18 +276,16 @@ header nav li a:visited {
 }
 
 .breadcrumbsBlock {
-    height: 2em;
+    height: auto;
     background-color: #375695;
-    display: flex;
-    justify-content: center;
+    display: block;
     color: #ffffff;
-    padding-bottom: 1em;
+    padding: 1em;
 }
 
 .breadcrumbContainer {
     width: 70%;
-    display: flex;
-    justify-content: left;
+    display: inline;
 }
 
 .breadcrumbsPre {
@@ -295,6 +293,7 @@ header nav li a:visited {
 }
 
 .breadcrumbs {
+    display: inline;
     padding-left: 0.5em;
     list-style: none;
 }
@@ -312,6 +311,7 @@ header nav li a:visited {
 span.currentCrumb {
     padding: 0;
     margin: 0;
+    word-wrap: break-word;
 }
 
 .hottest{
@@ -488,6 +488,10 @@ textarea {
     word-wrap: break-word;
 }
 
+.postTitolo {
+    word-wrap: break-word;
+}
+
 .postCategoria, .postData, .postAutore, .postDescrizione span, .postMiPiace {
     font-weight: bold;
 }
@@ -519,6 +523,7 @@ textarea {
 .presepePageDesc {
     margin: 0;
     width: 60%;
+    word-wrap: break-word;
 }
 
 .presepeMiPiace {
@@ -969,22 +974,8 @@ textarea {
         padding-left: 0.75em;
     }
 
-    .breadcrumbsBlock {
-        display: block;
-        height: auto;
-        padding-top: 1em;
-    }
-
-    .breadcrumbContainer {
-        display: inline;
-    }
-
     .breadcrumbsPre {
         min-width: 25%;
-    }
-
-    .breadcrumbs {
-        display: inline;
     }
 
     form {
