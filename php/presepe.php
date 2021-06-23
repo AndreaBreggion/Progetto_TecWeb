@@ -36,7 +36,7 @@ $builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumb
 $page = $builder->build();
 $replacement= '<h2 tabindex="1"><em> Errore 404: presepe non trovato! </em></h2>';
 if(isset($_GET['presepeId'])) {
-    handleVisitedPages('/php/presepe.php?presepeId='.$_GET['presepeId']);
+    handleVisitedPages('./presepe.php?presepeId='.$_GET['presepeId']);
     $where = $_GET['presepeId'];
     $_SESSION['lastVisitedPresepe'] = $_GET['presepeId'];
     $connection = connect();

@@ -5,7 +5,7 @@
   require_once('php/scripts/lastVisitedPages.php');
   require_once('php/scripts/connection.php');
   require_once('php/scripts/createPresepeList.php');
-  handleVisitedPages('/index.php');
+  handleVisitedPages('../index.php');
 
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("home", ".");

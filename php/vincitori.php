@@ -13,7 +13,7 @@
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
 
-    handleVisitedPages('/php/vincitori.php');
+    handleVisitedPages('./vincitori.php');
 
     $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
         '<li><a href="../index.php" lang="en">Home</a></li>',

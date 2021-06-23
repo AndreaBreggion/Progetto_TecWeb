@@ -5,7 +5,7 @@
   require_once('scripts/connection.php');
   require_once('scripts/statementQuery.php');
   require_once('scripts/lastVisitedPages.php');
-  handleVisitedPages('/php/aggiungiPresepe.php');
+  handleVisitedPages('./aggiungiPresepe.php');
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
