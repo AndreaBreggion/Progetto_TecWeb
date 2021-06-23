@@ -72,16 +72,16 @@
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', '', $page);
       $page = str_replace('dataSelected', '', $page);
-      $page = str_replace('likeSelected', 'selected="selected"', $page);
-      $page = str_replace('alfabeticoSelected', '', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', 'selected="selected"', $page);
       $replacement = createPresepeListAlph($connection);
     }
     if($_POST['selectCategory'] == 'like') {
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', '', $page);
       $page = str_replace('dataSelected', '', $page);
-      $page = str_replace('likeSelected', '', $page);
-      $page = str_replace('alfabeticoSelected', 'selected="selected"', $page);
+      $page = str_replace('likeSelected', 'selected="selected"', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
       $replacement = createPresepeListLike($connection);
     }
   }
