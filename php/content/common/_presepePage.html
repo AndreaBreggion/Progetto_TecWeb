@@ -1,6 +1,6 @@
 <div class="presepePage">
-    <article aria-label="titolo e descrizione del presepe" class="pageProper">
-        <h2><placeholderTitle /></h2>
+    <article aria-label="Informazioni del presepe" class="pageProper">
+        <h2 class="postTitolo"><titlePH /></h2>
         <p class="postAutore">Di <placeholderAuthor /> - Categoria <placeholderCategory /></h3>
         <p class="presepePageDate"><span class="postData">Data di caricamento:</span> <placeholderDate /></p>
         <p class="postDescrizione"><span>Foto e Descrzione:</span></p>
@@ -12,9 +12,7 @@
     <p class="presepeMiPiace postMiPiace">Questo presepe ha ricevuto <placeholderLikeNumber /> Mi Piace.</p>
     <placeholderMiPiace />
     <div class="presepeButtonRow">
-        <form method="POST" action="./scripts/addRemoveLike.php" class="likeButtonForm">
-            <button class="presepeButton likeButton" aria-label="Aggiungi un Mi Piace al presepe" type="submit" name="like">Mi piace!</button>
-        </form>
+        <placeholderLike />
         <placeholderVincitore />
         <presepeCancelPlaceholder />
     </div>
@@ -22,6 +20,8 @@
         <h2>Commenti</h2>
         <placeholderCommenti />
         <presepeFormPlaceholder />
-        <presepeCommentThreadPlaceholder />
+        <ul class="listaCommenti">
+            <presepeCommentThreadPlaceholder />
+        </ul>
     </div>
 </div>

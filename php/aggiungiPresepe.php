@@ -9,8 +9,8 @@
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
-  $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"));
-    
+  $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "aggiungiPresepe");
+  $builder->setDescription("Pagina di aggiunta del Presepe da parte dell'utente");
   $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
   $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
   $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
@@ -23,7 +23,7 @@
   if(!isset($_SESSION['uId'])) {
     header('location: login.php');
   } else {
-    $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/common/_addPresepeForm.html'), $page);
+    $page = str_replace('<placeholderContent />', file_get_contents(__DIR__.'/content/common/_addPresepeForm.html'), $page);
   }
 
   if(isset($_POST['submit'])) {

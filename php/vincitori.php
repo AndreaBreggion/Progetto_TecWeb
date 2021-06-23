@@ -8,10 +8,9 @@
     // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
     $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
-    $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"));
-
+    $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "vincitori");
+    $builder->setDescription("Pagina che espone due liste contenenti i presepi vincitori delle due categorie (Ragazzi e Adulti)");
     $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
-
     $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
 
     handleVisitedPages('/php/vincitori.php');
@@ -24,7 +23,7 @@
     $page = $builder->build();
     $page = str_replace('<li><a href="../php/vincitori.php">Vincitori</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Vincitori</span></li>', $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
-    $page = str_replace('<placeholderContent></placeholderContent>', '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
+    $page = str_replace('<placeholderContent />', '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
     $page = str_replace('<ul class="listaPresepi"><placeholderLista /></ul>', file_get_contents(__DIR__."/content/common/_presepiWinnerContent.html"), $page);
 
     $connection = connect();

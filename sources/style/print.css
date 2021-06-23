@@ -1,5 +1,7 @@
-html{
-    margin: 10mm 10mm 10mm 0;
+html {
+    margin-left: 1cm;
+    margin-top: 1cm;
+    margin-right: 1cm;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 16pt;
     color: black;
@@ -11,20 +13,20 @@ a {
     color: black;
 }
 
-footer, #openImage, #menuContainer, legend,.screenreaderonly {
+footer, #openImage, #menuContainer, legend,.screenreaderOnly {
     display: none;
 }
 
-#headerTitle{
+#headerTitle {
     display: flex;
 }
 
-#logo{
+#logo {
     height: 4em;
     width: 4em;
 }
 
-fieldset{
+fieldset {
     border: 0;
 }
 
@@ -36,7 +38,7 @@ fieldset{
     justify-content: left;
 }
 
-.breadcrumbContainer{
+.breadcrumbContainer {
     display: flex;
 }
 
@@ -60,38 +62,52 @@ fieldset{
     padding: 0 0.5em 0.5em 0;
 }
 
-.postWrapper{
-    padding-top: 1.5cm;
+.postWrapper {
+    padding-top: 0.5cm;
     page-break-inside: avoid;
     display: flex;
+    width: 100%;
+    max-height: 40%;
 }
 
-.postWrapper img{
-    display: flex;
-    padding-left: 5mm;
-    width: 10cm;
+.postWrapper img {
+    padding: 5mm;
+    object-fit: cover;
     height: 10cm;
+    width: 10cm;
 
 }
-.postWrapper h2{
+.presepeImageText img {
+    padding: 5mm;
+    width: 100%;
+ }
+
+.postWrapper h2 {
     text-decoration: none;
 }
-.postWrapper a,.postMiPiace{
+.postWrapper a {
     display: none;
 }
-.postWrapper p{
-    grid-column: 1;
+
+.postWrapper .postMiPiace {
+    position: relative;
+    white-space: nowrap;
+    top: 10cm;
+    right: 3cm;
+    overflow: visible;
+    width: 0;
+    height: 0;
 
 }
 
-.postText h2{
+.postText h2 {
     font-size: 18pt;
 }
-.postText{
+.postText {
     height: 12cm;
     overflow: hidden;
 }
- .postDescrizione{
+ .postWrapper .postDescrizione {
     height: 4.7cm;
     overflow: hidden;
 }

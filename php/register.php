@@ -7,8 +7,8 @@ require_once('scripts/statementQuery.php');
 
 // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
 $builder = new TemplateBuilder("/common/_pageTemplate", "..");
-$builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"));
-
+$builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "register");
+$builder->setDescription("Pagina di registrazione al sito dedicato al Concorso Presepi di Farra di Soligo");
 $builder->setHeader(file_get_contents(__DIR__."/content/common/_header.html"), checkUserConnection());
 $builder->setFooter(file_get_contents(__DIR__."/content/common/_footer.html"));
 $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array('<li><a href="../index.php" lang="en">Home</a></li>',
@@ -16,9 +16,9 @@ $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.
 $page = $builder->build();
 $page = str_replace('<a href="../php/register.php">Registrati</a>', ' <span>Registrati</span>', $page);
 if(!isset($_SESSION['uId'])) {
-  $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__."/content/common/_registerForm.html"), $page);
+  $page = str_replace('<placeholderContent />', file_get_contents(__DIR__."/content/common/_registerForm.html"), $page);
 } else {
-  $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__."/content/common/_errorAlreadyLogged.html"), $page);
+  $page = str_replace('<placeholderContent />', file_get_contents(__DIR__."/content/common/_errorAlreadyLogged.html"), $page);
 }
 $connection = connect();
 if(isset($_POST['submit'])) {

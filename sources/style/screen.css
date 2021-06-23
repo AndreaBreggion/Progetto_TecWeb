@@ -9,18 +9,15 @@ html {
     line-height: 1.3;
     text-transform: none;
     color: #000;
-    height: 100%;
 }
 
 body {
-    height: 100%;
     margin: 0;
-    display: block;
-    flex-direction: column;
     background-color: #ffffff;
 }
 
 html, body {
+    height: 100%;
     margin: 0em auto;
     padding: 0em 0em;
 }
@@ -100,7 +97,12 @@ header a:visited {
     color: #ffffff;
 }
 
-.login a{
+.login a {
+    padding: 0.5em;
+    color: #ffffff;
+}
+
+.login a:visited {
     padding: 0.5em;
     color: yellow;
 }
@@ -189,7 +191,7 @@ form button:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 1em;
+    padding-top: 0.5em;
 }
 
 .searchBar {
@@ -279,19 +281,17 @@ header nav li a:visited {
 }
 
 .breadcrumbsBlock {
-    height: 2em;
-    width: 100%;
+    height: auto;
+    padding: 1em 1em 1em 15em;
     background-color: #375695;
-    display: flex;
-    justify-content: center;
+    display: block;
     color: #ffffff;
-    padding-bottom: 1em;
 }
 
 .breadcrumbContainer {
-    width: 70%;
-    display: flex;
-    justify-content: left;
+    width: 100%;
+    margin: auto;
+    display: inline;
 }
 
 .breadcrumbsPre {
@@ -299,6 +299,7 @@ header nav li a:visited {
 }
 
 .breadcrumbs {
+    display: inline;
     padding-left: 0.5em;
     list-style: none;
 }
@@ -316,6 +317,7 @@ header nav li a:visited {
 span.currentCrumb {
     padding: 0;
     margin: 0;
+    word-wrap: break-word;
 }
 
 .hottest{
@@ -328,7 +330,6 @@ span.currentCrumb {
 }
 
 footer {
-    /*position: relative;*/
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -493,15 +494,19 @@ textarea {
     word-wrap: break-word;
 }
 
+.postTitolo {
+    word-wrap: break-word;
+}
+
 .postCategoria, .postData, .postAutore, .postDescrizione span, .postMiPiace {
     font-weight: bold;
 }
 
-.postWrapper img{
+.postWrapper img {
     object-fit: cover;
     height: 15em;
     min-width: 60%;
-    width:100%;
+    width: 100%;
     padding: 1em 0 1em 0;
     border-bottom: 1px solid gray;
 }
@@ -524,6 +529,7 @@ textarea {
 .presepePageDesc {
     margin: 0;
     width: 60%;
+    word-wrap: break-word;
 }
 
 .presepeMiPiace {
@@ -610,6 +616,11 @@ textarea {
     margin-bottom: 2em;
 }
 
+.listaCommenti {
+    list-style-type: none;
+    padding: 0;
+}
+
 .comment {
     border-top: 1px solid lightgray;
 }
@@ -665,6 +676,10 @@ textarea {
 }
 
 /* Pagina Utente */
+.infoUserContent {
+    margin-top: 3em;
+}
+
 .information {
     margin-top: 3em;
 }
@@ -710,6 +725,10 @@ textarea {
 @media screen and (max-width: 1440px) {
     #content {
         width: 85%;
+    }
+
+    .breadcrumbsBlock {
+        padding-left: 5em;
     }
 }
 
@@ -768,6 +787,7 @@ textarea {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: bolder;
     }
 
     .login span a:hover {
@@ -817,7 +837,7 @@ textarea {
     }
 
     header nav ul {
-        height: 60%;
+        height: 55%;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
@@ -826,6 +846,7 @@ textarea {
     header nav li {
         height: 4.5em;
         border: none;
+        width: 100%;
     }
 
     header nav li a {
@@ -847,13 +868,17 @@ textarea {
 
     header nav .current {
         width: 100%;
-        border-left: 1px solid #304C82;
-        border-left: 1px solid #304C82;
+        color: #ffffff;
+        background-color: #304C82;
+    }
+
+    .breadcrumbsBlock {
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     .breadcrumbContainer {
         width: 100%;
-        padding-left: 1em;
     }
 
     form {
@@ -970,12 +995,25 @@ textarea {
         padding-left: 0.75em;
     }
 
+    .breadcrumbsPre {
+        min-width: 25%;
+    }
+
     form {
         width: 100%;
     }
 
+    .postWrapper {
+        max-height: 35em;
+    }
+
     .postDescrizione {
         max-height: 3.75em;
+    }
+
+    .postWrapper img {
+        height: 10em;
+        min-width: 40%;
     }
 }
 
