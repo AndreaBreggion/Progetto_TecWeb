@@ -19,7 +19,7 @@
   $page = str_replace('<li><a lang="en" href="./index.php">Home</a></li>', '<li class="current" aria-current="page"><span class="currentPage" lang="en">Home</span></li>', $page);
   $connection = connect();
   $replacement = mostLiked($connection);
-  $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato votato alcun presepe.</p>' : $replacement;
+  $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato votato alcun presepe!</p>' : $replacement;
   $page = str_replace('<mostLikedPlaceholder />', $replacement, $page);
   echo($page);
 ?>
