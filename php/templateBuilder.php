@@ -49,6 +49,9 @@
             else if($name=="vincitori") {
                 $head = str_replace("<titlePH />", "Vincitori | " . $this->_institution, $head);
             }
+            else if($name=="404") {
+                $head = str_replace("<titlePH />", "404 | " . $this->_institution, $head);
+            }
             // sostituisce il contenuto di <headPH /> (PlaceHolder) in $_whole_page
             // con quello di $head
             $this->_whole_page = str_replace("<headPH />", $head, $this->_whole_page);
