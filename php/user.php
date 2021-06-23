@@ -18,11 +18,23 @@
     $page = str_replace('<a href="../php/user.php" role="button">' . $_SESSION["uName"] . '</a>', ' <span id="spanUser">' . $_SESSION["uName"] . '</span>', $page);
     $page = str_replace('<main id="content">', '<main id="content" class="mainUtente">', $page);
 
-    if(!isset($_SESSION['uId']) || $_SESSION["loggedin"]!='users') {
+    if(!isset($_SESSION['uId'])) {
         header('location: ../index.php');
     }
     else {
         $page = str_replace('<placeholderContent></placeholderContent>', file_get_contents(__DIR__.'/content/user.html'), $page);
+    }
+
+    if($_SESSION["loggedin"]=="admin") {
+        $page = str_replace('<placeholderUserType />', 'admin', $page);
+        $page = str_replace('<placeholderAdmin />',
+                            '<p>In qualità di amministratore hai la possibilità di eleggere i presepi vincitori del concorso,
+                            eliminarli e moderare i commenti direttamente dalle pagine dei singoli presepi presenti in
+                            <a href="../php/presepiInGara.php">Presepi in Gara</a></p>', $page);
+    }
+    else if($_SESSION["loggedin"]=="users") {
+        $page = str_replace('<placeholderUserType />', 'utente', $page);
+        $page = str_replace('<placeholderAdmin />', '', $page);
     }
 
     // Se le informazioni utente sono state modificate correttamente

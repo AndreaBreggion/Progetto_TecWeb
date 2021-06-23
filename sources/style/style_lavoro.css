@@ -317,20 +317,25 @@ span.currentCrumb {
     margin: 0;
 }
 
-.hottestShit{
+.hottest{
+    list-style-type: none;
     display: flex;
-    list-style: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
 }
 
 footer {
-    position: relative;
+    /*position: relative;*/
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     background-color: #4267B2;
     color: #ffffff;
     border-top: 1px solid gray;
     text-align: center;
-    display: flex;
     justify-content: center;
-    flex-flow: column wrap;
 }
 
 #footerContatti ul {
@@ -344,6 +349,7 @@ footer {
 
 #backUp {
     color: yellow;
+    margin-top: 1em;
 }
 
 #footerContatti {
@@ -472,7 +478,7 @@ textarea {
     padding: 0;
 }
 
-.postText h2 {
+.postText h3 {
     margin-top: 0;
 }
 

@@ -1,7 +1,7 @@
 <?php
   function checkUserConnection() {
     if(isset($_SESSION["uName"]) && $_SESSION["loggedin"]=='admin') {
-      return('<span class="logHint"><span>Benvenuto</span> <span>' . $_SESSION["uName"] . '!</span><a href="<rootDIR></rootDIR>/php/logout.php" role="button">Effettua il logout</a></span>');
+      return('<span class="logHint"><span>Benvenuto</span><a href="<rootDIR></rootDIR>/php/user.php" role="button">' . $_SESSION["uName"] . '</a><span>!</span><a href="<rootDIR></rootDIR>/php/logout.php" role="button">Effettua il logout</a></span>');
     }
     else if(isset($_SESSION["uName"]) && $_SESSION["loggedin"]=='users') {
       return('<span class="logHint"><span>Ciao</span><a href="<rootDIR></rootDIR>/php/user.php" role="button">' . $_SESSION["uName"] . '</a><span>!</span><a href="<rootDIR></rootDIR>/php/logout.php" role="button">Effettua il logout</a></span>');
