@@ -44,7 +44,7 @@
     if($_POST['selectCategory'] == 'adulti') $replacement = createPresepeListAdu($connection);
     if($_POST['selectCategory'] == 'ragazzi') $replacement = createPresepeListRaga($connection);
     if($_POST['selectCategory'] == 'data') $replacement = createPresepeList($connection);
-    if($_POST['selectCategory'] == 'nome') $replacement = createPresepeListAlph($connection);
+    if($_POST['selectCategory'] == 'alfabetico') $replacement = createPresepeListAlph($connection);
     if($_POST['selectCategory'] == 'like') $replacement = createPresepeListLike($connection);
   }
 
