@@ -100,7 +100,6 @@ if(isset($_GET['presepeId'])) {
         }
         $commentTemplate = file_get_contents(__DIR__.'/content/common/_commentTemplate.html');
         $commentTemplate = str_replace('<placeholderCommentDeleteForm />', $cancelComment, $commentTemplate);
-        $commentTemplate = str_replace('<placeholderCommentNumber />', $i, $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentUsername />', $row['username'], $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentUId />', $row['uId'], $commentTemplate);
         $commentTemplate = str_replace('<placeholderCommentoDatatime />', $row['timestamp'], $commentTemplate);

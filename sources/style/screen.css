@@ -616,6 +616,11 @@ textarea {
     margin-bottom: 2em;
 }
 
+.listaCommenti {
+    list-style-type: none;
+    padding: 0;
+}
+
 .comment {
     border-top: 1px solid lightgray;
 }
@@ -782,6 +787,7 @@ textarea {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: bolder;
     }
 
     .login span a:hover {
