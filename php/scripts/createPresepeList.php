@@ -15,7 +15,7 @@ function createPresepePost($row, $connection) {
     $post = str_replace('<placeholderImage />', $img, $post);
     $post = str_replace('<placeholderAlt />', 'Foto del presepe ' . $row['presepeName'], $post);
     $post = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $post);
-    $post = str_replace('<presepeLinkPlaceholder />', '<a href="/php/presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
+    $post = str_replace('<presepeLinkPlaceholder />', '<a href="./presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
     $query = 'SELECT COUNT(*) FROM likes WHERE pId ='. $row['id'];
     $count = $connection->query($query);
     $result = mysqli_fetch_array($count, MYSQLI_NUM);
@@ -99,6 +99,7 @@ function mostLiked($connection) {
         $returnValue .= createPresepePost($presepe, $connection);
     }
     mysqli_stmt_close($stmt);
+    $returnValue = str_replace('<a href="./presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', '<a href="./php/presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $returnValue);
     return $returnValue;
 }
 
