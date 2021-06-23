@@ -2,7 +2,7 @@
 
 function createPresepePost($row, $connection) {
     $post = file_get_contents(__DIR__.'/../content/common/_presepePost.html');
-    $post = str_replace('<titlePlaceholder />', '<h3>' .$row['presepeName'] .'</h3>', $post);
+    $post = str_replace('<titlePlaceholder />', '<h3 class="postTitolo">' .$row['presepeName'] .'</h3>', $post);
     $post = str_replace('<categoryPlaceholder />', '<p><span class="postCategoria">Categoria:</span> '. $row['category']. '</p>', $post);
     $post = str_replace('<datePlaceHolder />', '<p><span class="postData">Data di caricamento:</span> '.$row['dateOfCreation'].'</p>', $post);
     $post = str_replace('<authorPlaceHolder />', '<p><span class="postAutore">Autore:</span> '.$row['username'].'</p>', $post);
@@ -52,7 +52,7 @@ function createPresepeSearchList($connection, $where) {
     $returnValue .= createPresepePost($row, $connection);
   }
   if(strlen($returnValue) == 0) {
-    $returnValue = '<h2 tabindex="1"><em> La ricerca di '. htmlspecialchars($where) . ' non ha prodotto risultati!</em></h2>';
+    $returnValue = '<p tabindex="1"><em> La ricerca di '. htmlspecialchars($where) . ' non ha prodotto risultati!</em></p>';
   } else if($i == 1) {
     $returnValue = '<p tabindex="0" class="searchResult"> La tua ricerca ha prodotto 1 risultato! </p>' . $returnValue;
   } else $returnValue = '<p tabindex="0" class="searchResult"> La tua ricerca ha prodotto '.$i.' risultati! </p>' . $returnValue;

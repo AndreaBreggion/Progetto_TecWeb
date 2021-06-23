@@ -5,13 +5,20 @@
     </p>
     <placeholderAdmin />
     <p>
-        In questa pagina avrai la possibilità di gestire le tue informazioni e, se necessario, eliminare il tuo profilo.
+        In questa pagina avrai la possibilità di visualizzare e gestire le tue informazioni e, se necessario, eliminare il tuo profilo.
     </p>
 </div>
 
 <div class="infoUserContent">
+    <h3>Le tue informazioni attuali:</h3>
+    <p>Nome: <placeholderName />.</p>
+    <p>Cognome: <placeholderSurname />.</p>
+    <p>Mail: <placeholderMail />.</p>
+</div>
+
+<div class="infoUserModContent">
     <div class="information">
-        <h3>Informazioni personali:</h3>
+        <h3>Aggiorna le tue informazioni:</h3>
         <placeholderMod />
         <placeholderErr />
 
@@ -21,7 +28,7 @@
                 <nameHint />
                 <div class="formContent">
                     <div class="formElement">
-                        <label class="formLabelUser" for="name" id="nameLabel">Nome:</label>
+                        <label class="formLabelUser" for="name" id="nameLabel">Nuovo Nome:</label>
                         <input class="formInput" id="name" name="name" type="text" maxlength="24" required>
                     </div>
                     <button class="formButton" type="submit" form="nomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Nome</button>
@@ -35,7 +42,7 @@
                 <surnameHint />
                 <div class="formContent">
                     <div class="formElement">
-                        <label class="formLabelUser" for="surname" id="surnameLabel">Cognome:</label>
+                        <label class="formLabelUser" for="surname" id="surnameLabel">Nuovo Cognome:</label>
                         <input class="formInput" id="surname" name="surname" type="text" maxlength="24" required=>
                     </div>
                     <button class="formButton" type="submit" form="cognomeForm" name="updateInformations" value="Aggiorna Info">Aggiorna Cognome</button>
@@ -49,10 +56,10 @@
                 <usernameHint />
                 <div class="formContent">
                     <div class="formElement">
-                        <label class="formLabelUser" for="username" id="usernameLabel"><span lang="en">Username</span>:</label>
+                        <label class="formLabelUser" for="username" id="usernameLabel">Nuovo <span lang="en">Username</span>:</label>
                         <input class="formInput" id="username" name="username" type="text" maxlength="10" required>
                     </div>
-                    <button class="formButton" type="submit" form="usernameForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span lang="en">Username</button>
+                    <button class="formButton" type="submit" form="usernameForm" name="updateInformations" value="Aggiorna Info">Aggiorna Username</button>
                 </div>
             </fieldset>
         </form>
@@ -63,10 +70,10 @@
                 <mailHint />
                 <div class="formContent">
                     <div class="formElement">
-                        <label class="formLabelUser" for="mail" id="mailLabel"><span lang="en">Mail</span>:</label>
+                        <label class="formLabelUser" for="mail" id="mailLabel">Nuova <span lang="en">Mail</span>:</label>
                         <input class="formInput" id="mail" name="mail" type="text" required>
                     </div>
-                    <button class="formButton" type="submit" form="emailForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span lang="en">Mail</span></button>
+                    <button class="formButton" type="submit" form="emailForm" name="updateInformations" value="Aggiorna Info">Aggiorna Mail</button>
                 </div>
             </fieldset>
         </form>
@@ -85,7 +92,7 @@
                         <label class="formLabelUser" for="password" id="passwordLabel">Nuova <span lang="en">password</span>:</label>
                         <input class="formInput" id="password" name="password" type="password" required>
                     </div>
-                    <button class="formButton" type="submit" form="passwordForm" name="updateInformations" value="Aggiorna Info">Aggiorna <span lang="en">Password</span></button>
+                    <button class="formButton" type="submit" form="passwordForm" name="updateInformations" value="Aggiorna Info">Aggiorna Password</button>
                 </div>
             </fieldset>
         </form>
@@ -98,17 +105,12 @@
                 <legend class="userLegend">Elimina Profilo</legend>
                 <passwordElimHint />
                 <div class="formContent">
-                    <p>
-                        <strong>Attenzione!</strong>
-                        Eliminando il profilo rimuoverai tutti i caricamenti e verrai automaticamente escluso dal concorso!
-                        <br />
-                        Per questo, prima di procedere, ti chiediamo di inserire correttamente la <span lang="en">password</span>.
-                    </p>
+                    <placeholderAlert />
                     <div class="formElement">
                         <label class="formLabelUser" for="passwordEliminaProfilo"><span lang="en">Password</span>:</label>
                         <input class="formInput" id="passwordEliminaProfilo" name="passwordEliminaProfilo" type="password" required>
                     </div>
-                    <button class="formButton" type="submit" form="deleteForm" name="deleteAccount" value="Aggiorna Info">Elimina Profilo</button>
+                    <button class="formButton deleteButton" type="submit" form="deleteForm" name="deleteAccount" value="Aggiorna Info">Elimina Profilo</button>
                 </div>
             </fieldset>
         </form>

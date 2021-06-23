@@ -1,4 +1,10 @@
 <form method='POST' action="./scripts/addComment.php" class="commentForm">
-  <textarea aria-label="area di testo per commentare il presepe" placeholder='Dicci cosa pensi di questo presepe!' name='comment' required></textarea><br>
-  <button type='submit' name='submit'>Commenta</button>
+  <fieldset class="fieldsetCommento">
+    <legend class="commentLegend">Commenta il presepe</legend>
+    <div class="formContent">
+      <label class="formLabelCommento" for="comment">Dicci cosa ne pensi!</label>
+      <textarea id="comment" class="textAreaCommento" aria-label="Area di testo per commentare il presepe" name="comment" placeholder="Commento" required></textarea><br>
+      <button class="presepeButton" type="submit" name="submit">Commenta</button>
+    </div>
+  </fieldset>
 </form>

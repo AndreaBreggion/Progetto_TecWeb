@@ -8,6 +8,6 @@ session_start();
   if($_SESSION['uId'] == $row['id'] || $_SESSION['loggedin'] == 'admin') {
       $query = 'DELETE FROM presepi WHERE id = '.$_SESSION['lastVisitedPresepe'];
       $connection->query($query);
-      header('location: ' . $_SESSION['lastPages'][0]);
+      header("location: ../presepiInGara.php");
   }
 ?>

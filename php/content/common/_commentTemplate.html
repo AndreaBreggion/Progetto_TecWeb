@@ -1,16 +1,18 @@
- <article class="comment" aria-label="Commento #<placeholderCommentNumber />">
-     <div class="flexContainer spaceBetween">
-         <div class="authorDelete">
-             <p class="author" aria-label="Autore commento">
-                <placeholderCommentUsername />
-             </p>
-             <placeholderCommentDeleteForm />
-         </div>
-         <p class="postDate" aria-label="Data commento">
-             <placeholderCommentoDatatime />
-        </p>
-     </div>
-    <p class="text">
-      <placeholderCommentProper />
+<li class="comment">
+    <div class="commentAuthorData">
+        <div class="authorDelete">
+            <p class="author" aria-label="Autore commento: <placeholderCommentUsername />">
+            <placeholderCommentUsername />
+            </p>
+        </div>
+        <p class="postDate" aria-label="Data commento: <placeholderCommentoDatatime />">
+            <placeholderCommentoDatatime />
     </p>
- </article>
+    </div>
+    <div class="commentLowBand">
+        <p class="text">
+            <placeholderCommentProper />
+        </p>
+        <placeholderCommentDeleteForm />
+    </div>
+</li>

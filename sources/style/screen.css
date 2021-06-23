@@ -6,20 +6,18 @@ html {
     font-style: normal;
     font-size: 16px;
     letter-spacing: .03em;
+    line-height: 1.5;
     text-transform: none;
     color: #000;
-    height: 100%;
 }
 
 body {
-    height: 100%;
     margin: 0;
-    display: block;
-    flex-direction: column;
     background-color: #ffffff;
 }
 
 html, body {
+    height: 100%;
     margin: 0em auto;
     padding: 0em 0em;
 }
@@ -37,7 +35,7 @@ header {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    background-color: #4267B2;
+    background-color: #375695;
 }
 
 header a {
@@ -99,7 +97,12 @@ header a:visited {
     color: #ffffff;
 }
 
-.login a{
+.login a {
+    padding: 0.5em;
+    color: #ffffff;
+}
+
+.login a:visited {
     padding: 0.5em;
     color: yellow;
 }
@@ -165,12 +168,12 @@ button {
     text-align: center;
     font-size: 0.75em;
     font-weight: bold;
-    line-height: 38px;
+    line-height: 40px;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     text-decoration: none;
     white-space: nowrap;
-    border-radius: 2px;
+    border-radius: 4px;
     border: none;
     cursor: pointer;
     box-sizing: border-box;
@@ -188,7 +191,7 @@ form button:hover {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    padding-top: 1em;
+    padding-top: 0.5em;
 }
 
 .searchBar {
@@ -242,13 +245,13 @@ header nav li a:visited {
     padding: 2em;
 }
 
-#content .sectionContainer{
+#content .sectionContainer {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-#content section{
+#content section {
     width: 70%;
     display: block;
     border-top: 1px solid lightgray;
@@ -259,12 +262,12 @@ header nav li a:visited {
     width: 100%;
 }
 
-.sectionContainer:last-child{
+.sectionContainer:last-child {
     border-bottom: 1px solid lightgray;
 }
 
 .sectionTitle {
-    color: #06a0d2;
+    color: #087EA6;
     text-align: center;
 }
 
@@ -278,19 +281,17 @@ header nav li a:visited {
 }
 
 .breadcrumbsBlock {
-    height: 2em;
-    width: 100%;
-    background-color: #4267B2;
-    display: flex;
-    justify-content: center;
+    height: auto;
+    padding: 1em 1em 1em 15em;
+    background-color: #375695;
+    display: block;
     color: #ffffff;
-    padding-bottom: 1em;
 }
 
 .breadcrumbContainer {
-    width: 70%;
-    display: flex;
-    justify-content: left;
+    width: 100%;
+    margin: auto;
+    display: inline;
 }
 
 .breadcrumbsPre {
@@ -298,6 +299,7 @@ header nav li a:visited {
 }
 
 .breadcrumbs {
+    display: inline;
     padding-left: 0.5em;
     list-style: none;
 }
@@ -315,6 +317,7 @@ header nav li a:visited {
 span.currentCrumb {
     padding: 0;
     margin: 0;
+    word-wrap: break-word;
 }
 
 .hottest{
@@ -327,11 +330,11 @@ span.currentCrumb {
 }
 
 footer {
-    /*position: relative;*/
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: #4267B2;
+    padding: 1em;
+    background-color: #375695;
     color: #ffffff;
     border-top: 1px solid gray;
     text-align: center;
@@ -344,7 +347,6 @@ footer {
 
 #footerContatti li {
     display: inline;
-    margin-left: 0.5em;
 }
 
 #backUp {
@@ -492,64 +494,131 @@ textarea {
     word-wrap: break-word;
 }
 
+.postTitolo {
+    word-wrap: break-word;
+}
+
 .postCategoria, .postData, .postAutore, .postDescrizione span, .postMiPiace {
     font-weight: bold;
 }
 
-.postWrapper img{
+.postWrapper img {
     object-fit: cover;
     height: 15em;
     min-width: 60%;
-    width:100%;
+    width: 100%;
     padding: 1em 0 1em 0;
     border-bottom: 1px solid gray;
 }
-.pageProper {
-    display: flex;
-    justify-content: space-between;
-}
 
-.presepePage {
+.presepeImageText {
     display: flex;
-    flex-flow: column nowrap;
-}
-
-.presepeText {
-    width:60%;
-    text-align: left;
-    margin: 1em 0 0 6em;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    align-content: stretch;
 }
 
 .presepePageImage {
     width: 100%;
     object-fit: contain;
-    max-height: 30em;
-    margin: 1em 0 0 0em;
+    max-height: 40em;
+    margin: 0 2em 2em 0;
 }
 
-.likeButtonForm{
+.presepePageDesc {
+    margin: 0;
+    width: 60%;
+    word-wrap: break-word;
+}
+
+.presepeMiPiace {
+    margin: 0;
+    margin-bottom: 1.5em;
+}
+
+.likeButtonForm {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: fit-content;
+}
+
+.presepeButtonRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+.presepeButton{
+    margin: auto;
     text-align: center;
+    margin-bottom: 1em;
+    background-color: #ABABAB;
+}
+
+.presepeButton:hover {
+    background-color: #999999;
 }
 
 .likeButton {
-    background-color: #E62117;
+    color: #ffffff;
+    background-color: #087EA6;
 }
 
 .likeButton:hover {
-    background-color: #cb1710;
+    background-color: #076F92;
 }
 
-.commentForm {
-    margin-top: 2em;
-    display: flex;
-    justify-content: center;
+.deleteButton {
+    color: #ffffff;
+    background-color: #BC0101;
+}
+
+.deleteButton:hover {
+    background-color: #A20101;
+}
+
+.pageComments {
+    margin-top: 3em;
+}
+
+.pageComments h2 {
+    margin: 0;
+}
+
+.fieldsetCommento {
     width: 100%;
+    padding: 0;
+    border: none;
+    margin-top: 1em;
 }
 
-.commentForm textarea {
+.formLabelCommento {
+    font-size: 1em;
+}
+
+.commentLegend {
+    padding: 0;
+}
+
+.textAreaCommento {
     height: 5em;
     resize: none;
     margin-right: 1em;
+}
+
+.commentForm { 
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+.listaCommenti {
+    list-style-type: none;
+    padding: 0;
 }
 
 .comment {
@@ -560,49 +629,57 @@ textarea {
     border-bottom: 1px solid lightgray;
 }
 
-.flexContainer {
-    display: flex;
-
-}
-
-.spaceBetween {
-    justify-content: space-between;
-}
-
 .authorDelete {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     text-align: center;
 }
 
-.authorDelete .author{
+.commentAuthorData {
+    display: flex;
+    flex-direction: row;
+}
+
+.author{
     font-weight: bold;
+    margin-right: 2em;
 }
 
-.authorDelete .deleteComment {
-    margin: 0.2em 0 0 0.5em;
-    margin-top: 0.4em;
-    height: 2em;
-    width: 3em;
+.deleteCommentForm {
+    width: fit-content;
 }
 
-.authorDelete .deleteComment button{
-    background-color: #E62117;
-    height: 2em;
-    width: 3em;
-    padding: 0;
-    line-height: 2em;
+.commentLowBand {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.authorDelete .deleteComment button:hover{
-    background-color: #b30000;
+.text {
+    width: 80%;
+    margin: 0;
+    margin-bottom: 2em;
 }
 
-.authorDelete .deleteComment button:before{
-    content: 'x';
+.deleteCommentForm button{
+    margin: auto;
+    text-align: center;
+    color: #ffffff;
+    background-color: #BC0101;
+    text-transform: none;
+    margin-bottom: 1em;
+    align-self: flex-end;
+}
+
+.deleteCommentForm button:hover{
+    background-color: #A20101;
 }
 
 /* Pagina Utente */
+.infoUserContent {
+    margin-top: 3em;
+}
+
 .information {
     margin-top: 3em;
 }
@@ -645,16 +722,57 @@ textarea {
     border-radius: 5px;
 }
 
+.error404 {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.error404 div{
+    width: 100%;
+}
+
+.error404 div img{
+    width: 90%;
+}
+
+#returnButton {
+    display: none ;
+    position: fixed;
+    bottom: 20px;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 16px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #304C82;
+}
+
+#returnButton:hover {
+    background-color: #555;
+}
+
 @media screen and (max-width: 1440px) {
     #content {
         width: 85%;
     }
+
+    .breadcrumbsBlock {
+        padding-left: 5em;
+    }
+
 }
 
 @media screen and (max-width: 1200px) {
     form {
         width: 70%;
     }
+
 }
 
 @media screen and (max-width: 1024px) {
@@ -667,8 +785,8 @@ textarea {
     }
 
     #openImage.jsActive {
-        width: 3.5em;
-        height: 3.5em;
+        width: 3em;
+        height: 3em;
         justify-content: flex-end;
         display: flex;
         padding-right: 1em;
@@ -693,10 +811,13 @@ textarea {
         align-items: center;
         padding: 0;
         border: none;
+        background-color: #304C82;
     }
 
     .logHint span {
-        display: none;
+        visibility: hidden;
+        height: 0;
+        overflow: hidden;
     }
 
     .login span a {
@@ -706,10 +827,11 @@ textarea {
         display: flex;
         justify-content: center;
         align-items: center;
+        font-weight: bolder;
     }
 
     .login span a:hover {
-        background: #314c81;
+        background: #304C82;
     }
 
     #menuContainer.jsActive {
@@ -717,7 +839,7 @@ textarea {
         position: fixed;
         top: 0em;
         right: 0;
-        background: #314c81;
+        background: #304C82;
         overflow: hidden;
         width: 0em;
         z-index: 1;
@@ -733,8 +855,8 @@ textarea {
         display: block;
         padding-right: 1em;
         padding-top: 1.25em;
-        width: 3.5em;
-        height: 3.5em;
+        width: 3em;
+        height: 3em;
         float: right;
     }
 
@@ -750,12 +872,12 @@ textarea {
 
     header nav {
         height: 100%;
-        background: #314c81;
+        background: #304C82;
         border: 0;
     }
 
     header nav ul {
-        height: 60%;
+        height: 55%;
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
@@ -764,6 +886,7 @@ textarea {
     header nav li {
         height: 4.5em;
         border: none;
+        width: 100%;
     }
 
     header nav li a {
@@ -780,26 +903,45 @@ textarea {
     }
 
     header nav li:hover {
-        background-color: #314c81;
+        background-color: #304C82;
     }
 
     header nav .current {
         width: 100%;
-        border-left: 1px solid #314c81;
-        border-left: 1px solid #314c81;
+        color: #ffffff;
+        background-color: #304C82;
+    }
+
+    .breadcrumbsBlock {
+        padding-left: 1em;
+        padding-right: 1em;
     }
 
     .breadcrumbContainer {
         width: 100%;
-        padding-left: 1em;
     }
 
     form {
         width: 80%;
     }
+
+    .presepeImageText {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+    .presepePageDesc {
+        width: 100%;
+        margin-bottom: 2em;
+    }
+
 }
 
-@media screen and (max-width: 768px) {    
+@media screen and (max-width: 768px) {
+    #headerContainer {
+        padding-bottom: 1em;
+    }
+
     #content {
         width: 92%;
     }
@@ -860,6 +1002,37 @@ textarea {
     .formButton {
         width: 100%;
     }
+    
+    .presepeButtonRow {
+        flex-direction: column;
+    }
+
+    .likeButtonForm {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .presepeButton{
+        width: 100%;
+    }
+
+    .commentLowBand {
+        flex-direction: column;
+    }
+    
+    .text {
+        width: 100%;
+        margin-bottom: 1em;
+    }
+
+    .deleteCommentForm button{
+        float: right;
+    }
+
+    #returnButton {
+        padding: 5px;
+    }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -871,11 +1044,28 @@ textarea {
         padding-left: 0.75em;
     }
 
+    .breadcrumbsPre {
+        min-width: 25%;
+    }
+
     form {
         width: 100%;
     }
 
-    .postDescrizione {
-        max-height: 4em;
+    .postWrapper {
+        max-height: 35em;
     }
+
+    .postDescrizione {
+        max-height: 3.25em;
+    }
+
+    .postWrapper img {
+        height: 10em;
+        min-width: 40%;
+    }
+
 }
+
+
+
