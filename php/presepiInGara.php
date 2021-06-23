@@ -41,15 +41,56 @@
                       '<ul class="listaPresepi"><placeholderLista /></ul>
                       <ul id="buttonTop"><placeholderButtonTop /></ul>', $page);
 
-  $connection = connect();
+  $connection = connect(); 
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
   if(isset($_POST['selectCategory'])){
-    if($_POST['selectCategory'] == 'adulti') $replacement = createPresepeListAdu($connection);
-    if($_POST['selectCategory'] == 'ragazzi') $replacement = createPresepeListRaga($connection);
-    if($_POST['selectCategory'] == 'data') $replacement = createPresepeList($connection);
-    if($_POST['selectCategory'] == 'alfabetico') $replacement = createPresepeListAlph($connection);
-    if($_POST['selectCategory'] == 'like') $replacement = createPresepeListLike($connection);
+    if($_POST['selectCategory'] == 'adulti') {
+      $page = str_replace('adultiSelected', 'selected="selected"', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeListAdu($connection);
+    }
+    if($_POST['selectCategory'] == 'ragazzi') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', 'selected="selected"', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeListRaga($connection);
+    }
+    if($_POST['selectCategory'] == 'data') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', 'selected="selected"', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeList($connection);
+    }
+    if($_POST['selectCategory'] == 'alfabetico') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', 'selected="selected"', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeListAlph($connection);
+    }
+    if($_POST['selectCategory'] == 'like') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', 'selected="selected"', $page);
+      $replacement = createPresepeListLike($connection);
+    }
   }
+
+  $page = str_replace('adultiSelected', '', $page);
+  $page = str_replace('ragazziSelected', '', $page);
+  $page = str_replace('dataSelected', '', $page);
+  $page = str_replace('likeSelected', '', $page);
+  $page = str_replace('alfabeticoSelected', '', $page);
 
   $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato caricato alcun presepe!</p>' : $replacement;
   $connection->close();
