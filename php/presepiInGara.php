@@ -43,6 +43,14 @@
 
   $connection = connect();
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
+  if(isset($_POST['selectCategory'])){
+    if($_POST['selectCategory'] == 'adulti') $replacement = createPresepeListAdu($connection);
+    if($_POST['selectCategory'] == 'ragazzi') $replacement = createPresepeListRaga($connection);
+    if($_POST['selectCategory'] == 'data') $replacement = createPresepeList($connection);
+    if($_POST['selectCategory'] == 'nome') $replacement = createPresepeListAlph($connection);
+    if($_POST['selectCategory'] == 'like') $replacement = createPresepeListLike($connection);
+  }
+
   $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato caricato alcun presepe!</p>' : $replacement;
   $connection->close();
   $page = str_replace('<placeholderLista />', $replacement, $page);
