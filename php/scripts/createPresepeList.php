@@ -100,6 +100,8 @@ function mostLiked($connection) {
     }
     mysqli_stmt_close($stmt);
     $returnValue = str_replace('<a href="./presepe.php?presepeId=', '<a href="./php/presepe.php?presepeId=', $returnValue);
+    $returnValue = str_replace('<img src="../sources/images/', '<img src="./sources/images/', $returnValue);
+    
     return $returnValue;
 }
 
