@@ -12,17 +12,16 @@
         <legend class="formLegend">Inserisci una breve descrizione</legend>
         <descrizioneHint />
         <label for="description" class="formLabel">Dicci cosa rende il tuo presepe fantastico!</label>
-        <textarea type="text" id="description" class="formText" name="description" placeholder="Descrizione" required ><descriptionPlaceholder /></textarea>
+        <textarea id="description" class="formText" name="description" placeholder="Descrizione" required ><descriptionPlaceholder /></textarea>
       </fieldset>
       <fieldset class="fieldsetForm">
         <legend class="formLegend">Scegli la categoria</legend>
         <selectHint />
         <label for="selectCategory" class="formLabel">Scegli una categoria, tra Adulti e Ragazzi:</label>
-        <select name="selectCategory" id="selectCategory" required>
+        <select name="selectCategory" id="selectCategory" required="required">
           <optgroup label="--Scegli la categoria--">
             <option value="adulti" adultiSelected>Categoria Adulti</option>
             <option value="ragazzi" ragazziSelected>Categoria Ragazzi</option>
-          </optgroup>
         </select>
       </fieldset>
       <fieldset class="fieldsetForm">
