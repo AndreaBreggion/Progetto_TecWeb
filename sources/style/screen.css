@@ -722,6 +722,21 @@ textarea {
     border-radius: 5px;
 }
 
+.error404 {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.error404 div{
+    width: 100%;
+}
+
+.error404 div img{
+    width: 90%;
+}
+
 @media screen and (max-width: 1440px) {
     #content {
         width: 85%;
@@ -1046,4 +1061,5 @@ textarea {
     background-color: #555;
     transform: rotate(180deg);
 }
+
 

@@ -5,7 +5,6 @@
   require_once('scripts/connection.php');
   require_once('scripts/statementQuery.php');
   require_once('scripts/lastVisitedPages.php');
-  handleVisitedPages('/php/aggiungiPresepe.php');
   // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
@@ -17,6 +16,7 @@
     '<li><a href="../index.php" lang="en">Home</a></li>',
     '<li class="current" aria-current="page"><span class="currentCrumb">404</span></li>'
   ));
+
   $page = $builder->build();
 
   $page = str_replace('<placeholderContent />', file_get_contents(__DIR__."/content/common/_404.html"), $page);
