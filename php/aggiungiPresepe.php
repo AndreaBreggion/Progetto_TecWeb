@@ -92,6 +92,7 @@
     $page = str_replace('<descrizioneHint />', '', $page);
     $page = str_replace('<selectHint />', '', $page);
     $page = str_replace('<imageHint />', '', $page);
+    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '', $page);
   }
   echo($page);
 ?>
