@@ -1,0 +1,20 @@
+<div class="formContainer">
+    <form id="formLogin" action="./presepiInGara.php" method="POST" enctype="multipart/form-data">
+        <fieldset class="fieldsetForm">
+            <legend class="formLegend">Filtra:</legend>
+            <label for="selectCategory" class="formLabel">Filtra la lista dei presepi:</label>
+            <select name="selectCategory" id="selectCategory" required>
+              <optgroup label="--Per Categoria--">
+                <option value="adulti" adultiSelected>Categoria Adulti</option>
+                <option value="ragazzi" ragazziSelected>Categoria Ragazzi</option>
+              </optgroup>
+              <optgroup label="--Altro--">
+                <option value="data" ragazziSelected>Per data</option>
+                <option value="like" adultiSelected>Per numero di Like</option>
+                <option value="alfabetico" ragazziSelected>In ordine alfabetico</option>
+              </optgroup>
+            </select>
+          </fieldset>
+        <button class="formButton" name="submit">Filtra</button>
+    </form>
+</div>
