@@ -2,10 +2,10 @@
 
 function connect() {
 
-  $serverName = 'localhost:3306';
-  $username = 'root';
-  $password = '';
-  $db = 'tecweb';
+  $serverName = 'localhost';
+  $username = 'asalmaso';
+  $password = 'theiGheiw7ahj0Ie';
+  $db = 'asalmaso';
 
   $connection = mysqli_connect($serverName, $username, $password, $db);
   if (!$connection) {
