@@ -34,10 +34,9 @@
   } else $page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Presepi in Gara</span></li>', $page);
   $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
 
-  $page = str_replace('<placeholderContent></placeholderContent>',
+  $page = str_replace('<placeholderContent />',
                       '<h2 class="sectionTitle">Presepi attualmente in gara</h2><ul class="listaPresepi"><placeholderLista /></ul>
                               <ul id="buttonTop"><placeholderButtonTop /></ul>', $page);
-
 
   $connection = connect();
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
