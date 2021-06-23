@@ -19,7 +19,7 @@
     ));
   } else {
     $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "presepiInGara");
-    $builder->setDescription("Pagina che espone la lista di tutti i presepi attualmente in gara");
+    $builder->setDescription("Pagina che espone la lista di tutti i presepi attualmente in gara, filtrabili su determinati parametri");
     $builder->setBreadcrumb(file_get_contents(__DIR__."/content/common/_breadcrumbs.html"), array(
     '<li><a href="../index.php" lang="en">Home</a></li>',
     '<li class="current" aria-current="page"><span class="currentCrumb">Presepi in gara</span></li>'
@@ -33,8 +33,13 @@
     $page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', $page);
   } else $page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Presepi in Gara</span></li>', $page);
   $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
-
-  $filterForm = file_get_contents(__DIR__."/content/common/_filterForm.html");
+  
+  $connection = connect(); 
+  if(strlen(createPresepeList($connection)) == 0 || isset($_GET['search'])) {
+    $filterForm = '';
+  } else {
+    $filterForm = file_get_contents(__DIR__."/content/common/_filterForm.html");
+  }
   $page = str_replace('<placeholderContent />',
                       '<h2 class="sectionTitle">Presepi attualmente in gara</h2>' .
                       $filterForm .
@@ -43,8 +48,8 @@
 
   $connection = connect(); 
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
-  if(isset($_POST['selectCategory'])){
-    if($_POST['selectCategory'] == 'adulti') {
+  if(isset($_POST['selectFilter'])){
+    if($_POST['selectFilter'] == 'adulti') {
       $page = str_replace('adultiSelected', 'selected="selected"', $page);
       $page = str_replace('ragazziSelected', '', $page);
       $page = str_replace('dataSelected', '', $page);
@@ -52,7 +57,7 @@
       $page = str_replace('alfabeticoSelected', '', $page);
       $replacement = createPresepeListAdu($connection);
     }
-    if($_POST['selectCategory'] == 'ragazzi') {
+    if($_POST['selectFilter'] == 'ragazzi') {
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', 'selected="selected"', $page);
       $page = str_replace('dataSelected', '', $page);
@@ -60,7 +65,7 @@
       $page = str_replace('alfabeticoSelected', '', $page);
       $replacement = createPresepeListRaga($connection);
     }
-    if($_POST['selectCategory'] == 'data') {
+    if($_POST['selectFilter'] == 'data') {
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', '', $page);
       $page = str_replace('dataSelected', 'selected="selected"', $page);
@@ -68,7 +73,7 @@
       $page = str_replace('alfabeticoSelected', '', $page);
       $replacement = createPresepeList($connection);
     }
-    if($_POST['selectCategory'] == 'alfabetico') {
+    if($_POST['selectFilter'] == 'alfabetico') {
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', '', $page);
       $page = str_replace('dataSelected', '', $page);
@@ -76,7 +81,7 @@
       $page = str_replace('alfabeticoSelected', 'selected="selected"', $page);
       $replacement = createPresepeListAlph($connection);
     }
-    if($_POST['selectCategory'] == 'like') {
+    if($_POST['selectFilter'] == 'like') {
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', '', $page);
       $page = str_replace('dataSelected', '', $page);

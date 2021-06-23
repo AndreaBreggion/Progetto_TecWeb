@@ -277,6 +277,7 @@ header nav li a:visited {
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
+    margin-top: 3em;
     padding: 0;
 }
 
@@ -391,8 +392,8 @@ select {
 }
 
 form label {
-    margin-top: 1em;
-    margin-bottom: 0.5rem;
+    margin-top: 1.25em;
+    margin-bottom: 1em;
     text-align: left;
 }
 
@@ -463,6 +464,15 @@ textarea {
 .formLabelRegister {
     font-size: 1em;
     max-width: 10em;
+}
+
+.filterLabel {
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.filterButton {
+    margin-top: 1.5em;
 }
 
 .postWrapper {
@@ -995,10 +1005,6 @@ textarea {
         margin-bottom: 0.25em;
     }
 
-    .formLabel {
-        margin-bottom: 1em;
-    }
-
     .formButton {
         width: 100%;
     }
@@ -1050,6 +1056,11 @@ textarea {
 
     form {
         width: 100%;
+    }
+
+    .filterLabel {
+        margin-top: 0;
+        margin-bottom: 3em;
     }
 
     .postWrapper {

@@ -1,7 +1,7 @@
 <div class="loginWrapper">
   <h2 class="sectionTitle">Aggiungi il tuo Presepe</h2>
   <div class="formContainer">
-    <form id="formLogin" action="./aggiungiPresepe.php" method="POST" enctype="multipart/form-data">
+    <form id="formAddPresepe" action="./aggiungiPresepe.php" method="POST" enctype="multipart/form-data">
       <fieldset class="fieldsetForm">
         <legend class="formLegend">Inserisci il nome</legend>
         <titleHint />
@@ -20,8 +20,8 @@
         <label for="selectCategory" class="formLabel">Scegli una categoria, tra Adulti e Ragazzi:</label>
         <select name="selectCategory" id="selectCategory" required>
           <optgroup label="--Scegli la categoria--">
-            <option value="adulti" adultiSelected>Adulti</option>
-            <option value="ragazzi" ragazziSelected>Ragazzi</option>
+            <option value="adulti" adultiSelected>Categoria Adulti</option>
+            <option value="ragazzi" ragazziSelected>Categoria Ragazzi</option>
           </optgroup>
         </select>
       </fieldset>

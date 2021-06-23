@@ -1,20 +1,20 @@
 <div class="formContainer">
-    <form id="formLogin" action="./presepiInGara.php" method="POST" enctype="multipart/form-data">
+    <form id="formFilter" action="./presepiInGara.php" method="POST" enctype="multipart/form-data">
         <fieldset class="fieldsetForm">
-            <legend class="formLegend">Filtra:</legend>
-            <label for="selectCategory" class="formLabel">Filtra la lista dei presepi:</label>
-            <select name="selectCategory" id="selectCategory" required>
-              <optgroup label="--Per Categoria--">
-                <option value="adulti" adultiSelected>Categoria Adulti</option>
-                <option value="ragazzi" ragazziSelected>Categoria Ragazzi</option>
+            <legend class="formLegend">Filtra i presepi in gara</legend>
+            <label for="selectFilter" class="formLabel filterLabel">Ordina la lista in base a determinati parametri o applica un filtro per la Categoria:</label>
+            <select name="selectFilter" id="selectFilter" required>
+              <optgroup label="--Ordina--">
+                <option value="data" dataSelected>Ordina per Data (predefinito)</option>
+                <option value="like" likeSelected>Ordina per numero di Mi Piace</option>
+                <option value="alfabetico" alfabeticoSelected>Ordina in ordine Alfabetico</option>
               </optgroup>
-              <optgroup label="--Altro--">
-                <option value="data" dataSelected>Per data</option>
-                <option value="like" likeSelected>Per numero di Like</option>
-                <option value="alfabetico" alfabeticoSelected>In ordine alfabetico</option>
+              <optgroup label="--Filtra per Categoria--">
+                <option value="adulti" adultiSelected>Solo Categoria Adulti</option>
+                <option value="ragazzi" ragazziSelected>Solo Categoria Ragazzi</option>
               </optgroup>
             </select>
           </fieldset>
-        <button class="formButton" name="submit">Filtra</button>
+        <button class="formButton filterButton" name="submit">Filtra</button>
     </form>
 </div>
