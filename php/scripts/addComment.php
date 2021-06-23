@@ -19,6 +19,6 @@
     $result = mysqli_stmt_get_result($stmt);
     mysqli_stmt_close($stmt);
     $connection->close();
-    header('location: '.$_SESSION['lastPages'][1]);
+    header('location: .'.$_SESSION['lastPages'][1]);
   }
 ?>
