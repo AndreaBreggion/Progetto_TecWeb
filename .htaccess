@@ -1,2 +1,2 @@
-RewriteEngine On
-ErrorDocument 404 Progetto_TecWeb/php/404.php
+
+ErrorDocument 404 /php/404.php

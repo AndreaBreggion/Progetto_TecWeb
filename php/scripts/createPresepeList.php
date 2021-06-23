@@ -54,7 +54,7 @@ function createPresepeListAdu($connection) {
 }
 
 function createPresepeListAlph($connection) {
-  $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id ORDER BY presepi.presepeName';
+  $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id ORDER BY presepi.presepeName DESC';
   $result = $connection->query($query);
   $returnValue = '';
   while($row = mysqli_fetch_assoc($result)) {
@@ -80,9 +80,6 @@ function createPresepeListLike($connection) {
     $returnValue .= createPresepePost($presepe, $connection);
   }
   mysqli_stmt_close($stmt);
-  $returnValue = str_replace('<a href="./presepe.php?presepeId=', '<a href="./php/presepe.php?presepeId=', $returnValue);
-  $returnValue = str_replace('<img src="../sources/images/', '<img src="./sources/images/', $returnValue);
-
   return $returnValue;
 }
 

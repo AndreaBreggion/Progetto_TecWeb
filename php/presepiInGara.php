@@ -34,19 +34,63 @@
   } else $page = str_replace('<li><a href="../php/presepiInGara.php">Presepi in Gara</a></li>', '<li class="current" aria-current="page"><span class="currentPage">Presepi in Gara</span></li>', $page);
   $page = str_replace('<main id="content">', '<main id="content" class="mainPresepi">', $page);
 
+  $filterForm = file_get_contents(__DIR__."/content/common/_filterForm.html");
   $page = str_replace('<placeholderContent />',
-                      '<h2 class="sectionTitle">Presepi attualmente in gara</h2><ul class="listaPresepi"><placeholderLista /></ul>
-                              <ul id="buttonTop"><placeholderButtonTop /></ul>', $page);
+                      '<h2 class="sectionTitle">Presepi attualmente in gara</h2>' .
+                      $filterForm .
+                      '<ul class="listaPresepi"><placeholderLista /></ul>
+                      <ul id="buttonTop"><placeholderButtonTop /></ul>', $page);
 
-  $connection = connect();
+  $connection = connect(); 
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
   if(isset($_POST['selectCategory'])){
-    if($_POST['selectCategory'] == 'adulti') $replacement = createPresepeListAdu($connection);
-    if($_POST['selectCategory'] == 'ragazzi') $replacement = createPresepeListRaga($connection);
-    if($_POST['selectCategory'] == 'data') $replacement = createPresepeList($connection);
-    if($_POST['selectCategory'] == 'alfabetico') $replacement = createPresepeListAlph($connection);
-    if($_POST['selectCategory'] == 'like') $replacement = createPresepeListLike($connection);
+    if($_POST['selectCategory'] == 'adulti') {
+      $page = str_replace('adultiSelected', 'selected="selected"', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeListAdu($connection);
+    }
+    if($_POST['selectCategory'] == 'ragazzi') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', 'selected="selected"', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeListRaga($connection);
+    }
+    if($_POST['selectCategory'] == 'data') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', 'selected="selected"', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeList($connection);
+    }
+    if($_POST['selectCategory'] == 'alfabetico') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', '', $page);
+      $page = str_replace('alfabeticoSelected', 'selected="selected"', $page);
+      $replacement = createPresepeListAlph($connection);
+    }
+    if($_POST['selectCategory'] == 'like') {
+      $page = str_replace('adultiSelected', '', $page);
+      $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('dataSelected', '', $page);
+      $page = str_replace('likeSelected', 'selected="selected"', $page);
+      $page = str_replace('alfabeticoSelected', '', $page);
+      $replacement = createPresepeListLike($connection);
+    }
   }
+
+  $page = str_replace('adultiSelected', '', $page);
+  $page = str_replace('ragazziSelected', '', $page);
+  $page = str_replace('dataSelected', '', $page);
+  $page = str_replace('likeSelected', '', $page);
+  $page = str_replace('alfabeticoSelected', '', $page);
 
   $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato caricato alcun presepe!</p>' : $replacement;
   $connection->close();
