@@ -99,7 +99,7 @@ function mostLiked($connection) {
         $returnValue .= createPresepePost($presepe, $connection);
     }
     mysqli_stmt_close($stmt);
-    $returnValue = str_replace('<a href="./presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', '<a href="./php/presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $returnValue);
+    $returnValue = str_replace('<a href="./presepe.php?presepeId=', '<a href="./php/presepe.php?presepeId=', $returnValue);
     return $returnValue;
 }
 
