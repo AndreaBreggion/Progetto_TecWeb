@@ -41,7 +41,7 @@
 
     $category = $_POST['selectCategory'];
     $categoryFinalResult = '';
-    if(empty($category)) $categoryFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
+    if($category == '--Scegli una categoria--') $categoryFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
 
     $fileFinalResult = '';
     if(!isset($_FILES['presepeImage']['name'])) $fileFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
