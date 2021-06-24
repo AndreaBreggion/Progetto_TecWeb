@@ -1,9 +1,9 @@
 html {
-    margin-left: 1cm;
-    margin-top: 1cm;
-    margin-right: 1cm;
+    margin-left: 0.75cm;
+    margin-top: 0.75cm;
+    margin-right: 0.75cm;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 16pt;
+    font-size: 14pt;
     color: black;
     page-break-inside: initial;
 }
@@ -13,7 +13,7 @@ a {
     color: black;
 }
 
-footer, #openImage, #menuContainer, legend,.screenreaderOnly {
+footer, #openImage, #menuContainer, .screenreaderOnly, .search{
     display: none;
 }
 
@@ -26,8 +26,17 @@ footer, #openImage, #menuContainer, legend,.screenreaderOnly {
     width: 4em;
 }
 
-fieldset {
-    border: 0;
+#headerTitle h1 {
+    margin-left: 1em;
+}
+
+legend {
+    padding: 5mm;
+}
+
+.fieldsetForm {
+    display: flex;
+    page-break-inside: avoid;
 }
 
 .breadcrumbsBlock {
@@ -58,16 +67,33 @@ fieldset {
     padding-left: 0.5em;
 }
 
-#content{
+#content {
     padding: 0 0.5em 0.5em 0;
 }
 
+.sectionLikes {
+    page-break-inside: avoid;
+}
+
+.listaPresepi {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.hottest {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
 .postWrapper {
-    padding-top: 0.5cm;
+    margin-top: 0.2cm;
+    border-radius: 15px;
+    border: black solid 1px;
+    padding: 0.2cm;
     page-break-inside: avoid;
     display: flex;
-    width: 100%;
-    max-height: 40%;
 }
 
 .postWrapper img {
@@ -77,6 +103,11 @@ fieldset {
     width: 10cm;
 
 }
+
+.postCategoria, .postData, .postAutore, .postDescrizione span, .postMiPiace {
+    font-weight: bold;
+}
+
 .presepeImageText img {
     padding: 5mm;
     width: 100%;
@@ -85,6 +116,7 @@ fieldset {
 .postWrapper h2 {
     text-decoration: none;
 }
+
 .postWrapper a {
     display: none;
 }
@@ -97,18 +129,26 @@ fieldset {
     overflow: visible;
     width: 0;
     height: 0;
-
 }
 
 .postText h2 {
     font-size: 18pt;
 }
+
 .postText {
     height: 12cm;
     overflow: hidden;
 }
- .postWrapper .postDescrizione {
-    height: 4.7cm;
+
+.postWrapper .postDescrizione {
+    height: 5cm;
     overflow: hidden;
 }
 
+.comment {
+    page-break-inside: avoid;
+}
+
+.commentForm,.pageComments h2, .presepeButton, .deleteCommentForm {
+    display: none;
+}

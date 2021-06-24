@@ -97,7 +97,7 @@
   $page = str_replace('likeSelected', '', $page);
   $page = str_replace('alfabeticoSelected', '', $page);
 
-  $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato caricato alcun presepe!</p>' : $replacement;
+  $replacement = strlen($replacement) == 0 ? '<li><p tabindex="0">Non è ancora stato caricato alcun presepe!</p></li>' : $replacement;
   $connection->close();
   $page = str_replace('<placeholderLista />', $replacement, $page);
   $page = str_replace('<ul id="buttonTop"><placeholderButtonTop /></ul>', file_get_contents(__DIR__."/content/common/_addTopButton.html"), $page);

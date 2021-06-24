@@ -312,6 +312,10 @@ header nav li a:visited {
 }
 
 .breadcrumbs li a {
+    color: #ffffff;
+}
+
+.breadcrumbs li a:visited {
     color: yellow;
 }
 
@@ -351,6 +355,11 @@ footer {
 }
 
 #backUp {
+    color: #ffffff;
+    margin-top: 1em;
+}
+
+#backUp:visited {
     color: yellow;
     margin-top: 1em;
 }
@@ -748,18 +757,16 @@ textarea {
 }
 
 #returnButton {
-    display: none ;
+    display: none;
     position: fixed;
-    bottom: 20px;
-    color: white;
+    bottom: 40px;
+    right: 40px;
     cursor: pointer;
-    padding: 15px;
     border-radius: 15px;
-    font-size: 16px;
-    right: 30px;
-    z-index: 99;
+    z-index: 1;
     border: none;
     outline: none;
+    color: white;
     background-color: #304C82;
 }
 
@@ -852,7 +859,7 @@ textarea {
         background: #304C82;
         overflow: hidden;
         width: 0em;
-        z-index: 1;
+        z-index: 2;
     }
 
     #menuContainer.openMenu {
@@ -913,13 +920,17 @@ textarea {
     }
 
     header nav li:hover {
-        background-color: #304C82;
+        background-color: transparent;
     }
 
     header nav .current {
         width: 100%;
         color: #ffffff;
         background-color: #304C82;
+    }
+    
+    header nav .current:hover {
+        background-color: transparent;
     }
 
     .breadcrumbsBlock {
