@@ -98,14 +98,19 @@
   $page = str_replace('alfabeticoSelected', '', $page);
 
   if(strlen($replacement) == 0) {
-    if($_POST['selectFilter'] == 'adulti') {
-      $replacement = '<li><p tabindex="0">Non è presente alcun presepe nella categoria Adulti!</p></li>';
+    if(isset($_POST['selectFilter']) && $_POST['selectFilter'] != ''){
+      if($_POST['selectFilter'] == 'adulti') {
+        $replacement = '<li><p tabindex="0">Non è presente alcun presepe nella categoria Adulti!</p></li>';
+      }
+      if($_POST['selectFilter'] == 'ragazzi') {
+        $replacement = '<li><p tabindex="0">Non è presente alcun presepe nella categoria Ragazzi!</p></li>';
+      }
+      if($_POST['selectFilter'] == 'like') {
+        $replacement = '<li><p tabindex="0">Non è ancora stato lasciato alcun Mi Piace!</p></li>';
+      }
     }
-    if($_POST['selectFilter'] == 'ragazzi') {
-      $replacement = '<li><p tabindex="0">Non è presente alcun presepe nella categoria Ragazzi!</p></li>';
-    }
-    if($_POST['selectFilter'] == 'like') {
-      $replacement = '<li><p tabindex="0">Non è ancora stato lasciato alcun Mi Piace!</p></li>';
+    else {
+      $replacement = '<li><p tabindex="0">Non è ancora stato caricato alcun presepe!</p></li>';
     }
   }
 

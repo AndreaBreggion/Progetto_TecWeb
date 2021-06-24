@@ -73,7 +73,7 @@ function validateUsername() {
     if (!errorLabel) errorLabel = validator(usernameValue, 'Lo username non può avere più di 10 caratteri', 'usernameErrorLabel', (value) => {
         return value.length > 10;
     });
-    if (!errorLabel) errorLabel = validator(usernameValue,  'lo username deve contenere solo caratteri alfanumerici e iniziare con una lettera', 'usernameErrorLabel', (value) => {
+    if (!errorLabel) errorLabel = validator(usernameValue,  'Lo username deve contenere solo caratteri alfanumerici e iniziare con una lettera', 'usernameErrorLabel', (value) => {
         let regex = /^[a-zA-Z][a-zA-Z0-9]+$/;
         return !regex.test(value);
     });
