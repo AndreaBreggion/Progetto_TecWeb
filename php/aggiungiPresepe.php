@@ -32,12 +32,12 @@
     if(empty($title)) $titleFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
     if(strlen($title) < 3) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo non può avere meno di 3 caratteri</p>';
     if(strlen($title) > 48) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo non può avere più di 48 caratteri</p>';
-    if(preg_match('/[^a-zA-Z\d\s\.\!\?\,\;\:\è\È\à\ò\ù\é]/', $title)) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
+    if(preg_match('/[^a-zA-Z\d\s\.\!\?\,\;\:\è\È\à\ò\ù\é\']/', $title)) $titleFinalResult = '<p class="errorMsg" tabindex="0">il titolo può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
 
     $description = trim($_POST['description']);
     $descFinalResult = '';
     if(empty($description)) $descFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
-    if(preg_match('/[^a-zA-Z\d\s\.\!\?\,\;\:\è\È\à\ò\ù\é]/', $description)) $descFinalResult = '<p class="errorMsg" tabindex="0">La descrizione può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
+    if(preg_match('/[^a-zA-Z\d\s\.\!\?\,\;\:\è\È\à\ò\ù\é\']/', $description)) $descFinalResult = '<p class="errorMsg" tabindex="0">La descrizione può contenere solo caratteri alfanumerici, spazi e punteggiatura</p>';
 
     $category = $_POST['selectCategory'];
     $categoryFinalResult = '';
