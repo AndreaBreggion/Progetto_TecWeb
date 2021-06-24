@@ -25,9 +25,9 @@ if(isset($_POST['submit'])) {
   $username = trim($_POST['username']);
   $userNameFinalResult = '';
   if(empty($username)) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
-  if(strlen($username) < 3) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username non può avere meno di 3 caratteri</p>';
-  if(strlen($username) > 10) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username non può avere più di dieci caratteri</p>';
-  if(!preg_match('/^[a-zA-Z][a-zA-Z0-9.,$;]+$/', $username)) $userNameFinalResult = '<p class="errorMsg" tabindex="0">lo username deve contenere solo caratteri alfanumerici e iniziare con una lettera</p>';
+  if(strlen($username) < 3) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Lo username non può avere meno di 3 caratteri</p>';
+  if(strlen($username) > 10) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Lo username non può avere più di dieci caratteri</p>';
+  if(!preg_match('/^[a-zA-Z][a-zA-Z0-9.,$;]+$/', $username)) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Lo username deve contenere solo caratteri alfanumerici e iniziare con una lettera</p>';
   $query = 'SELECT * FROM users WHERE username = ?';
   $isUserNameAlreadyTaken = statementQuery($connection, $username, $query);
   if($isUserNameAlreadyTaken) $userNameFinalResult = '<p class="errorMsg" tabindex="0">Questo username è già stato scelto!</p>';
