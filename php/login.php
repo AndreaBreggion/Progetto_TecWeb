@@ -21,8 +21,8 @@
   $replacement = '';
   if(isset($_POST['submit'])) {
     $result = '';
-    $query = 'SELECT * FROM users WHERE mail = ?';
-    $data = statementQuery($connection, $_POST['mail'], $query);
+    $query = 'SELECT * FROM users WHERE username = ?';
+    $data = statementQuery($connection, $_POST['username'], $query);
     if($data) {
       $passwordCheck = password_verify($_POST['password'], $data['password']);
       if(!$passwordCheck){
@@ -49,7 +49,7 @@
       $replacement = '<span> Login avvenuto correttamente! benvenuto ' .$_SESSION["uName"] .'!</span>';
       header('location: '.$_SESSION['lastPages'][1]);
     } else {
-      $page = str_replace('<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" required>', '<input type="text" id="mail" class="formInput" name="mail" placeholder="Mail" value="'.htmlspecialchars($_POST['mail']).'" required>', $page);
+      $page = str_replace('<input type="text" id="username" class="formInput" name="username" placeholder="Username" required>', '<input type="text" id="username" class="formInput" name="username" placeholder="Username" value="'.htmlspecialchars($_POST['username']).'" required>', $page);
       $replacement = '<span class="errorMsg" tabindex="1">Login non corretto</span>';
     }
   }
