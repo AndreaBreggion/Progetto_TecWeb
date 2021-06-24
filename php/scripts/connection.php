@@ -4,9 +4,9 @@
 function connect() {
 
     $serverName = 'localhost:3306';
-    $username = 'asalmaso';
-    $password = 'theiGheiw7ahj0Ie';
-    $db = 'asalmaso';
+    $username = 'acanel';
+    $password = 'aT1eis3aay1ohc2i';
+    $db = 'tecweb';
 
     $connection = mysqli_connect($serverName, $username, $password, $db);
     if (!$connection) {
