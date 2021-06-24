@@ -43,8 +43,8 @@
   $page = str_replace('<placeholderContent />',
                       '<h2 class="sectionTitle">Presepi attualmente in gara</h2>' .
                       $filterForm .
-                      '<ul class="listaPresepi"><placeholderLista /></ul>
-                      <ul id="buttonTop"><placeholderButtonTop /></ul>', $page);
+                      '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
+
 
   $connection = connect(); 
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
@@ -116,6 +116,5 @@
 
   $connection->close();
   $page = str_replace('<placeholderLista />', $replacement, $page);
-  $page = str_replace('<ul id="buttonTop"><placeholderButtonTop /></ul>', file_get_contents(__DIR__."/content/common/_addTopButton.html"), $page);
   echo($page);
 ?>
