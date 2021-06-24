@@ -3,7 +3,7 @@ html {
     margin-top: 0.75cm;
     margin-right: 0.75cm;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 14pt;
+    font-size: 12pt;
     color: black;
     page-break-inside: initial;
 }
@@ -108,8 +108,9 @@ legend {
     font-weight: bold;
 }
 
+
 .presepeImageText img {
-    padding: 5mm;
+    padding: 5mm 0 5mm 0;
     width: 100%;
  }
 
@@ -145,10 +146,33 @@ legend {
     overflow: hidden;
 }
 
-.comment {
+.pageComments {
+    margin-top: 3em;
     page-break-inside: avoid;
 }
 
-.commentForm,.pageComments h2, .presepeButton, .deleteCommentForm {
+.listaCommenti {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comment {
+    border: black solid 1px;
+    margin: 0;
+    margin-top: 1em;
+    padding: 1em;
+    page-break-inside: avoid;
+}
+
+.commentAuthorData {
+    display: flex;
+    flex-direction: row;
+}
+
+.authorDelete {
+    margin-right: 2em;
+}
+
+.commentForm, .presepeButton, .deleteCommentForm {
     display: none;
 }
