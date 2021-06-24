@@ -44,8 +44,10 @@
     if($category == '') $categoryFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
 
     $fileFinalResult = '';
+    $ext = pathinfo($_FILES['presepeImage']['name'], PATHINFO_EXTENSION);
     if(!isset($_FILES['presepeImage']['name'])) $fileFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
     if($_FILES['presepeImage']['size'] > 10000000) $fileFinalResult = '<p class="errorMsg" tabindex="0">Dimensione del file troppo grande, dimensione massima 10mb</p>';
+    if($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg' && $ext != 'gif') $fileFinalResult = '<p class="errorMsg" tabindex="0">Estensioni non accettata: estensioni possibili: .jpg .png .jpeg .gif</p>';
 
     $page = str_replace('<titleHint />', $titleFinalResult, $page);
     $page = str_replace('<descrizioneHint />', $descFinalResult, $page);
@@ -60,7 +62,7 @@
     if(empty($finalResult)) {
       $isImageSaved = move_uploaded_file($_FILES['presepeImage']['tmp_name'], __DIR__ . '/../sources/images/' . $imageName);
     } else {
-      $isImageSaved = false;
+      $isImageSaved = 'noResult';
     }
     $date = date('Y-m-d');
     if(empty($finalResult) && $isImageSaved) {
@@ -68,6 +70,7 @@
       $page = str_replace('<descriptionPlaceholder />', '', $page);
       $page = str_replace('adultiSelected', '', $page);
       $page = str_replace('ragazziSelected', '', $page);
+      $page = str_replace('<imageHint />', '', $page);
       $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="successMsg" tabindex="1"> Il tuo presepe è stato caricato!</p>', $page);
       $query = "INSERT INTO presepi (uId, photoPath, presepeName, category, description, dateOfCreation) VALUES (?,?,?,?,?,?);";
       $stmt = mysqli_stmt_init($connection);
@@ -81,7 +84,9 @@
       $page = str_replace('<descriptionPlaceholder />', $description, $page);
       $page = $category == 'adulti' ? str_replace('adultiSelected', 'selected', $page) : str_replace('adultiSelected', '', $page);
       $page = $category == 'ragazzi' ? str_replace('ragazziSelected', 'selected', $page) : str_replace('ragazziSelected', '', $page);
-      $page = $isImageSaved ? str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page) : str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> Errore durante il caricamento dell\'immagine </p>', $page);
+      if(!$isImageSaved) str_replace('<imageHint />', '<p class="errorMsg" tabindex="1"> Errore durante il caricamento dell\'immagine </p>', $page);
+      if($isImageSaved == "noResult") str_replace('<imageHint />', '', $page);
+      $page = str_replace('<msgPlaceholder></msgPlaceholder>', '<p class="errorMsg" tabindex="1"> L\'operazione non è andata a buon fine, ricontrolla i campi </p>', $page);
     }
   } else {
     $page = str_replace('titlePlaceholder', '', $page);

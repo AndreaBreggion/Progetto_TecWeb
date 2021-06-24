@@ -1,23 +1,23 @@
 <div class="loginWrapper">
   <h2 class="sectionTitle">Aggiungi il tuo Presepe</h2>
   <div class="formContainer">
-    <form id="formAddPresepe" action="./aggiungiPresepe.php" method="POST" enctype="multipart/form-data">
+    <form id="formAddPresepe" action="./aggiungiPresepe.php" method="POST" enctype="multipart/form-data" onsubmit="return validateAdd()">
       <fieldset class="fieldsetForm">
         <legend class="formLegend">Inserisci il nome</legend>
         <titleHint />
-        <label for="title" class="formLabel">Che nome hai dato alla tua opera? Scrivilo qui sotto:</label>
+        <label for="title" class="formLabel" id="titleLabel">Che nome hai dato alla tua opera? Scrivilo qui sotto:</label>
         <input type="text" id="title" class="formInput" value="titlePlaceholder" name="title" placeholder="Titolo" required>
       </fieldset>
       <fieldset class="fieldsetForm">
         <legend class="formLegend">Inserisci una breve descrizione</legend>
         <descrizioneHint />
-        <label for="description" class="formLabel">Dicci cosa rende il tuo presepe fantastico!</label>
+        <label for="description" class="formLabel" id="descriptionLabel">Dicci cosa rende il tuo presepe fantastico!</label>
         <textarea id="description" class="formText" name="description" placeholder="Descrizione" required ><descriptionPlaceholder /></textarea>
       </fieldset>
       <fieldset class="fieldsetForm">
         <legend class="formLegend">Scegli la categoria</legend>
         <selectHint />
-        <label for="selectCategory" class="formLabel">Scegli una categoria, tra Adulti e Ragazzi:</label>
+        <label for="selectCategory" class="formLabel" id="categoryLabel">Scegli una categoria, tra Adulti e Ragazzi:</label>
         <select name="selectCategory" id="selectCategory" required="required">
             <option value="">Scegli</option>
             <option value="adulti" adultiSelected>Categoria Adulti</option>
@@ -27,7 +27,7 @@
       <fieldset class="fieldsetForm">
         <legend class="formLegend">Carica una foto</legend>
         <imageHint />
-        <label for="presepeImage" class="formLabel">Facci vedere il tuo presepe! Carica una foto!</label>
+        <label for="presepeImage" class="formLabel" id="imageLabel">Facci vedere il tuo presepe! Carica una foto!</label>
         <input type="file" accept=".gif,.jpg,.jpeg,.png" name="presepeImage" id="presepeImage" required>
       </fieldset>
       <button class="formButton" name="submit">Invia!</button>

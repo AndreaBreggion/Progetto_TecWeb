@@ -116,7 +116,7 @@ function validateName() {
 }
 
 function validateSurname() {
-    const surname = document.getElementById('name');
+    const surname = document.getElementById('surname');
     const surnameValue = surname.value.trim();
     const surnameLabel = document.getElementById('surnameLabel');
     let errorLabel;
@@ -127,7 +127,7 @@ function validateSurname() {
         return value.length < 3;
     });
     if (!errorLabel) errorLabel = validator(surnameValue, 'Il cognome non deve avere più di 24 caratteri', 'surnameErrorLabel', (value) => {
-        return value.length > 10;
+        return value.length > 24;
     });
     if (!errorLabel) errorLabel = validator(surnameValue, 'Cognome non valido!', 'surnameErrorLabel', (value) => {
         let regex = /[0-9!#$%&\'*+/=?^_\`{|}~\-]/;
@@ -150,4 +150,104 @@ function validateRegister() {
     const n = validateName();
     const s = validateSurname();
     return (s && n && u && p && m);
+}
+
+function validateTitle() {
+    const title = document.getElementById('title');
+    const titleValue = title.value.trim();
+    const titleLabel = document.getElementById('titleLabel');
+    let errorLabel;
+    errorLabel = validator(titleValue,  'Campo obbligatorio', 'titleErrorLabel', (value) => {
+        return value.length === 0;
+    });
+    if (!errorLabel) errorLabel = validator(titleValue,  'Il titolo deve avere almeno 3 caratteri', 'titleErrorLabel', (value) => {
+        return value.length < 3;
+    });
+    if (!errorLabel) errorLabel = validator(titleValue, 'Il titolo non deve avere più di 48 caratteri', 'titleErrorLabel', (value) => {
+        return value.length > 48;
+    });
+    if (!errorLabel) errorLabel = validator(titleValue, 'il titolo deve essere composto solo da caratteri alfanumerici!', 'titleErrorLabel', (value) => {
+        let regex = /[$%<>*+/=^?^_\`{|}~\-]/;
+        return regex.test(value);
+    });
+    if(errorLabel) {
+        titleLabel.insertAdjacentElement('beforebegin', errorLabel);
+        return false;
+    } else {
+        const errorLabel = document.getElementById('titleErrorLabel');
+        if(errorLabel) errorLabel.remove();
+    }
+    return true;
+}
+
+function validateDescription() {
+    const description = document.getElementById('description');
+    const descriptionValue = description.value.trim();
+    const descriptionLabel = document.getElementById('descriptionLabel');
+    let errorLabel;
+    errorLabel = validator(descriptionValue,  'Campo obbligatorio', 'descriptionErrorLabel', (value) => {
+        return value.length === 0;
+    });
+    if (!errorLabel) errorLabel = validator(descriptionValue,  'La descrizione deve avere almeno 3 caratteri', 'descriptionErrorLabel', (value) => {
+        return value.length < 3;
+    });
+    if (!errorLabel) errorLabel = validator(descriptionValue, 'La descrizione deve essere composta solo da caratteri alfanumerici!', 'descriptionErrorLabel', (value) => {
+        let regex = /[$%<>*+/=^?^_\`{|}~\-]/;
+        return regex.test(value);
+    });
+    if(errorLabel) {
+        descriptionLabel.insertAdjacentElement('beforebegin', errorLabel);
+        return false;
+    } else {
+        const errorLabel = document.getElementById('descriptionErrorLabel');
+        if(errorLabel) errorLabel.remove();
+    }
+    return true;
+}
+
+function validateFile() {
+    var file = document.getElementById('presepeImage').files[0];
+    const imageLabel = document.getElementById('imageLabel');
+    let errorLabel;
+    errorLabel = validator(file.size,  'Dimensione massima del file 10 MB', 'imageErrorLabel', (value) => {
+        return value > 10000000;
+    });
+    if(!errorLabel) errorLabel = validator(file.type,  'Estensioni non accettata: estensioni possibili: .jpg .png .jpeg .gif', 'imageErrorLabel', (value) => {
+        return !(value === 'image/gif' || value === 'image/jpeg' || value === 'image/png');
+    });
+    if(errorLabel) {
+        imageLabel.insertAdjacentElement('beforebegin', errorLabel);
+        return false;
+    } else {
+        const errorLabel = document.getElementById('imageErrorLabel');
+        if(errorLabel) errorLabel.remove();
+    }
+    return true;
+}
+
+function validateSelect() {
+    const select = document.getElementById('selectCategory');
+    const selectValue = select.value.trim();
+    const selectLabel = document.getElementById('categoryLabel');
+    let errorLabel;
+    errorLabel = validator(selectValue,  'Campo obbligatorio', 'selectErrorLabel', (value) => {
+        return value.length === 0;
+    });
+    if(errorLabel) {
+        selectLabel.insertAdjacentElement('beforebegin', errorLabel);
+        return false;
+    } else {
+        const errorLabel = document.getElementById('selectErrorLabel');
+        if(errorLabel) errorLabel.remove();
+    }
+    return true;
+}
+
+
+function validateAdd() {
+    const t = validateTitle();
+    const d = validateDescription();
+    const f = validateFile();
+    const s = validateSelect();
+    return t && d && f && s;
 }
