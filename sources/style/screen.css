@@ -347,12 +347,21 @@ footer {
     justify-content: center;
 }
 
+
+#infoFooter {
+    margin-top: 1.5em;
+}
+
 #footerContatti ul {
     list-style-type: none;
 }
 
 #footerContatti li {
     display: inline;
+}
+
+#copyright {
+    margin-top: 0;
 }
 
 #backUp {
@@ -367,7 +376,7 @@ footer {
 
 #footerContatti {
     list-style: none;
-    margin-top: 2em;
+    margin-top: 1.5em;
     padding: 0;
 }
 
@@ -1047,8 +1056,15 @@ textarea {
         float: right;
     }
 
+    #copyright {
+        margin-bottom: 4em;
+    }
+
     #returnButton {
-        padding: 5px;
+        bottom: 20px;
+        right: 15px;
+        padding-right: 1em;
+        padding-left: 1em;
     }
 
 }
