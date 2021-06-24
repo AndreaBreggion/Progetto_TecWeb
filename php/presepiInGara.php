@@ -41,14 +41,10 @@
     $filterForm = file_get_contents(__DIR__."/content/common/_filterForm.html");
   }
   $page = str_replace('<placeholderContent />',
-<<<<<<< HEAD
-                      '<h2 class="sectionTitle">Presepi attualmente in gara</h2><ul class="listaPresepi"><placeholderLista /></ul>', $page);
-=======
                       '<h2 class="sectionTitle">Presepi attualmente in gara</h2>' .
                       $filterForm .
-                      '<ul class="listaPresepi"><placeholderLista /></ul>
-                      <ul id="buttonTop"><placeholderButtonTop /></ul>', $page);
->>>>>>> 813271836139d89b0deb8523f88310c092ac8071
+                      '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
+
 
   $connection = connect(); 
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
