@@ -13,7 +13,7 @@ a {
     color: black;
 }
 
-footer, #openImage, #menuContainer, .screenreaderOnly, .search{
+footer, #openImage, #menuContainer, #returnButton, .screenreaderOnly, .search{
     display: none;
 }
 
