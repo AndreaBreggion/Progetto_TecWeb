@@ -92,7 +92,7 @@ header a:visited {
 .login {
     margin-top: -5em;
     margin-bottom: 3em;
-    display:flex;
+    display: flex;
     justify-content: flex-end;
     color: #ffffff;
 }
@@ -238,7 +238,6 @@ header nav li a:visited {
 }
 
 #content {
-    background-color: #ffffff;
     min-height: 75%;
     width: 70%;
     margin: auto;
@@ -763,7 +762,7 @@ textarea {
 }
 
 .error404 div img{
-    width: 90%;
+    width: 50%;
 }
 
 #returnButton {
