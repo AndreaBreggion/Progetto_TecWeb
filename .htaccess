@@ -1,2 +1,4 @@
 
-ErrorDocument 404 /php/404.php
+ErrorDocument 404 /404
+RewriteEngine On
+RewriteRule ^404$ Progetto_TecWeb/php/404.php [NC]
