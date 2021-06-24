@@ -1,2 +1,2 @@
-ErrorDocument 404 /index.php
+ErrorDocument 404 http ://localhost:8080/acanel/Progetto_TecWeb/php/404.php
 
