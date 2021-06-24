@@ -1,7 +1,7 @@
 html {
-    margin-left: 1cm;
-    margin-top: 1cm;
-    margin-right: 1cm;
+    margin-left: 0.75cm;
+    margin-top: 0.75cm;
+    margin-right: 0.75cm;
     font-family: Georgia, "Times New Roman", serif;
     font-size: 14pt;
     color: black;
@@ -24,6 +24,10 @@ footer, #openImage, #menuContainer, .screenreaderOnly, .search{
 #logo {
     height: 4em;
     width: 4em;
+}
+
+#headerTitle h1 {
+    margin-left: 1em;
 }
 
 legend {
@@ -67,9 +71,20 @@ legend {
     padding: 0 0.5em 0.5em 0;
 }
 
+.sectionLikes {
+    page-break-inside: avoid;
+}
+
 .listaPresepi {
     padding: 0;
     margin: 0;
+    list-style: none;
+}
+
+.hottest {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }
 
 .postWrapper {
@@ -87,6 +102,10 @@ legend {
     height: 10cm;
     width: 10cm;
 
+}
+
+.postCategoria, .postData, .postAutore, .postDescrizione span, .postMiPiace {
+    font-weight: bold;
 }
 
 .presepeImageText img {
@@ -110,7 +129,6 @@ legend {
     overflow: visible;
     width: 0;
     height: 0;
-
 }
 
 .postText h2 {
@@ -122,15 +140,15 @@ legend {
     overflow: hidden;
 }
 
- .postWrapper .postDescrizione {
+.postWrapper .postDescrizione {
     height: 5cm;
     overflow: hidden;
 }
 
- .comment{
-     page-break-inside: avoid;
- }
+.comment {
+    page-break-inside: avoid;
+}
 
-.commentForm,.pageComments h2, .presepeButton, .deleteCommentForm{
+.commentForm,.pageComments h2, .presepeButton, .deleteCommentForm {
     display: none;
 }
