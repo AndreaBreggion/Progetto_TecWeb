@@ -20,7 +20,7 @@
   $page = str_replace('<form method="get" action="./presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">', '<form method="get" action="./php/presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">', $page);
   $connection = connect();
   $replacement = mostLiked($connection);
-  $replacement = strlen($replacement) == 0 ? '<p tabindex="1">Non è ancora stato votato alcun presepe!</p>' : $replacement;
+  $replacement = strlen($replacement) == 0 ? '<li><p tabindex="0">Non è ancora stato votato alcun presepe!</p></li>' : $replacement;
   $page = str_replace('<mostLikedPlaceholder />', $replacement, $page);
   echo($page);
 ?>

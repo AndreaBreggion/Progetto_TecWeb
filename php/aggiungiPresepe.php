@@ -41,7 +41,7 @@
 
     $category = $_POST['selectCategory'];
     $categoryFinalResult = '';
-    if(empty($category)) $categoryFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
+    if($category == '') $categoryFinalResult= '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
 
     $fileFinalResult = '';
     if(!isset($_FILES['presepeImage']['name'])) $fileFinalResult = '<p class="errorMsg" tabindex="0">Campo obbligatorio</p>';
@@ -92,6 +92,7 @@
     $page = str_replace('<descrizioneHint />', '', $page);
     $page = str_replace('<selectHint />', '', $page);
     $page = str_replace('<imageHint />', '', $page);
+    $page = str_replace('<msgPlaceholder></msgPlaceholder>', '', $page);
   }
   echo($page);
 ?>

@@ -1,0 +1,21 @@
+<div class="formContainer">
+    <form id="formFilter" action="./presepiInGara.php" method="POST" enctype="multipart/form-data">
+        <fieldset class="fieldsetForm">
+            <legend class="formLegend">Filtra i presepi in gara</legend>
+            <label for="selectFilter" class="formLabel filterLabel">Ordina la lista in base a determinati parametri o applica un filtro per la Categoria:</label>
+            <select name="selectFilter" id="selectFilter" required>
+                <option value="">--Scegli--</option>
+                <optgroup label="--Ordina--">
+                  <option value="data" dataSelected>Ordina per Data (predefinito)</option>
+                  <option value="like" likeSelected>Ordina per numero di Mi Piace</option>
+                  <option value="alfabetico" alfabeticoSelected>Ordina in ordine Alfabetico</option>
+                </optgroup>
+                <optgroup label="--Filtra per Categoria--">
+                  <option value="adulti" adultiSelected>Solo Categoria Adulti</option>
+                  <option value="ragazzi" ragazziSelected>Solo Categoria Ragazzi</option>
+                </optgroup>
+            </select>
+            <button class="formButton filterButton" name="submit">Filtra</button>
+          </fieldset>
+    </form>
+</div>
