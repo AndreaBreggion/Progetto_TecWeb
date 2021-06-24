@@ -48,7 +48,7 @@
 
   $connection = connect(); 
   $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
-  if(isset($_POST['selectFilter'])){
+  if(isset($_POST['selectFilter']) && $_POST['selectFilter'] != '--Scegli--'){
     if($_POST['selectFilter'] == 'adulti') {
       $page = str_replace('adultiSelected', 'selected="selected"', $page);
       $page = str_replace('ragazziSelected', '', $page);
