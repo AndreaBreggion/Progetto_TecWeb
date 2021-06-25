@@ -1,6 +1,6 @@
 <?php
-if($_SERVER['REQUEST_URI'] !="/asalmaso/Progetto_TecWeb/php/404.php") {
-  header("Refresh:0, url=/asalmaso/Progetto_TecWeb/php/404.php");
+if($_SERVER['REQUEST_URI'] !=$_SERVER['PHP_SELF']) {
+  header("Location: ".$_SERVER['PHP_SELF']);
 }
 
 session_start();
