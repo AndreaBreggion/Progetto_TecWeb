@@ -85,6 +85,7 @@ function createPresepeListLike($connection) {
 
 function createPresepeSearchList($connection, $where) {
   $where = trim($where);
+  $where = substr($where, 0, 48);
   $query = 'SELECT presepi.*, users.username as username, users.id as UID from presepi INNER JOIN users on presepi.uId = users.id WHERE presepi.presepeName LIKE ?';
   $stmt = mysqli_stmt_init($connection);
   if( !mysqli_stmt_prepare($stmt, $query) ) {
