@@ -5,16 +5,16 @@
             <img id="logo" src="<rootDIR />/sources/images/logo.png" alt="logo del concorso presepi di Farra di Soligo"/>
             <h1><a href="../index.php">I presepi di Farra di Soligo</a></h1>
         </div>
-        <img id="openImage" src="<rootDIR />/sources/images/icons/Hamburger_icon.png" alt="apri menu" onclick="openNav()">
+        <img id="openImage" src="<rootDIR />/sources/images/icons/Hamburger_icon.png" alt="apri menu" onclick="openNav()" />
     </div>
     <div id="menuContainer">
-        <img id="closeImage" src="<rootDIR />/sources/images/icons/Close_icon.png" alt="chiudi menu" onclick="openNav()" >
+        <img id="closeImage" src="<rootDIR />/sources/images/icons/Close_icon.png" alt="chiudi menu" onclick="openNav()" />
         <div class="login">
             <placeholderLog />
         </div>
         <a class="screenreaderOnly" href="#content">Salta il menu</a>
 
-        <nav id="navBar">
+        <nav id="navBar" aria-label="navbar">
             <ul id="menu">
                 <li><a lang="en" href="<rootDIR />/index.php">Home</a></li>
                 <li><a href="<rootDIR />/php/aggiungiPresepe.php">Aggiungi Presepe</a></li>
@@ -30,7 +30,7 @@
         <fieldset class="fieldsetSearch">
             <legend class="searchLegend">Ricerca</legend>
             <label class="searchLabel" for="search">Cerca tra i Presepi:</label>
-            <input aria-label="Barra di ricerca dei presepi" type="text" id="search" class="formInput" name="search" placeholder="Cerca tra i presepi" required>
+            <input aria-label="Cerca tra i Presepi:" type="text" id="search" class="formInput" name="search" placeholder="Cerca tra i presepi" required>
             <button type="submit" name="submit" class="searchButton">Cerca</button>
         </fieldset>
         </form>

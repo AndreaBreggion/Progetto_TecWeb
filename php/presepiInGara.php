@@ -42,12 +42,33 @@
   }
   $page = str_replace('<placeholderContent />',
                       '<h2 class="sectionTitle">Presepi attualmente in gara</h2>' .
+                      '<placeholderSearch />' .
                       $filterForm .
                       '<ul class="listaPresepi"><placeholderLista /></ul>', $page);
 
 
   $connection = connect(); 
-  $replacement = isset($_GET['search']) ? createPresepeSearchList($connection, $_GET['search']) : createPresepeList($connection);
+
+  if(isset($_GET['search'])) {
+    $replacement = createPresepeSearchList($connection, $_GET['search']);
+    if($replacement[0] == 0) {
+      $searchResult = '<p tabindex="1" class="searchResult">La ricerca di '. htmlspecialchars($_GET['search']) . ' non ha prodotto risultati!</p>';
+      $page = str_replace('<ul class="listaPresepi"><placeholderLista /></ul>', '', $page);
+      $replacement = $replacement[1];
+    } else if($replacement[0] == 1){
+      $searchResult = '<p tabindex="0" class="searchResult"> La ricerca di '. htmlspecialchars($_GET['search']) . ' ha prodotto un risultato:</p>';
+      $replacement = $replacement[1];
+    } else {
+      $searchResult = '<p tabindex="0" class="searchResult"> La La ricerca di '. htmlspecialchars($_GET['search']) . ' ha prodotto ' . $replacement[0] . ' risultati:</p>';
+      $replacement = $replacement[1];
+    }
+    $page = str_replace('<placeholderSearch />', $searchResult, $page);
+  } else {
+    $replacement =  createPresepeList($connection);
+    $page = str_replace('<placeholderSearch />', '', $page);
+  }
+  
+
   if(isset($_POST['selectFilter']) && $_POST['selectFilter'] != ''){
     if($_POST['selectFilter'] == 'adulti') {
       $page = str_replace('adultiSelected', 'selected="selected"', $page);
@@ -97,7 +118,7 @@
   $page = str_replace('likeSelected', '', $page);
   $page = str_replace('alfabeticoSelected', '', $page);
 
-  if(strlen($replacement) == 0) {
+  if(strlen($replacement) == 0 && !isset($_GET['search'])) {
     if(isset($_POST['selectFilter']) && $_POST['selectFilter'] != ''){
       if($_POST['selectFilter'] == 'adulti') {
         $replacement = '<li><p tabindex="0">Non è presente alcun presepe nella categoria Adulti!</p></li>';

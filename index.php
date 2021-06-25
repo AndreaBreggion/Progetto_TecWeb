@@ -17,7 +17,7 @@
   $page = $builder->build();
   $page = str_replace('<h1><a href="../index.php">I presepi di Farra di Soligo</a></h1>', '<h1>I presepi di Farra di Soligo</h1>', $page);
   $page = str_replace('<li><a lang="en" href="./index.php">Home</a></li>', '<li class="current" aria-current="page"><span class="currentPage" lang="en">Home</span></li>', $page);
-  $page = str_replace('<form method="get" action="./presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">', '<form method="get" action="./php/presepiInGara.php" class="searchBar" onsubmit="return validateSearch()">', $page);
+  $page = str_replace('<form method="get" action="./presepiInGara.php" class="searchBar">', '<form method="get" action="./php/presepiInGara.php" class="searchBar">', $page);
   $connection = connect();
   $replacement = mostLiked($connection);
   $replacement = strlen($replacement) == 0 ? '<li><p tabindex="0">Non è ancora stato votato alcun presepe!</p></li>' : $replacement;

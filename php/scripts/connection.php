@@ -3,7 +3,7 @@
 
 function connect() {
 
-    $serverName = 'localhost:3306';
+    $serverName = 'localhost';
     $username = 'asalmaso';
     $password = 'theiGheiw7ahj0Ie';
     $db = 'asalmaso';

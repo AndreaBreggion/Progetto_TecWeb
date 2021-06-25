@@ -11,10 +11,10 @@ function createPresepePost($row, $connection) {
     $img = $row['photoPath'];
     $longdesc = str_replace('.', '', $img);
     $post = str_replace('<descriptionPlaceHolder />',
-                        '<p class="postDescrizione" id="#' . $longdesc . 'longdesc"><span>Descrizione:</span><br />' . $row['description'] .'</p>', $post);
+                        '<p class="postDescrizione" id="' . $longdesc . 'longdesc"><span>Descrizione:</span><br />' . $row['description'] .'</p>', $post);
     $post = str_replace('<placeholderImage />', $img, $post);
     $post = str_replace('<placeholderAlt />', 'Foto del presepe ' . $row['presepeName'], $post);
-    $post = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $post);
+    $post = str_replace('<placeholderLongdesc />', $longdesc . 'longdesc' , $post);
     $post = str_replace('<presepeLinkPlaceholder />', '<a href="./presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
     $query = 'SELECT COUNT(*) FROM likes WHERE pId ='. $row['id'];
     $count = $connection->query($query);
@@ -102,12 +102,7 @@ function createPresepeSearchList($connection, $where) {
     $i++;
     $returnValue .= createPresepePost($row, $connection);
   }
-  if(strlen($returnValue) == 0) {
-    $returnValue = '<li><p tabindex="1"><em> La ricerca di '. htmlspecialchars($where) . ' non ha prodotto risultati!</em></p></li>';
-  } else if($i == 1) {
-    $returnValue = '<li><p tabindex="0" class="searchResult"> La tua ricerca ha prodotto 1 risultato! </p></li>' . $returnValue;
-  } else $returnValue = '</li><p tabindex="0" class="searchResult"> La tua ricerca ha prodotto '.$i.' risultati! </p></li>' . $returnValue;
-  return($returnValue);
+  return(array($i, $returnValue));
 }
 
 
