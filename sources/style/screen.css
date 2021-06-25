@@ -457,7 +457,7 @@ textarea {
 }
 
 .successMsg {
-    color: green;
+    color: #016701;
     display: block;
     font-weight: bold;
     margin-top: 3em;
@@ -465,7 +465,7 @@ textarea {
 
 .successPageMsg{
     text-align: center;
-    color: green;
+    color: #016701;
     display: block;
     font-weight: bold;
     margin-top: 3em;
@@ -638,6 +638,7 @@ textarea {
     height: 5em;
     resize: none;
     margin-right: 1em;
+    margin-bottom: 1em;
 }
 
 .commentForm { 
