@@ -34,7 +34,7 @@ $builder->setBreadcrumb(file_get_contents(__DIR__ . "/content/common/_breadcrumb
   '<li><a href="./presepiInGara.php">Presepi in gara</a></li>',
   '<li class="current" aria-current="page"><span class="currentCrumb"><presepeBreadcrumbPlaceholder /></span></li>'));
 $page = $builder->build();
-$replacement= '<h2 tabindex="1"><em> Errore 404: presepe non trovato! </em></h2>';
+$replacement= '<p tabindex="1"><em> Errore 404: presepe non trovato! </em></p>';
 if(isset($_GET['presepeId'])) {
     handleVisitedPages('./presepe.php?presepeId='.$_GET['presepeId']);
     $where = $_GET['presepeId'];
@@ -76,7 +76,7 @@ if(isset($_GET['presepeId'])) {
       $replacement = str_replace('<placeholderImage />', $result['photoPath'], $replacement);
       $replacement = str_replace('<placeholderAlt />', 'Foto del presepe ' . $result['presepeName'], $replacement);
       $longdesc = str_replace('.', '', $result['photoPath']);
-      $replacement = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $replacement);
+      $replacement = str_replace('<placeholderLongdesc />', $longdesc . 'longdesc' , $replacement);
       $replacement = str_replace('<placeholderIdLongdesc />', $longdesc . 'longdesc' , $replacement);
       $replacement = str_replace('<titlePH />', $result['presepeName'], $replacement);
       $replacement = str_replace('<placeholderAuthor />', $result['username'], $replacement);
@@ -89,8 +89,8 @@ if(isset($_GET['presepeId'])) {
       $replacement = str_replace('<placeholderLike />', $likePresepe, $replacement);
       $replacement = str_replace('<placeholderVincitore />', $winnerPresepe, $replacement);
       $replacement = str_replace('<presepeFormPlaceholder />', $form, $replacement);
-      if($hasUserLikedPresepe) $replacement = str_replace('<button class="presepeButton likeButton" aria-label="Aggiungi un Mi Piace al presepe" type="submit" name="like">Mi piace!</button>', '<button class="presepeButton likeButton" aria-label="Rimuovi il Mi piace al presepe" type="submit" name="like">Non mi piace più!</button>', $replacement);
-      if($hasAdminSelected) $replacement = str_replace('<button class="presepeButton" type="submit" name="segna vincitore" aria-label="Segna il presepe come vincitore">Segna come Vincitore</button>', '<button class="presepeButton" aria-label="Rimuovi il presepe dai vincitori" type="submit" name="like">Rimuovi dai Vincitori</button>', $replacement);
+      if($hasUserLikedPresepe) $replacement = str_replace('<button class="presepeButton likeButton" aria-label="Mi Piace!" type="submit" name="like">Mi piace!</button>', '<button class="presepeButton likeButton" aria-label="Non mi piace più!" type="submit" name="like">Non mi piace più!</button>', $replacement);
+      if($hasAdminSelected) $replacement = str_replace('<button class="presepeButton" type="submit" name="segna vincitore" aria-label="Segna come Vincitore">Segna come Vincitore</button>', '<button class="presepeButton" aria-label="Rimuovi dai Vincitori" type="submit" name="like">Rimuovi dai Vincitori</button>', $replacement);
 
       for($i = 1; $row = mysqli_fetch_assoc($comments); $i++) {
         if(isset($_SESSION['uId'])) {
@@ -106,7 +106,7 @@ if(isset($_GET['presepeId'])) {
         $commentTemplate = str_replace('<placeholderCommentProper />', $row['comment'], $commentTemplate);
         $commentThread .= $commentTemplate;
       }
-      $replacement = str_replace('<presepeCommentThreadPlaceholder />', $commentThread, $replacement);
+      $replacement = $commentThread=='' ? str_replace('<presepeCommentThreadPlaceholder />', '<li><p>Non è presente alcun commento. Sii il primo a commentare!</p></li>', $replacement) : str_replace('<presepeCommentThreadPlaceholder />', $commentThread, $replacement);
     } else $page = str_replace('<presepeBreadcrumbPlaceholder />', 'Presepe non trovato', $page);
 } else $page = str_replace('<presepeBreadcrumbPlaceholder />', 'Presepe non trovato', $page);
 $page = str_replace('<placeholderContent />', $replacement, $page);

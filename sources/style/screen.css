@@ -197,6 +197,7 @@ form button:hover {
 .searchBar {
     width: 35em;
     margin-top: 1em;
+    color: #ffffff;
 }
 
 .fieldsetSearch {
@@ -210,6 +211,7 @@ form button:hover {
 
 .searchLabel {
     display: none;
+    color: #ffffff;
 }
 
 .searchButton {
@@ -231,6 +233,7 @@ form button:hover {
 .searchLegend {
     height: 0;
     overflow: hidden;
+    color: #ffffff;
 }
 
 header nav li a:visited {
@@ -266,7 +269,7 @@ header nav li a:visited {
 }
 
 .sectionTitle {
-    color: #087EA6;
+    color: #375695;
     text-align: center;
 }
 
@@ -592,7 +595,7 @@ textarea {
 
 .likeButton {
     color: #ffffff;
-    background-color: #087EA6;
+    background-color: #375695;
 }
 
 .likeButton:hover {
@@ -601,11 +604,11 @@ textarea {
 
 .deleteButton {
     color: #ffffff;
-    background-color: #BC0101;
+    background-color: #b30000;
 }
 
 .deleteButton:hover {
-    background-color: #A20101;
+    background-color: #8d0000;
 }
 
 .pageComments {
@@ -693,14 +696,14 @@ textarea {
     margin: auto;
     text-align: center;
     color: #ffffff;
-    background-color: #BC0101;
+    background-color: #b30000;
     text-transform: none;
     margin-bottom: 1em;
     align-self: flex-end;
 }
 
 .deleteCommentForm button:hover{
-    background-color: #A20101;
+    background-color: #8d0000;
 }
 
 /* Pagina Utente */

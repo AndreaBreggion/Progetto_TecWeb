@@ -11,10 +11,10 @@ function createPresepePost($row, $connection) {
     $img = $row['photoPath'];
     $longdesc = str_replace('.', '', $img);
     $post = str_replace('<descriptionPlaceHolder />',
-                        '<p class="postDescrizione" id="#' . $longdesc . 'longdesc"><span>Descrizione:</span><br />' . $row['description'] .'</p>', $post);
+                        '<p class="postDescrizione" id="' . $longdesc . 'longdesc"><span>Descrizione:</span><br />' . $row['description'] .'</p>', $post);
     $post = str_replace('<placeholderImage />', $img, $post);
     $post = str_replace('<placeholderAlt />', 'Foto del presepe ' . $row['presepeName'], $post);
-    $post = str_replace('<placeholderLongdesc />', '#' .$longdesc . 'longdesc' , $post);
+    $post = str_replace('<placeholderLongdesc />', $longdesc . 'longdesc' , $post);
     $post = str_replace('<presepeLinkPlaceholder />', '<a href="./presepe.php?presepeId='.$row['id'].'">Scopri di più</a>', $post);
     $query = 'SELECT COUNT(*) FROM likes WHERE pId ='. $row['id'];
     $count = $connection->query($query);
