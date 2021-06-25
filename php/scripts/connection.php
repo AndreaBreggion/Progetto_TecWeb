@@ -4,8 +4,8 @@
 function connect() {
 
     $serverName = 'localhost';
-    $username = 'asalmaso';
-    $password = 'theiGheiw7ahj0Ie';
+    $username = 'root';
+    $password = '';
     $db = 'asalmaso';
 
     $connection = mysqli_connect($serverName, $username, $password, $db);
