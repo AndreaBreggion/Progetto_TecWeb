@@ -382,7 +382,6 @@ footer {
     padding: 0;
 }
 
-/* login Form */
 .loginWrapper {
     text-align: center;
 }
@@ -599,7 +598,7 @@ textarea {
 }
 
 .likeButton:hover {
-    background-color: #076F92;
+    background-color: #304C82;
 }
 
 .deleteButton {
@@ -707,7 +706,6 @@ textarea {
     background-color: #8d0000;
 }
 
-/* Pagina Utente */
 .infoUserContent {
     margin-top: 3em;
 }
@@ -1108,6 +1106,3 @@ textarea {
     }
 
 }
-
-
-

@@ -6,7 +6,7 @@
         private $_rootDIR;
         private $_whole_page;
         
-        // costruttore con parametro: prende in input il nome della pagina
+        // costruttore con parametro
         public function __construct(string $pageName, string $rootDIR) {
             $this->_pageName = $pageName;
             $this->_rootDIR = $rootDIR;

@@ -9,7 +9,6 @@ require_once('scripts/hasUserLiked.php');
 require_once('scripts/lastVisitedPages.php');
 require_once('scripts/hasAdminSelected.php');
 
-// il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
 $builder = new TemplateBuilder( "/common/_pageTemplate", "..");
 
 if(isset($_GET['presepeId'])) {

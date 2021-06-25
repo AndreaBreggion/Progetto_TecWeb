@@ -6,7 +6,7 @@
   require_once('scripts/connection.php');
   require_once('scripts/lastVisitedPages.php');
   handleVisitedPages('./presepiInGara.php');
-  // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
+
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
   if(isset($_GET['search'])){
@@ -68,7 +68,6 @@
     $page = str_replace('<placeholderSearch />', '', $page);
   }
   
-
   if(isset($_POST['selectFilter']) && $_POST['selectFilter'] != ''){
     if($_POST['selectFilter'] == 'adulti') {
       $page = str_replace('adultiSelected', 'selected="selected"', $page);

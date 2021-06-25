@@ -7,7 +7,6 @@
   require_once('php/scripts/createPresepeList.php');
   handleVisitedPages('../index.php');
 
-  // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("home", ".");
   $builder->setHead(file_get_contents(__DIR__."/php/content/common/_head.html"), "home");
   $builder->setDescription("Pagina iniziale del sito dedicato al Concorso Presepi di Farra di Soligo");

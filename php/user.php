@@ -7,7 +7,6 @@
     require_once('scripts/lastVisitedPages.php');
     handleVisitedPages('./user.php');
 
-    // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
     $builder = new TemplateBuilder("/common/_pageTemplate", "..");
     
     if(isset($_SESSION['uId'])) {
@@ -50,7 +49,6 @@
                             <span lang="en">password</span>.</p>', $page);    
     }
 
-    // Se le informazioni utente sono state modificate correttamente
     if(key_exists("editMsg", $_SESSION) && $_SESSION["editMsg"]=="done") {
         $page = str_replace('<placeholderMod />', '<p class="successMsg" tabindex="1">Informazioni modificate con successo!</p>', $page);
         unset($_SESSION["editMsg"]);
@@ -64,12 +62,12 @@
         // Controllo nome
         if($_SESSION["editMsg"]=="notValidName") {
             $page = str_replace('<nameHint />', '<p class="errorMsg" tabindex="0">Verifica che il nome inserito abbia una lunghezza
-                                compresa tra i tre e dieci caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
+                                compresa tra i tre e ventiquattro caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
         }
         // Controllo cognome
         else if($_SESSION["editMsg"]=="notValidSurname") {
             $page = str_replace('<surnameHint />', '<p class="errorMsg" tabindex="0">Verifica che il cognome inserito abbia una lunghezza
-                                compresa tra i tre e dieci caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
+                                compresa tra i tre e ventiquattro caratteri, che inizi con una lettera e che non contenga simboli speciali!</p>', $page);
         }
         // Controllo username
         else if($_SESSION["editMsg"]=="notValidUser") {

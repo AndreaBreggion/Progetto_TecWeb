@@ -6,7 +6,7 @@
   require_once('scripts/statementQuery.php');
   require_once('scripts/lastVisitedPages.php');
   handleVisitedPages('./aggiungiPresepe.php');
-  // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
+
   $builder = new TemplateBuilder("/common/_pageTemplate", "..");
 
   $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "aggiungiPresepe");

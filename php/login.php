@@ -5,7 +5,6 @@
   require_once('scripts/statementQuery.php');
   require_once('scripts/checkUserConnected.php');
 
-  // il parametro in input deve avere lo stesso nome del file che contiene tutto il codice html
   $builder = new TemplateBuilder("login", "..");
   $builder->setHead(file_get_contents(__DIR__."/content/common/_head.html"), "login");
   $builder->setDescription("Pagina di accesso, come utente registrato, al sito dedicato al Concorso Presepi di Farra di Soligo");

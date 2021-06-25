@@ -8,8 +8,8 @@ if(!isset($_SESSION['uId'])) {
     exit;
 } else {
     $connection = connect();
-    if(isset($_SESSION["uName"]) && $_SESSION["loggedin"]=='admin') {//se sei admin
-        if (hasAdminSelected($connection, $_SESSION['lastVisitedPresepe'])) {//se il presepe è vincitore
+    if(isset($_SESSION["uName"]) && $_SESSION["loggedin"]=='admin') {
+        if (hasAdminSelected($connection, $_SESSION['lastVisitedPresepe'])) {
             $query = "UPDATE presepi SET winner = 0 WHERE id = " .$_SESSION['lastVisitedPresepe'];
             $result = $connection->query($query);
             header('location: ../presepe.php?presepeId=' . $_SESSION['lastVisitedPresepe']);
