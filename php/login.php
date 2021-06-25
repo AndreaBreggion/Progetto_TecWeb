@@ -1,5 +1,5 @@
 <?php
-  //session_start();
+  session_start();
   require_once("../php/templateBuilder.php");
   require_once('scripts/connection.php');
   require_once('scripts/statementQuery.php');
@@ -28,7 +28,6 @@
       if(!$passwordCheck){
         $result = false;
       } else {
-        session_start();
         $_SESSION["uId"] = $data["id"];
         $_SESSION["uName"] = $data["username"];
         $_SESSION["uRealName"] = $data["name"];
