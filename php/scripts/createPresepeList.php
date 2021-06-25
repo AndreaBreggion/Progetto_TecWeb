@@ -102,12 +102,7 @@ function createPresepeSearchList($connection, $where) {
     $i++;
     $returnValue .= createPresepePost($row, $connection);
   }
-  if(strlen($returnValue) == 0) {
-    $returnValue = '<li><p tabindex="1"><em> La ricerca di '. htmlspecialchars($where) . ' non ha prodotto risultati!</em></p></li>';
-  } else if($i == 1) {
-    $returnValue = '<li><p tabindex="0" class="searchResult"> La tua ricerca ha prodotto 1 risultato! </p></li>' . $returnValue;
-  } else $returnValue = '</li><p tabindex="0" class="searchResult"> La tua ricerca ha prodotto '.$i.' risultati! </p></li>' . $returnValue;
-  return($returnValue);
+  return(array($i, $returnValue));
 }
 
 
