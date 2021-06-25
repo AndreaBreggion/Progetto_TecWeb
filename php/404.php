@@ -1,5 +1,9 @@
 <?php
-  session_start();
+if($_SERVER['REQUEST_URI'] !="/mbonato/Progetto_TecWeb/php/404.php") {
+  header("Refresh:0, url=/mbonato/Progetto_TecWeb/php/404.php");
+}
+
+session_start();
   require_once("../php/templateBuilder.php");
   require_once('scripts/checkUserConnected.php');
   require_once('scripts/connection.php');
