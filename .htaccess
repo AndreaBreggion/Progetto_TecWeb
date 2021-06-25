@@ -1,3 +1,1 @@
-ErrorDocument 404 /404
-RewriteEngine On
-RewriteRule ^404$ /path/to/404 [NC]
+ErrorDocument 404 /asalmaso/Progetto_TecWeb/php/404.php
