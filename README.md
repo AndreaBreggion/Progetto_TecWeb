@@ -1,8 +1,2 @@
 # Progetto_TecWeb
-
-## In programma
-
-- SQL 
-- HTML
-- CSS
-
+Repository per il progetto tecweb 'I presepi di Farra di Soligo'
